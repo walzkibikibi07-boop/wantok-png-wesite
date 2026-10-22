@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#061b16">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WANTOK PNG">
 <meta name="description" content="WANTOK PNG connects Papua New Guinea's people, businesses, communities and Government in one digital platform.">
 <title>WANTOK PNG | One Connected Future</title>
 <style>
@@ -217,7 +223,7 @@ label{display:block;font-size:14px;font-weight:700;margin:0 0 5px;color:#eaf5ef}
 
 <section id="register">
  <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Take the first step</div><h2>Register Interest</h2><p class="sub">Use this demo form to prepare the details for your business or organisation.</p></div></div>
+  <div class="section-head"><div><div class="eyebrow">Take the first step</div><h2>Register Interest</h2><p class="sub">Tell us about your business or organisation. Your details are sent securely to the WANTOK PNG team.</p></div></div>
   <form id="interestForm" class="card">
    <div class="form-grid">
     <div><label for="fullName">Your name *</label><input id="fullName" name="fullName" required placeholder="Full name"></div>
@@ -227,10 +233,10 @@ label{display:block;font-size:14px;font-weight:700;margin:0 0 5px;color:#eaf5ef}
     <div><label for="location">Town / Province *</label><input id="location" name="location" required placeholder="e.g. Popondetta, Oro Province"></div>
     <div><label for="email">Email (optional)</label><input id="email" name="email" type="email" placeholder="name@example.com"></div>
     <div class="full"><label for="details">Products, services or message</label><textarea id="details" name="details" rows="4" placeholder="Tell us what you offer or what opportunity you are interested in."></textarea></div>
-    <div class="full"><button class="btn" type="submit">Prepare my registration details</button></div>
+    <div class="full"><button class="btn" type="submit" id="regBtn">Submit my registration</button></div>
    </div>
    <div id="formMessage" class="notice" role="status" hidden></div>
-   <p class="small">Privacy note: this prototype does not send or save your information to a server. On submit, it prepares a summary on your screen only. Do not enter passwords, bank details or sensitive personal information.</p>
+   <p class="small">Privacy note: your details are saved securely and used only to contact you about WANTOK PNG. Do not enter passwords, bank details or sensitive personal information.</p>
   </form>
  </div>
 </section>
@@ -261,25 +267,20 @@ function filterProducts(){
 searchInput.addEventListener('input',filterProducts);
 categoryInput.addEventListener('change',filterProducts);
 regionInput.addEventListener('change',filterProducts);
-document.getElementById('interestForm').addEventListener('submit',function(e){
+document.getElementById('interestForm').addEventListener('submit',async function(e){
  e.preventDefault();
- const data=new FormData(this);
- const summary=[
- 'Registration interest prepared — not submitted to a server.',
- 'Name: '+data.get('fullName'),
- 'Phone / WhatsApp: '+data.get('phone'),
- 'Business / organisation: '+data.get('businessName'),
- 'Category: '+data.get('businessCategory'),
- 'Location: '+data.get('location'),
- 'Email: '+(data.get('email')||'Not provided'),
- 'Details: '+(data.get('details')||'Not provided')
- ].join('\n');
- const box=document.getElementById('formMessage');
- box.hidden=false;box.textContent=summary;
- const copyBtn=document.createElement('button');
- copyBtn.type='button';copyBtn.className='btn green';copyBtn.style.marginTop='12px';copyBtn.textContent='Copy details';
- copyBtn.onclick=async()=>{try{await navigator.clipboard.writeText(summary);copyBtn.textContent='Copied';}catch(err){copyBtn.textContent='Please select and copy the text above';}};
- box.appendChild(document.createElement('br'));box.appendChild(copyBtn);
+ const form=this,box=document.getElementById('formMessage'),btn=document.getElementById('regBtn');
+ const show=(t,c)=>{box.hidden=false;box.textContent=t;box.className='notice '+c;};
+ if(!window.wantokSb){show('The service could not load. Check your internet connection and refresh the page.','err');return;}
+ const v=id=>document.getElementById(id).value.trim();
+ btn.disabled=true;
+ const {error}=await window.wantokSb.from('registrations').insert({
+  full_name:v('fullName'),phone:v('phone'),business_name:v('businessName'),
+  category:v('businessCategory'),location:v('location'),email:v('email')||null,details:v('details')||null});
+ btn.disabled=false;
+ if(error){show('Sorry, your registration could not be sent: '+error.message,'err');return;}
+ form.reset();
+ show('Thank you! Your registration was received. We will contact you.','ok');
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -291,7 +292,7 @@ document.getElementById('interestForm').addEventListener('submit',function(e){
  const msg=$('authMessage');
  function show(text,type){msg.hidden=!text;msg.textContent=text||'';msg.className='notice'+(type?' '+type:'');}
  if(!window.supabase){show('The account service could not load. Check your internet connection and refresh the page.','err');return;}
- const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+ const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);window.wantokSb=sb;
  function view(loggedIn){$('authLoggedOut').hidden=loggedIn;$('authLoggedIn').hidden=!loggedIn;}
  function tab(signup){$('signupForm').hidden=!signup;$('loginForm').hidden=signup;$('tabSignup').className='btn '+(signup?'green':'alt');$('tabLogin').className='btn '+(signup?'alt':'green');show('');}
  $('tabSignup').onclick=()=>tab(true);$('tabLogin').onclick=()=>tab(false);
@@ -331,6 +332,9 @@ document.getElementById('interestForm').addEventListener('submit',function(e){
  });
  $('logoutBtn').onclick=async()=>{await sb.auth.signOut();show('You have been logged out.','ok');};
 })();
+</script>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
 </script>
 </body>
 </html>
