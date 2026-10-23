@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#061b16">
-  <meta name="description" content="WANTOK PNG is a premium digital platform connecting Papua New Guinea communities, businesses, jobs, government services and infrastructure opportunities.">
+  <meta name="description" content="WANTOK PNG is a premium digital platform connecting communities, businesses, jobs, government services and infrastructure opportunities across Papua New Guinea.">
   <meta name="format-detection" content="telephone=no">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="wantok-png-logo.png" type="image/png">
@@ -13,17 +13,17 @@
   <style>
     :root {
       --bg: #061b16;
-      --bg-soft: #0e2d25;
+      --bg-soft: #0d2d27;
       --panel: #0b2921;
-      --panel-2: #102f28;
+      --panel-2: #102f29;
       --line: rgba(255,255,255,0.09);
       --green: #1ed06a;
       --green-deep: #16bd48;
       --yellow: #ffd21f;
       --red: #e64d57;
       --text: #edf7f2;
-      --muted: #b5d0c5;
-      --shadow: 0 24px 80px rgba(1, 16, 12, 0.35);
+      --muted: #b8d0c8;
+      --shadow: 0 28px 80px rgba(1, 16, 12, 0.38);
     }
 
     * { box-sizing: border-box; }
@@ -36,7 +36,7 @@
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    .wrap { width: min(1180px, 92%); margin: 0 auto; }
+    .wrap { width: min(1200px, 92%); margin: 0 auto; }
     .section { padding: 90px 0; }
     .eyebrow {
       display: inline-block;
@@ -48,8 +48,8 @@
       margin-bottom: 16px;
     }
     h1, h2, h3, h4, p { margin-top: 0; }
-    h1 { font-size: clamp(46px, 7vw, 82px); line-height: 0.96; margin-bottom: 20px; letter-spacing: -2px; }
-    h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.12; margin-bottom: 12px; }
+    h1 { font-size: clamp(44px, 7vw, 82px); line-height: 0.96; margin-bottom: 18px; letter-spacing: -2px; }
+    h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.1; margin-bottom: 12px; }
     h3 { font-size: clamp(22px, 2vw, 30px); line-height: 1.2; margin-bottom: 10px; }
     p { color: var(--muted); }
     .btn {
@@ -76,7 +76,7 @@
     .btn.green {
       background: var(--green);
       color: #081e18;
-      box-shadow: 0 12px 32px rgba(30, 208, 106, 0.22);
+      box-shadow: 0 12px 32px rgba(30, 208, 106, 0.18);
     }
     .pill {
       display: inline-block;
@@ -92,8 +92,8 @@
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(3, 15, 12, 0.9);
-      backdrop-filter: blur(12px);
+      background: rgba(3, 15, 12, 0.92);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
     .topbar {
@@ -145,23 +145,22 @@
     nav a:hover, nav a:focus-visible { background: rgba(29, 71, 58, 0.75); color: var(--yellow); }
 
     .hero {
-      padding: 70px 0 52px;
+      padding: 72px 0 42px;
       background:
         radial-gradient(circle at 80% 18%, rgba(28, 118, 93, 0.7), transparent 18%),
         linear-gradient(120deg, #061b16 0%, #0b2b23 42%, #061b16 100%);
       border-bottom: 1px solid var(--line);
-      position: relative;
       overflow: hidden;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 34px;
+      grid-template-columns: 1.22fr 0.78fr;
+      gap: 36px;
       align-items: center;
     }
     .hero-copy p {
-      font-size: 1.1rem;
-      max-width: 670px;
+      font-size: 1.08rem;
+      max-width: 680px;
       color: #e4f2ec;
     }
     .hero-actions {
@@ -183,7 +182,7 @@
     }
     .quote span { display: block; transform: skew(2deg); }
     .hero-card {
-      background: rgba(10, 28, 24, 0.88);
+      background: rgba(10, 28, 24, 0.9);
       border: 1px solid rgba(29, 98, 81, 0.82);
       border-radius: 24px;
       padding: 20px;
@@ -249,7 +248,7 @@
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
-      margin-bottom: 26px;
+      margin-bottom: 28px;
     }
     .cards {
       display: grid;
@@ -326,6 +325,12 @@
       padding: 20px;
       background: rgba(255,255,255,0.02);
     }
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
     .features-wrap {
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.06);
@@ -401,13 +406,13 @@
     .footer-row strong { color: var(--text); }
 
     @media (max-width: 900px) {
-      .hero-grid, .cards, .product-grid, .stats-row { grid-template-columns: 1fr 1fr; }
+      .hero-grid, .cards, .product-grid, .stats-row, .split { grid-template-columns: 1fr 1fr; }
       .hero-grid { grid-template-columns: 1fr; }
       .toolbar { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 620px) {
-      .cards, .product-grid, .stats-row, .feature-list, .form-grid { grid-template-columns: 1fr; }
+      .cards, .product-grid, .stats-row, .feature-list, .form-grid, .split { grid-template-columns: 1fr; }
       nav { justify-content: center; }
       .topbar { justify-content: center; }
       .section { padding: 72px 0; }
@@ -470,7 +475,7 @@
       <div class="wrap stats-row" aria-label="Key metrics">
         <div class="stat-box">
           <span class="value">1K+</span>
-          <span class="label">Listed local businesses</span>
+          <span class="label">Local businesses</span>
         </div>
         <div class="stat-box">
           <span class="value">24/7</span>
@@ -578,30 +583,20 @@
     </section>
 
     <section class="section" id="community">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Our people, culture and future</div>
-            <h2>Community first</h2>
-          </div>
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">Our people, culture and future</div>
+          <h2>Community first</h2>
+          <p>WANTOK PNG is designed to strengthen trust, local visibility and informed connection across villages, towns and cities. It brings communities together around opportunity, culture and reliable information.</p>
+          <p>With more accessible local listings and connected information, people can discover services, share updates and support one another more easily.</p>
         </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="icon">📣</div>
-            <h3>Community notices</h3>
-            <p>Share local announcements, emergency updates, cultural events and trusted public information.</p>
-          </article>
-          <article class="card">
-            <div class="icon">🎭</div>
-            <h3>Culture & talent</h3>
-            <p>Celebrate PNG arts, language, performances, crafts, stories and creative talent.</p>
-          </article>
-          <article class="card">
-            <div class="icon">🛡️</div>
-            <h3>Safer connections</h3>
-            <p>Build confidence with clearer business profiles, stronger trust signals and moderation tools.</p>
-          </article>
+        <div class="features-wrap">
+          <ul class="feature-list">
+            <li><strong>Community notices</strong>Share local updates, events and public notices.</li>
+            <li><strong>Culture & talent</strong>Celebrate art, language, music and local skill.</li>
+            <li><strong>Safety & trust</strong>Reduce misinformation with verified listings.</li>
+            <li><strong>Local growth</strong>Support community-led business visibility and opportunity.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -646,7 +641,7 @@
 
         <div class="features-wrap">
           <ul class="feature-list">
-            <li><strong>Government departments</strong>Directory of key public departments, agencies and official resources.</li>
+            <li><strong>Government departments</strong>Directory of key public offices, agencies and official resources.</li>
             <li><strong>District progress</strong>Updates on local projects, district priorities and public works.</li>
             <li><strong>Infrastructure tracking</strong>Roads, schools, clinics, water and public facilities in one timeline.</li>
             <li><strong>Public feedback</strong>Community comments and accountability channels for service improvement.</li>
