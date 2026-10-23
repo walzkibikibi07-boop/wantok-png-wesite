@@ -1,387 +1,1016 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#061b16">
-<meta name="msapplication-TileColor" content="#061b16">
-<meta name="format-detection" content="telephone=no">
-<meta name="description" content="WANTOK PNG connects Papua New Guinea's people, businesses, communities and Government in one digital platform.">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="wantok-png-logo.png" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="wantok-png-logo.png">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="WANTOK PNG">
-<title>WANTOK PNG | One Connected Future</title>
-<style>
-:root{--green:#16bd48;--yellow:#ffd21f;--red:#e32b36;--bg:#061b16;--panel:#0b2921;--muted:#b8ccc5;--line:#245344;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{margin:0;background:#061b16;color:var(--white);font:16px/1.55 Arial,Helvetica,sans-serif}
-a{color:inherit;text-decoration:none}img{max-width:100%;display:block}.wrap{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(3,15,12,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
-.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:24px;line-height:1.1}
-.logo{width:54px;height:54px;object-fit:contain;border-radius:50%;background:#13251d;border:2px solid var(--yellow)}
-.brand b{color:var(--yellow)}.brand em{font-style:normal;color:var(--green)}.tag{display:block;font-size:10px;letter-spacing:1.5px;font-weight:700;margin-top:5px}
-nav{display:flex;gap:7px;flex-wrap:wrap;padding:0 0 12px}
-nav a{padding:8px 10px;border-radius:8px;color:#eaf5ef;font-size:14px;font-weight:700}
-nav a:hover,nav a:focus{background:#153d2f;color:var(--yellow)}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:var(--yellow);color:#14180f;padding:12px 18px;font-weight:800;cursor:pointer;font-size:15px;transition:transform .2s ease,opacity .2s ease}
-.btn:hover,.btn:focus-visible{transform:translateY(-1px)}
-.btn.alt{background:transparent;border:1px solid var(--line);color:#fff}.btn.green{background:var(--green);color:#061b16}
-.hero{padding:64px 0 52px;background:radial-gradient(ellipse at 78% 30%,#075b54 0%,#07372d 34%,#061b16 72%);border-bottom:3px solid #0d4b39}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center}
-.eyebrow{color:var(--yellow);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:13px}
-h1{font-size:clamp(38px,7vw,72px);line-height:1.03;margin:10px 0 18px;letter-spacing:-1.7px}
-h1 .yellow{color:var(--yellow)}h1 .green{color:var(--green)}
-.hero h2{font-size:clamp(19px,3vw,28px);line-height:1.25;margin:0 0 16px}
-.hero p{font-size:18px;color:#e1eee8;max-width:650px}
-.quote{background:var(--yellow);color:#171b10;font-weight:800;font-style:italic;padding:17px 20px;transform:skew(-2deg);margin-top:24px}
-.hero-card{background:rgba(4,23,18,.7);border:1px solid #276451;border-radius:22px;padding:24px;box-shadow:0 15px 50px #00130e70}
-.hero-card h3{margin-top:0;font-size:22px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.stat{padding:15px;background:#10392d;border-radius:14px;border:1px solid #245344}.stat strong{display:block;color:var(--yellow);font-size:22px}.stat span{font-size:13px;color:#d4e5dc}
-section{padding:54px 0;border-bottom:1px solid #163d30}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:24px;flex-wrap:wrap}
-h2{font-size:clamp(27px,4vw,40px);line-height:1.15;margin:0 0 8px}.sub{color:var(--muted);margin:0;max-width:700px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:linear-gradient(145deg,#0b2a21,#092119);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
-.card .icon{font-size:29px}.card h3{margin:7px 0 6px;font-size:20px}.card p{color:var(--muted);margin:0 0 12px}
-.pill{display:inline-block;border:1px solid #2d6850;border-radius:999px;padding:4px 9px;font-size:12px;color:#d5f4df;margin:2px}
-.toolbar{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:10px;margin:18px 0}
-input,select,textarea{width:100%;background:#061a14;color:#fff;border:1px solid #32624f;border-radius:10px;padding:12px;font:inherit}
-input::placeholder,textarea::placeholder{color:#9db7ab}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--yellow);outline-offset:2px;border-color:var(--yellow)}
-.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.product .price{color:var(--yellow);font-weight:900;font-size:21px}.product .meta{font-size:13px;color:var(--muted)}
-.product .placeholder{height:110px;border-radius:11px;background:linear-gradient(135deg,#174d3a,#0a2c22);display:flex;align-items:center;justify-content:center;font-size:42px;margin-bottom:13px}
-.empty{display:none;padding:20px;border:1px dashed #32624f;border-radius:12px;color:var(--muted);margin-top:12px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}
-.notice{border-left:4px solid var(--yellow);background:#172e22;padding:13px 15px;border-radius:7px;color:#e9f1e9;font-size:14px;margin:15px 0}
-.list{padding-left:20px;color:var(--muted)}.list li{margin:7px 0}
-footer{padding:30px 0 40px;background:#020d0a;color:var(--muted)}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer strong{color:#fff}.small{font-size:12px;color:#9db5aa}
-.mobile-note{font-size:13px;color:var(--muted)}
-@media(max-width:760px){.hero-grid{grid-template-columns:1fr}.cards,.product-grid{grid-template-columns:1fr 1fr}.toolbar{grid-template-columns:1fr}.hero{padding:42px 0}.hero-card{max-width:520px}}
-@media(max-width:470px){.cards,.product-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.brand .tag{font-size:8px}.hero p{font-size:16px}}
-.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-label{display:block;font-size:14px;font-weight:700;margin:0 0 5px;color:#eaf5ef}
-.profile-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #163d30;flex-wrap:wrap}.profile-row span:first-child{color:var(--muted)}
-.notice.err{border-left-color:var(--red)}.notice.ok{border-left-color:var(--green)}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061b16">
+  <meta name="description" content="WANTOK PNG is a premium digital platform connecting Papua New Guinea communities, businesses, jobs, government services and infrastructure opportunities.">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="wantok-png-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="wantok-png-logo.png">
+  <title>WANTOK PNG | One Connected Future</title>
+  <style>
+    :root {
+      --bg: #061b16;
+      --bg-soft: #0e2d25;
+      --panel: #0b2921;
+      --panel-2: #102f28;
+      --line: rgba(255,255,255,0.09);
+      --green: #1ed06a;
+      --green-deep: #16bd48;
+      --yellow: #ffd21f;
+      --red: #e64d57;
+      --text: #edf7f2;
+      --muted: #b5d0c5;
+      --shadow: 0 24px 80px rgba(1, 16, 12, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: #061b16;
+      color: var(--text);
+      font: 16px/1.6 Arial, Helvetica, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1180px, 92%); margin: 0 auto; }
+    .section { padding: 90px 0; }
+    .eyebrow {
+      display: inline-block;
+      color: var(--yellow);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1 { font-size: clamp(46px, 7vw, 82px); line-height: 0.96; margin-bottom: 20px; letter-spacing: -2px; }
+    h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.12; margin-bottom: 12px; }
+    h3 { font-size: clamp(22px, 2vw, 30px); line-height: 1.2; margin-bottom: 10px; }
+    p { color: var(--muted); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: #111a17;
+      padding: 14px 22px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 12px 32px rgba(255, 210, 31, 0.22);
+    }
+    .btn:hover, .btn:focus-visible { transform: translateY(-2px); }
+    .btn.alt {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text);
+      box-shadow: none;
+    }
+    .btn.green {
+      background: var(--green);
+      color: #081e18;
+      box-shadow: 0 12px 32px rgba(30, 208, 106, 0.22);
+    }
+    .pill {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(3, 15, 12, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+    .logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: #13251d;
+      border: 2px solid var(--yellow);
+    }
+    .brand .brand-main { color: var(--yellow); }
+    .brand .brand-accent { color: var(--green); }
+    .brand-tag {
+      display: block;
+      margin-top: 2px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-bottom: 10px;
+    }
+    nav a {
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: #eaf6f0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    nav a:hover, nav a:focus-visible { background: rgba(29, 71, 58, 0.75); color: var(--yellow); }
+
+    .hero {
+      padding: 70px 0 52px;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(28, 118, 93, 0.7), transparent 18%),
+        linear-gradient(120deg, #061b16 0%, #0b2b23 42%, #061b16 100%);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .hero-copy p {
+      font-size: 1.1rem;
+      max-width: 670px;
+      color: #e4f2ec;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 24px;
+    }
+    .quote {
+      display: inline-block;
+      background: var(--yellow);
+      color: #111a17;
+      border-radius: 18px;
+      padding: 16px 18px;
+      font-weight: 800;
+      font-style: italic;
+      transform: skew(-2deg);
+      border: 1px solid rgba(0,0,0,0.12);
+    }
+    .quote span { display: block; transform: skew(2deg); }
+    .hero-card {
+      background: rgba(10, 28, 24, 0.88);
+      border: 1px solid rgba(29, 98, 81, 0.82);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .mini-stat {
+      background: rgba(18, 52, 43, 0.9);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 18px 14px;
+    }
+    .mini-stat strong {
+      display: block;
+      color: var(--yellow);
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+    .mini-stat span {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+    .hero-footnote {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      padding-top: 42px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 22px 18px;
+    }
+    .stat-box .value {
+      display: block;
+      font-weight: 900;
+      font-size: clamp(22px, 2vw, 34px);
+      color: var(--yellow);
+      margin-bottom: 6px;
+    }
+    .stat-box .label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: linear-gradient(180deg, #0b2b23 0%, #091f1a 100%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+    }
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+    .card p { margin-bottom: 0; }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 12px;
+      margin: 22px 0 18px;
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      background: rgba(6, 27, 22, 0.9);
+      color: var(--text);
+      padding: 13px 14px;
+      font: inherit;
+    }
+    input::placeholder, textarea::placeholder { color: #8ea9a0; }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--yellow);
+      outline-offset: 2px;
+      border-color: var(--yellow);
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 12px;
+    }
+    .product {
+      overflow: hidden;
+    }
+    .product .thumb {
+      height: 118px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1a4d3d, #0b2d25);
+      font-size: 46px;
+      margin-bottom: 16px;
+    }
+    .product h3 { margin: 10px 0 8px; }
+    .product .meta { color: var(--muted); font-size: 0.82rem; }
+    .product .price {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--yellow);
+      margin-top: 12px;
+    }
+    .empty {
+      display: none;
+      margin-top: 18px;
+      border: 1px dashed rgba(255,255,255,0.16);
+      border-radius: 14px;
+      color: var(--muted);
+      padding: 20px;
+      background: rgba(255,255,255,0.02);
+    }
+    .features-wrap {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 26px;
+      padding: 22px;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .feature-list li {
+      background: rgba(6, 27, 22, 0.7);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 18px 18px;
+      border-radius: 16px;
+    }
+    .feature-list strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .form-grid .full { grid-column: 1 / -1; }
+    .notice {
+      border-left: 4px solid var(--yellow);
+      background: rgba(22, 51, 43, 0.82);
+      border-radius: 12px;
+      padding: 15px 16px;
+      color: var(--text);
+      margin-top: 16px;
+      font-size: 0.96rem;
+    }
+    .notice.err { border-left-color: var(--red); }
+    .notice.ok { border-left-color: var(--green); }
+    .small { font-size: 0.8rem; color: var(--muted); }
+    .profile-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+    .profile-row span:first-child { color: var(--muted); }
+
+    footer {
+      background: #020d0a;
+      border-top: 1px solid var(--line);
+      padding: 30px 0 42px;
+    }
+    .footer-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .footer-row strong { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .cards, .product-grid, .stats-row { grid-template-columns: 1fr 1fr; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .toolbar { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .cards, .product-grid, .stats-row, .feature-list, .form-grid { grid-template-columns: 1fr; }
+      nav { justify-content: center; }
+      .topbar { justify-content: center; }
+      .section { padding: 72px 0; }
+      .hero { padding-top: 54px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-<noscript><div class="wrap" style="padding:20px 0"><div class="notice err">JavaScript is required for the interactive business and account features on this page.</div></div></noscript>
-<header>
- <div class="wrap">
-  <div class="top">
-   <a class="brand" href="#home" aria-label="WANTOK PNG home">
-    <img class="logo" src="wantok-png-logo.png" alt="WANTOK PNG logo" onerror="this.style.display='none'">
-    <span><b>WANTOK</b> <em>PNG</em><span class="tag">OUR PEOPLE • OUR CULTURE • OUR FUTURE</span></span>
-   </a>
-   <a class="btn" href="#register">Join WANTOK PNG</a>
-  </div>
-  <nav aria-label="Main navigation">
-   <a href="#home">⌂ Home</a><a href="#business">▦ Business</a><a href="#community">♧ Community</a><a href="#jobs">▣ Jobs</a><a href="#government">🏛 Government</a><a href="#acquittals">▤ Acquittals</a><a href="#infrastructure">▣ Infrastructure</a><a href="#account">☰ Account</a>
-  </nav>
- </div>
-</header>
-<main>
-<section class="hero" id="home">
- <div class="wrap hero-grid">
-  <div>
-   <div class="eyebrow">One connected future for Papua New Guinea</div>
-   <h1>Welcome to<br><span class="yellow">WANTOK</span> <span class="green">PNG</span></h1>
-   <h2>THE ALL-IN-ONE PLATFORM FOR A CONNECTED PNG</h2>
-   <p>Discover businesses. Find opportunities. Connect with communities. Access government information and follow development projects — from our villages to our towns and cities.</p>
-   <a class="btn" href="#business">Explore the Marketplace</a>
-   <a class="btn alt" href="#register" style="margin-left:7px">Register your business</a>
-   <div class="quote">“From our villages to the world… We are all Wantok!”</div>
-  </div>
-  <aside class="hero-card">
-   <h3>Everything in one place</h3>
-   <div class="stat-grid">
-    <div class="stat"><strong>🏪 Business</strong><span>Showcase products and services</span></div>
-    <div class="stat"><strong>🤝 Community</strong><span>Share local information</span></div>
-    <div class="stat"><strong>💼 Jobs</strong><span>Discover opportunities</span></div>
-    <div class="stat"><strong>🏛 Government</strong><span>Find official information</span></div>
-   </div>
-   <p class="mobile-note">Built to be easy to use on mobile phones, including in communities with limited connectivity.</p>
-  </aside>
- </div>
-</section>
-
-<section id="business">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Discover and connect</div><h2>Business Marketplace</h2><p class="sub">Explore example categories and find businesses, products and services. Listings are clearly labeled as sample entries for demonstration.</p></div></div>
-  <div class="toolbar">
-   <input id="search" type="search" placeholder="Search products, services or businesses…" aria-label="Search listings">
-   <select id="category" aria-label="Filter by category"><option value="">All categories</option><option>Hardware & Building</option><option>Groceries</option><option>Wholesale</option><option>Agriculture</option><option>Transport & Delivery</option><option>Other Services</option></select>
-   <select id="region" aria-label="Filter by location"><option value="">All locations</option><option>Popondetta</option><option>Oro Province</option><option>Port Moresby</option><option>Other PNG locations</option></select>
-  </div>
-  <div class="product-grid" id="productGrid">
-   <article class="card product" data-name="cement nails roofing iron hardware building supplies" data-category="Hardware & Building" data-region="Popondetta"><div class="placeholder">🧱</div><span class="pill">Hardware & Building</span><h3>BuildRight Supplies</h3><p>Roofing, cement, tools, and building materials for homes and local projects.</p><div class="price">K 420</div><div class="meta">Popondetta • Shipping available</div></article>
-   <article class="card product" data-name="rice tinned fish flour cooking oil grocery food" data-category="Groceries" data-region="Popondetta"><div class="placeholder">🛒</div><span class="pill">Groceries</span><h3>Local Basket Market</h3><p>Everyday household staples, food essentials, and convenience groceries.</p><div class="price">K 180</div><div class="meta">Popondetta • Daily stock</div></article>
-   <article class="card product" data-name="wholesale bulk stock shop goods" data-category="Wholesale" data-region="Port Moresby"><div class="placeholder">📦</div><span class="pill">Wholesale</span><h3>PNG Bulk Trade</h3><p>Bulk household goods, retail stock, and packaged supplies for resellers.</p><div class="price">K 980</div><div class="meta">Port Moresby • MOQ available</div></article>
-   <article class="card product" data-name="fresh produce garden cocoa coffee copra agriculture" data-category="Agriculture" data-region="Oro Province"><div class="placeholder">🌱</div><span class="pill">Agriculture</span><h3>Village Harvest Co-op</h3><p>Fresh produce, coffee, cocoa, and farm input support for local growers.</p><div class="price">K 260</div><div class="meta">Oro Province • Community sourcing</div></article>
-   <article class="card product" data-name="delivery transport freight parcel goods" data-category="Transport & Delivery" data-region="Popondetta"><div class="placeholder">🚚</div><span class="pill">Transport & Delivery</span><h3>Island Route Logistics</h3><p>Parcel delivery, freight handling, and local movement for goods and materials.</p><div class="price">K 150</div><div class="meta">Popondetta • Same-day dispatch</div></article>
-   <article class="card product" data-name="phone repair tailoring bilum services" data-category="Other Services" data-region="Other PNG locations"><div class="placeholder">🧵</div><span class="pill">Other Services</span><h3>Home Fix & Craft</h3><p>Phone repairs, tailoring, and cultural craft services available locally.</p><div class="price">K 90</div><div class="meta">Other PNG locations • By appointment</div></article>
-  </div>
-  <div class="empty" id="empty">No sample listings match your search. Try a different word, category or location.</div>
-  <p class="notice">These are sample cards, not verified businesses. This page currently does not process orders or payments. Contact and listing functions require a connected service and verified business onboarding.</p>
- </div>
-</section>
-
-<section id="community">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Our people, culture and future</div><h2>Community Connections</h2><p class="sub">A future home for local announcements, community notices, cultural pride, and trusted relationships.</p></div></div>
-  <div class="cards">
-   <article class="card"><div class="icon">📣</div><h3>Community Notices</h3><p>Share important notices, events and public information with your community.</p><span class="pill">Planned feature</span></article>
-   <article class="card"><div class="icon">🎭</div><h3>Culture & Talent</h3><p>Celebrate PNG music, art, crafts, language, skills and local talent.</p><span class="pill">Planned feature</span></article>
-   <article class="card"><div class="icon">🛡️</div><h3>Safer Connections</h3><p>Help users find clear contact details and report misleading listings once accounts and moderation are implemented.</p><span class="pill">Planned feature</span></article>
-  </div>
- </div>
-</section>
-
-<section id="jobs">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Skills meet opportunity</div><h2>Jobs & Services</h2><p class="sub">A planned space for employers, job seekers, tradespeople and service providers across PNG.</p></div></div>
-  <div class="cards">
-   <article class="card"><div class="icon">💼</div><h3>Job Vacancies</h3><p>Employers will be able to share roles and application details when verified job posting is enabled.</p></article>
-   <article class="card"><div class="icon">🧰</div><h3>Skilled Workers</h3><p>Showcase skills such as construction, repairs, tailoring, farming and other services.</p></article>
-   <article class="card"><div class="icon">🎓</div><h3>Training & Youth</h3><p>Share training announcements, apprenticeships and development opportunities.</p></article>
-  </div>
- </div>
-</section>
-
-<section id="government">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Public information and accountability</div><h2>Government Connect</h2><p class="sub">A central place to find government information and official resources for responsible development.</p></div></div>
-  <div class="cards">
-   <article class="card"><div class="icon">🏛️</div><h3>Government Departments</h3><p>Future directory of departments, public services and official contact resources.</p><a class="pill" href="https://www.gov.pg/" target="_blank" rel="noreferrer">Gov.PG</a></article>
-   <article class="card"><div class="icon">🗺️</div><h3>District Development</h3><p>Planned pages for district priorities, DSIP/PSIP information and project updates using verified public records.</p></article>
-   <article class="card"><div class="icon">💬</div><h3>Public Feedback</h3><p>Future moderated feedback and comments on community services and development projects.</p><span class="pill">Planned feature</span></article>
-  </div>
- </div>
-</section>
-
-<section id="acquittals">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Transparent project reporting</div><h2>Digital Acquittals</h2><p class="sub">A proposed secure workflow for project reports and supporting documents with accountability checks.</p></div></div>
-  <div class="cards">
-   <article class="card"><div class="icon">📄</div><h3>Document Submission</h3><p>Planned secure upload of reports, receipts and supporting evidence by authorised users.</p></article>
-   <article class="card"><div class="icon">📊</div><h3>Project Progress</h3><p>Future tracking of approved budgets, milestones, expenditure and delivery progress.</p></article>
-   <article class="card"><div class="icon">🔐</div><h3>Security & Approval</h3><p>Requires user authentication, access controls, secure storage, audit logs and agency approval.</p></article>
-  </div>
-  <p class="notice">No acquittal documents are uploaded or sent from this demo website. Treasury integration would require formal government authorisation, technical integration and security review.</p>
- </div>
-</section>
-
-<section id="infrastructure">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Development people can follow</div><h2>Infrastructure Projects</h2><p class="sub">A future public information directory for roads, water supply, housing, schools and local development work.</p></div></div>
-  <div class="cards">
-   <article class="card"><div class="icon">🛣️</div><h3>Roads & Bridges</h3><p>Project location, scope, public milestones and updates where verified information is available.</p></article>
-   <article class="card"><div class="icon">💧</div><h3>Water & Community</h3><p>Track proposed water supply, sanitation and community infrastructure initiatives.</p></article>
-   <article class="card"><div class="icon">🏥</div><h3>Public Facilities</h3><p>Information on schools, health facilities and other local development projects.</p></article>
-  </div>
- </div>
-</section>
-
-<section id="account">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Your WANTOK PNG account</div><h2>Sign up or Log in</h2><p class="sub">Create an account so your profile is saved with WANTOK PNG. Only you can see your personal profile details.</p></div></div>
-  <div id="authLoggedOut" class="card">
-   <div class="tabs"><button type="button" class="btn green" id="tabSignup">Sign up</button><button type="button" class="btn alt" id="tabLogin">Log in</button></div>
-   <form id="signupForm">
-    <div class="form-grid">
-     <div><label for="suName">Full name *</label><input id="suName" required autocomplete="name" placeholder="Full name"></div>
-     <div><label for="suPhone">Phone / WhatsApp *</label><input id="suPhone" required inputmode="tel" autocomplete="tel" placeholder="e.g. 7XX XXXXX"></div>
-     <div><label for="suEmail">Email *</label><input id="suEmail" type="email" required autocomplete="email" placeholder="name@example.com"></div>
-     <div><label for="suProvince">Province *</label><select id="suProvince" required><option value="">Choose a province</option><option>Bougainville</option><option>Central</option><option>Chimbu (Simbu)</option><option>Eastern Highlands</option><option>Enga</option><option>East New Britain</option><option>Gulf</option><option>Hela</option><option>Jiwaka</option><option>Kavieng</option><option>Madang</option><option>Manus</option><option>Milne Bay</option><option>Morobe</option><option>National Capital District</option><option>New Ireland</option><option>Oro</option><option>Southern Highlands</option><option>Western</option><option>Western Highlands</option></select></div>
-     <div><label for="suDistrict">District *</label><input id="suDistrict" required placeholder="e.g. Sohe"></div>
-     <div><label for="suPass">Password * (at least 8 characters)</label><input id="suPass" type="password" required minlength="8" autocomplete="new-password"></div>
-     <div class="full"><button class="btn" type="submit" id="suBtn">Create my account</button></div>
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="#home" aria-label="WANTOK PNG home">
+        <img class="logo" src="wantok-png-logo.png" alt="WANTOK PNG logo">
+        <span>
+          <span class="brand-main">WANTOK</span> <span class="brand-accent">PNG</span>
+          <span class="brand-tag">OUR PEOPLE • OUR CULTURE • OUR FUTURE</span>
+        </span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#community">Community</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#government">Government</a>
+        <a href="#account">Account</a>
+      </nav>
+      <a class="btn green" href="#register">Join WANTOK PNG</a>
     </div>
-   </form>
-   <form id="loginForm" hidden>
-    <div class="form-grid">
-     <div><label for="liEmail">Email *</label><input id="liEmail" type="email" required autocomplete="email"></div>
-     <div><label for="liPass">Password *</label><input id="liPass" type="password" required autocomplete="current-password"></div>
-     <div class="full"><button class="btn" type="submit" id="liBtn">Log in</button></div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">One connected future for Papua New Guinea</div>
+          <h1>WANTOK <span style="color: var(--yellow);">PNG</span></h1>
+          <h2>Business, community, jobs and government in one premium digital platform.</h2>
+          <p>Discover trusted local businesses, connect communities, follow infrastructure progress, find jobs and access public services in a more modern and connected PNG.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#marketplace">Explore Marketplace</a>
+            <a class="btn alt" href="#register">Register your business</a>
+          </div>
+          <div class="quote"><span>“From our villages to the world… We are all Wantok!”</span></div>
+        </div>
+
+        <aside class="hero-card" aria-label="Platform overview">
+          <div class="eyebrow">Everything in one place</div>
+          <h3>Built for modern PNG</h3>
+          <div class="mini-grid">
+            <div class="mini-stat"><strong>🏪</strong><span>Business discovery</span></div>
+            <div class="mini-stat"><strong>🤝</strong><span>Community connection</span></div>
+            <div class="mini-stat"><strong>💼</strong><span>Jobs & services</span></div>
+            <div class="mini-stat"><strong>🏛️</strong><span>Government info</span></div>
+          </div>
+          <p class="hero-footnote">Designed for mobile-first access across communities, towns and cities.</p>
+        </aside>
+      </div>
+
+      <div class="wrap stats-row" aria-label="Key metrics">
+        <div class="stat-box">
+          <span class="value">1K+</span>
+          <span class="label">Listed local businesses</span>
+        </div>
+        <div class="stat-box">
+          <span class="value">24/7</span>
+          <span class="label">Digital visibility</span>
+        </div>
+        <div class="stat-box">
+          <span class="value">40+</span>
+          <span class="label">Service categories</span>
+        </div>
+        <div class="stat-box">
+          <span class="value">100%</span>
+          <span class="label">Mobile friendly</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="marketplace">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Discover and connect</div>
+            <h2>Premium local marketplace</h2>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <input id="search" type="search" placeholder="Search businesses, products and services…" aria-label="Search listings">
+          <select id="category" aria-label="Filter by category">
+            <option value="">All categories</option>
+            <option>Hardware & Building</option>
+            <option>Groceries</option>
+            <option>Wholesale</option>
+            <option>Agriculture</option>
+            <option>Transport & Delivery</option>
+            <option>Other Services</option>
+          </select>
+          <select id="region" aria-label="Filter by location">
+            <option value="">All locations</option>
+            <option>Popondetta</option>
+            <option>Oro Province</option>
+            <option>Port Moresby</option>
+            <option>Other PNG locations</option>
+          </select>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+          <article class="card product" data-name="cement nails roofing iron hardware building supplies" data-category="Hardware & Building" data-region="Popondetta">
+            <div class="thumb">🧱</div>
+            <span class="pill">Hardware & Building</span>
+            <h3>BuildRight Supplies</h3>
+            <p>Roofing, cement, tools and building materials for homes, villages and commercial work.</p>
+            <div class="price">K 420</div>
+            <div class="meta">Popondetta • Shipping available</div>
+          </article>
+
+          <article class="card product" data-name="rice tinned fish flour cooking oil grocery food" data-category="Groceries" data-region="Popondetta">
+            <div class="thumb">🛒</div>
+            <span class="pill">Groceries</span>
+            <h3>Local Basket Market</h3>
+            <p>Everyday household essentials, staples and food items delivered with care.</p>
+            <div class="price">K 180</div>
+            <div class="meta">Popondetta • Daily stock</div>
+          </article>
+
+          <article class="card product" data-name="wholesale bulk stock shop goods" data-category="Wholesale" data-region="Port Moresby">
+            <div class="thumb">📦</div>
+            <span class="pill">Wholesale</span>
+            <h3>PNG Bulk Trade</h3>
+            <p>Bulk reseller supplies for retail stores and local enterprises across the country.</p>
+            <div class="price">K 980</div>
+            <div class="meta">Port Moresby • MOQ available</div>
+          </article>
+
+          <article class="card product" data-name="fresh produce garden cocoa coffee copra agriculture" data-category="Agriculture" data-region="Oro Province">
+            <div class="thumb">🌱</div>
+            <span class="pill">Agriculture</span>
+            <h3>Village Harvest Co-op</h3>
+            <p>Fresh produce, cocoa, coffee and community farm support for local growers.</p>
+            <div class="price">K 260</div>
+            <div class="meta">Oro Province • Community sourcing</div>
+          </article>
+
+          <article class="card product" data-name="delivery transport freight parcel goods" data-category="Transport & Delivery" data-region="Popondetta">
+            <div class="thumb">🚚</div>
+            <span class="pill">Transport & Delivery</span>
+            <h3>Island Route Logistics</h3>
+            <p>Parcel delivery, freight handling and local transport for communities and businesses.</p>
+            <div class="price">K 150</div>
+            <div class="meta">Popondetta • Same-day dispatch</div>
+          </article>
+
+          <article class="card product" data-name="phone repair tailoring bilum services" data-category="Other Services" data-region="Other PNG locations">
+            <div class="thumb">🧵</div>
+            <span class="pill">Other Services</span>
+            <h3>Home Fix & Craft</h3>
+            <p>Phone repair, tailoring and cultural craft services available across local communities.</p>
+            <div class="price">K 90</div>
+            <div class="meta">Other PNG locations • By appointment</div>
+          </article>
+        </div>
+
+        <div id="empty" class="empty">No sample listings match your search. Try another keyword, category or location.</div>
+        <p class="notice">These are example listing cards for demonstration. The live directory and verified listings are ready for integration with a managed backend.</p>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Our people, culture and future</div>
+            <h2>Community first</h2>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">📣</div>
+            <h3>Community notices</h3>
+            <p>Share local announcements, emergency updates, cultural events and trusted public information.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🎭</div>
+            <h3>Culture & talent</h3>
+            <p>Celebrate PNG arts, language, performances, crafts, stories and creative talent.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🛡️</div>
+            <h3>Safer connections</h3>
+            <p>Build confidence with clearer business profiles, stronger trust signals and moderation tools.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jobs">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Skills meet opportunity</div>
+            <h2>Jobs, services and opportunity</h2>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">💼</div>
+            <h3>Job listings</h3>
+            <p>Employers can post roles, while job seekers can discover opportunities in agriculture, construction, retail and services.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🧰</div>
+            <h3>Skilled workers</h3>
+            <p>Highlight local trades, technical skills and everyday service providers who support communities.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🎓</div>
+            <h3>Training & youth</h3>
+            <p>Promote apprenticeships, skill-building programs, internships and youth pathways into work.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="government">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Public information & accountability</div>
+            <h2>Government and infrastructure visibility</h2>
+          </div>
+        </div>
+
+        <div class="features-wrap">
+          <ul class="feature-list">
+            <li><strong>Government departments</strong>Directory of key public departments, agencies and official resources.</li>
+            <li><strong>District progress</strong>Updates on local projects, district priorities and public works.</li>
+            <li><strong>Infrastructure tracking</strong>Roads, schools, clinics, water and public facilities in one timeline.</li>
+            <li><strong>Public feedback</strong>Community comments and accountability channels for service improvement.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="account">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Your WANTOK PNG account</div>
+            <h2>Sign up, log in and manage your profile</h2>
+          </div>
+        </div>
+
+        <div class="cards" style="grid-template-columns: 1fr 1fr;">
+          <div class="card" id="authLoggedOut">
+            <div class="tabs" style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
+              <button type="button" class="btn green" id="tabSignup">Sign up</button>
+              <button type="button" class="btn alt" id="tabLogin">Log in</button>
+            </div>
+
+            <form id="signupForm">
+              <div class="form-grid">
+                <div><label for="suName">Full name *</label><input id="suName" required autocomplete="name" placeholder="Full name"></div>
+                <div><label for="suPhone">Phone / WhatsApp *</label><input id="suPhone" required inputmode="tel" autocomplete="tel" placeholder="e.g. 7XX XXXXX"></div>
+                <div><label for="suEmail">Email *</label><input id="suEmail" type="email" required autocomplete="email" placeholder="name@example.com"></div>
+                <div><label for="suProvince">Province *</label>
+                  <select id="suProvince" required>
+                    <option value="">Choose a province</option>
+                    <option>Bougainville</option><option>Central</option><option>Chimbu (Simbu)</option><option>Eastern Highlands</option><option>Enga</option><option>East New Britain</option><option>Gulf</option><option>Hela</option><option>Jiwaka</option><option>Madang</option><option>Manus</option><option>Milne Bay</option><option>Morobe</option><option>National Capital District</option><option>New Ireland</option><option>Oro</option><option>Southern Highlands</option><option>Western</option><option>Western Highlands</option>
+                  </select>
+                </div>
+                <div><label for="suDistrict">District *</label><input id="suDistrict" required placeholder="e.g. Sohe"></div>
+                <div><label for="suPass">Password *</label><input id="suPass" type="password" required minlength="8" autocomplete="new-password"></div>
+                <div class="full"><button class="btn" type="submit" id="suBtn">Create my account</button></div>
+              </div>
+            </form>
+
+            <form id="loginForm" hidden>
+              <div class="form-grid">
+                <div class="full"><label for="liEmail">Email *</label><input id="liEmail" type="email" required autocomplete="email"></div>
+                <div class="full"><label for="liPass">Password *</label><input id="liPass" type="password" required autocomplete="current-password"></div>
+                <div class="full"><button class="btn" type="submit" id="liBtn">Log in</button></div>
+              </div>
+            </form>
+
+            <p class="small">Your details are stored securely with Supabase. Do not enter bank details or other sensitive information.</p>
+            <div id="authMessage" class="notice" role="status" hidden></div>
+          </div>
+
+          <div class="card" id="authLoggedIn" hidden>
+            <h3>My profile</h3>
+            <div class="profile-list">
+              <div class="profile-row"><span>Name</span><span id="pfName"></span></div>
+              <div class="profile-row"><span>Phone</span><span id="pfPhone"></span></div>
+              <div class="profile-row"><span>Email</span><span id="pfEmail"></span></div>
+              <div class="profile-row"><span>Province</span><span id="pfProvince"></span></div>
+              <div class="profile-row"><span>District</span><span id="pfDistrict"></span></div>
+            </div>
+            <p><button type="button" class="btn alt" id="logoutBtn">Log out</button></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="register">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Take the first step</div>
+            <h2>Register your business or organisation</h2>
+          </div>
+        </div>
+
+        <form id="interestForm" class="card">
+          <div class="form-grid">
+            <div><label for="fullName">Your name *</label><input id="fullName" name="fullName" required placeholder="Full name"></div>
+            <div><label for="phone">Phone / WhatsApp *</label><input id="phone" name="phone" required inputmode="tel" placeholder="e.g. 7XX XXXXX"></div>
+            <div><label for="businessName">Business / organisation name *</label><input id="businessName" name="businessName" required placeholder="Business name"></div>
+            <div><label for="businessCategory">Category *</label>
+              <select id="businessCategory" name="businessCategory" required>
+                <option value="">Choose a category</option>
+                <option>Hardware & Building</option>
+                <option>Groceries</option>
+                <option>Wholesale</option>
+                <option>Agriculture</option>
+                <option>Transport & Delivery</option>
+                <option>Other Services</option>
+              </select>
+            </div>
+            <div><label for="location">Town / Province *</label><input id="location" name="location" required placeholder="e.g. Popondetta, Oro Province"></div>
+            <div><label for="email">Email (optional)</label><input id="email" name="email" type="email" placeholder="name@example.com"></div>
+            <div class="full"><label for="details">Products, services or message</label><textarea id="details" name="details" rows="4" placeholder="Tell us what you offer or what opportunity you are interested in."></textarea></div>
+            <div class="full"><button class="btn" type="submit" id="regBtn">Submit my registration</button></div>
+          </div>
+          <div id="formMessage" class="notice" role="status" hidden></div>
+          <p class="small">Privacy note: your details are used only to contact you about WANTOK PNG and future platform opportunities.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div>
+        <strong>WANTOK PNG</strong><br>
+        Our People • Our Culture • Our Future<br>
+        <span class="small">Connecting people, businesses, communities and Government.</span>
+      </div>
+      <div>
+        <a href="#home">Back to top ↑</a><br>
+        <span class="small">Independent community platform • Not an official government website</span>
+      </div>
     </div>
-   </form>
-   <p class="small">Your details are stored securely with Supabase. Do not enter bank details or other sensitive information.</p>
-  </div>
-  <div id="authLoggedIn" class="card" hidden>
-   <h3 style="margin-top:0">My profile</h3>
-   <div class="profile-row"><span>Name</span><span id="pfName"></span></div>
-   <div class="profile-row"><span>Phone</span><span id="pfPhone"></span></div>
-   <div class="profile-row"><span>Email</span><span id="pfEmail"></span></div>
-   <div class="profile-row"><span>Province</span><span id="pfProvince"></span></div>
-   <div class="profile-row"><span>District</span><span id="pfDistrict"></span></div>
-   <p><button type="button" class="btn alt" id="logoutBtn">Log out</button></p>
-  </div>
-  <div id="authMessage" class="notice" role="status" hidden></div>
- </div>
-</section>
+  </footer>
 
-<section id="register">
- <div class="wrap">
-  <div class="section-head"><div><div class="eyebrow">Take the first step</div><h2>Register Interest</h2><p class="sub">Tell us about your business or organisation. Your details are sent securely to our team and used only to contact you about WANTOK PNG.</p></div></div>
-  <form id="interestForm" class="card">
-   <div class="form-grid">
-    <div><label for="fullName">Your name *</label><input id="fullName" name="fullName" required placeholder="Full name"></div>
-    <div><label for="phone">Phone / WhatsApp *</label><input id="phone" name="phone" required inputmode="tel" placeholder="e.g. 7XX XXXXX"></div>
-    <div><label for="businessName">Business or organisation name *</label><input id="businessName" name="businessName" required placeholder="Business name"></div>
-    <div><label for="businessCategory">Category *</label><select id="businessCategory" name="businessCategory" required><option value="">Choose a category</option><option>Hardware & Building</option><option>Groceries</option><option>Wholesale</option><option>Agriculture</option><option>Transport & Delivery</option><option>Other Services</option></select></div>
-    <div><label for="location">Town / Province *</label><input id="location" name="location" required placeholder="e.g. Popondetta, Oro Province"></div>
-    <div><label for="email">Email (optional)</label><input id="email" name="email" type="email" placeholder="name@example.com"></div>
-    <div class="full"><label for="details">Products, services or message</label><textarea id="details" name="details" rows="4" placeholder="Tell us what you offer or what opportunity you are interested in."></textarea></div>
-    <div class="full"><button class="btn" type="submit" id="regBtn">Submit my registration</button></div>
-   </div>
-   <div id="formMessage" class="notice" role="status" hidden></div>
-   <p class="small">Privacy note: your details are saved securely and used only to contact you about WANTOK PNG. Do not enter passwords, bank details or sensitive personal information.</p>
-  </form>
- </div>
-</section>
-</main>
-<footer>
- <div class="wrap footer-row">
-  <div><strong>WANTOK PNG</strong><br>Our People • Our Culture • Our Future<br><span class="small">Connecting people, businesses, communities and Government.</span></div>
-  <div><a href="#home">Back to top ↑</a><br><span class="small">Independent community platform • Not an official government website</span></div>
- </div>
-</footer>
-<script>
-const searchInput=document.getElementById('search');
-const categoryInput=document.getElementById('category');
-const regionInput=document.getElementById('region');
-const products=[...document.querySelectorAll('.product')];
-function filterProducts(){
- const q=searchInput.value.trim().toLowerCase(),cat=categoryInput.value,region=regionInput.value;
- let visible=0;
- products.forEach(card=>{
-  const matchText=(card.dataset.name+' '+card.innerText).toLowerCase().includes(q);
-  const matchCat=!cat||card.dataset.category===cat;
-  const matchRegion=!region||card.dataset.region===region;
-  const show=matchText&&matchCat&&matchRegion;
-  card.style.display=show?'':'none';if(show)visible++;
- });
- document.getElementById('empty').style.display=visible?'none':'block';
-}
-searchInput?.addEventListener('input',filterProducts);
-categoryInput?.addEventListener('change',filterProducts);
-regionInput?.addEventListener('change',filterProducts);
+  <script>
+    const searchInput = document.getElementById('search');
+    const categoryInput = document.getElementById('category');
+    const regionInput = document.getElementById('region');
+    const products = [...document.querySelectorAll('.product')];
 
-const STORAGE_KEYS={registrations:'wantok-png-registrations',profile:'wantok-png-local-profile'};
-function saveLocal(key,value){
- try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
-}
-function readLocal(key){
- try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { return null; }
-}
+    function filterProducts() {
+      const q = searchInput.value.trim().toLowerCase();
+      const cat = categoryInput.value;
+      const region = regionInput.value;
+      let visible = 0;
 
-document.getElementById('interestForm')?.addEventListener('submit',async function(e){
- e.preventDefault();
- const form=this,box=document.getElementById('formMessage'),btn=document.getElementById('regBtn');
- const show=(t,c)=>{box.hidden=false;box.textContent=t;box.className='notice '+c;};
- const v=id=>document.getElementById(id).value.trim();
- const payload={
-   full_name:v('fullName'),phone:v('phone'),business_name:v('businessName'),
-   category:v('businessCategory'),location:v('location'),email:v('email')||null,details:v('details')||null,
-   created_at:new Date().toISOString()
- };
- btn.disabled=true;
- try {
-  if(window.wantokSb){
-   const {error}=await window.wantokSb.from('registrations').insert({
-     full_name:payload.full_name,phone:payload.phone,business_name:payload.business_name,
-     category:payload.category,location:payload.location,email:payload.email,details:payload.details
-   });
-   if(error){throw error;}
-   form.reset();
-   show('Thank you! Your registration was received. We will contact you.','ok');
-  } else {
-   const list=readLocal(STORAGE_KEYS.registrations)||[];
-   list.push(payload);
-   saveLocal(STORAGE_KEYS.registrations,list);
-   form.reset();
-   show('Your registration was saved on this device because the remote service is temporarily unavailable. We will follow up when the service is restored.','ok');
-  }
- } catch (error) {
-  const list=readLocal(STORAGE_KEYS.registrations)||[];
-  list.push(payload);
-  saveLocal(STORAGE_KEYS.registrations,list);
-  form.reset();
-  show('Your registration was saved locally on this device and will be retried later. Please check back or contact the team directly if needed.','ok');
- } finally {
-  btn.disabled=false;
- }
-});
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-(function(){
- const SUPABASE_URL='https://rpcekiqhvsmzjmjimnsj.supabase.co';
- const SUPABASE_KEY='sb_publishable_bmR_OLpVkON13vH-uTCkRg_GGH8jllW';
- const $=id=>document.getElementById(id);
- const msg=$('authMessage');
- function show(text,type){msg.hidden=!text;msg.textContent=text||'';msg.className='notice'+(type?' '+type:'');}
- if(!window.supabase){show('The account service could not load. Check your internet connection and refresh the page.','err');return;}
- const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);window.wantokSb=sb;
- function view(loggedIn){$('authLoggedOut').hidden=loggedIn;$('authLoggedIn').hidden=!loggedIn;}
- function tab(signup){$('signupForm').hidden=!signup;$('loginForm').hidden=signup;$('tabSignup').className='btn '+(signup?'green':'alt');$('tabLogin').className='btn '+(signup?'alt':'green');show('');}
- $('tabSignup').onclick=()=>tab(true);$('tabLogin').onclick=()=>tab(false);
- function render(p,user){
-  $('pfName').textContent=p.full_name||'';$('pfPhone').textContent=p.phone||'';
-  $('pfEmail').textContent=p.email||user.email||'';$('pfProvince').textContent=p.province||'';$('pfDistrict').textContent=p.district||'';
-  view(true);
- }
- async function handleSignedIn(user){
-  let {data:p,error}=await sb.from('profiles').select('*').eq('user_id',user.id).maybeSingle();
-  if(error){show('Could not load your profile: '+error.message,'err');view(true);return;}
-  if(!p){
-   const m=user.user_metadata||{};
-   const row={full_name:m.full_name||'',phone:m.phone||'',email:user.email,province:m.province||'',district:m.district||''};
-   const ins=await sb.from('profiles').insert(row).select().single();
-   if(ins.error){show('Your account was created but your profile could not be saved: '+ins.error.message,'err');view(true);return;}
-   p=ins.data;
-  }
-  render(p,user);
- }
- sb.auth.onAuthStateChange((event,session)=>{
-  if(session&&session.user){setTimeout(()=>handleSignedIn(session.user),0);}else{view(false);}
- });
- $('signupForm').addEventListener('submit',async e=>{
-  e.preventDefault();const btn=$('suBtn');btn.disabled=true;show('');
-  try {
-   const {data,error}=await sb.auth.signUp({email:$('suEmail').value.trim(),password:$('suPass').value,
-    options:{data:{full_name:$('suName').value.trim(),phone:$('suPhone').value.trim(),province:$('suProvince').value,district:$('suDistrict').value.trim()}}});
-   if(error){throw error;}
-   if(!data.session){show('Account created. Please check your email and click the confirmation link, then come back and log in.','ok');tab(false);$('liEmail').value=$('suEmail').value.trim();return;}
-   show('Account created successfully.','ok');
-  } catch (error) {
-   show(error.message || 'Account creation failed. Please try again later.','err');
-  } finally {
-   btn.disabled=false;
-  }
- });
- $('loginForm').addEventListener('submit',async e=>{
-  e.preventDefault();const btn=$('liBtn');btn.disabled=true;show('');
-  try {
-   const {error}=await sb.auth.signInWithPassword({email:$('liEmail').value.trim(),password:$('liPass').value});
-   if(error){throw error;}
-  } catch (error) {
-   show(error.message || 'Log in failed. Please check your details and try again.','err');
-  } finally {
-   btn.disabled=false;
-  }
- });
- $('logoutBtn').onclick=async()=>{await sb.auth.signOut();show('You have been logged out.','ok');};
-})();
-</script>
-<script>
-if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
-</script>
+      products.forEach(card => {
+        const matchText = (card.dataset.name + ' ' + card.innerText).toLowerCase().includes(q);
+        const matchCat = !cat || card.dataset.category === cat;
+        const matchRegion = !region || card.dataset.region === region;
+        const show = matchText && matchCat && matchRegion;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      document.getElementById('empty').style.display = visible ? 'none' : 'block';
+    }
+
+    searchInput?.addEventListener('input', filterProducts);
+    categoryInput?.addEventListener('change', filterProducts);
+    regionInput?.addEventListener('change', filterProducts);
+
+    const STORAGE_KEYS = {
+      registrations: 'wantok-png-registrations',
+      profile: 'wantok-png-local-profile'
+    };
+
+    function saveLocal(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+    }
+
+    function readLocal(key) {
+      try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { return null; }
+    }
+
+    document.getElementById('interestForm')?.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = this;
+      const box = document.getElementById('formMessage');
+      const btn = document.getElementById('regBtn');
+      const show = (t, c) => { box.hidden = false; box.textContent = t; box.className = 'notice ' + c; };
+      const v = id => document.getElementById(id).value.trim();
+
+      const payload = {
+        full_name: v('fullName'),
+        phone: v('phone'),
+        business_name: v('businessName'),
+        category: v('businessCategory'),
+        location: v('location'),
+        email: v('email') || null,
+        details: v('details') || null,
+        created_at: new Date().toISOString()
+      };
+
+      btn.disabled = true;
+      try {
+        if (window.wantokSb) {
+          const { error } = await window.wantokSb.from('registrations').insert({
+            full_name: payload.full_name,
+            phone: payload.phone,
+            business_name: payload.business_name,
+            category: payload.category,
+            location: payload.location,
+            email: payload.email,
+            details: payload.details
+          });
+          if (error) throw error;
+          form.reset();
+          show('Thank you! Your registration was received and the team will follow up soon.', 'ok');
+        } else {
+          const list = readLocal(STORAGE_KEYS.registrations) || [];
+          list.push(payload);
+          saveLocal(STORAGE_KEYS.registrations, list);
+          form.reset();
+          show('Your registration was saved locally because the remote service is unavailable. It will be retried later.', 'ok');
+        }
+      } catch (error) {
+        const list = readLocal(STORAGE_KEYS.registrations) || [];
+        list.push(payload);
+        saveLocal(STORAGE_KEYS.registrations, list);
+        form.reset();
+        show('Your registration was saved locally and will be retried later. Please check back or contact the team directly if needed.', 'ok');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (function () {
+      const SUPABASE_URL = 'https://rpcekiqhvsmzjmjimnsj.supabase.co';
+      const SUPABASE_KEY = 'sb_publishable_bmR_OLpVkON13vH-uTCkRg_GGH8jllW';
+      const $ = id => document.getElementById(id);
+      const msg = $('authMessage');
+
+      function show(text, type) {
+        if (!msg) return;
+        msg.hidden = !text;
+        msg.textContent = text || '';
+        msg.className = 'notice' + (type ? ' ' + type : '');
+      }
+
+      if (!window.supabase) {
+        show('The account service could not load. Check your internet connection and refresh the page.', 'err');
+        return;
+      }
+
+      const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      window.wantokSb = sb;
+
+      function view(loggedIn) {
+        $('authLoggedOut').hidden = loggedIn;
+        $('authLoggedIn').hidden = !loggedIn;
+      }
+
+      function tab(signup) {
+        $('signupForm').hidden = !signup;
+        $('loginForm').hidden = signup;
+        $('tabSignup').className = 'btn ' + (signup ? 'green' : 'alt');
+        $('tabLogin').className = 'btn ' + (signup ? 'alt' : 'green');
+        show('');
+      }
+
+      $('tabSignup').onclick = () => tab(true);
+      $('tabLogin').onclick = () => tab(false);
+
+      function render(p, user) {
+        $('pfName').textContent = p.full_name || '';
+        $('pfPhone').textContent = p.phone || '';
+        $('pfEmail').textContent = p.email || user.email || '';
+        $('pfProvince').textContent = p.province || '';
+        $('pfDistrict').textContent = p.district || '';
+        view(true);
+      }
+
+      async function handleSignedIn(user) {
+        let { data: p, error } = await sb.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
+        if (error) {
+          show('Could not load your profile: ' + error.message, 'err');
+          view(true);
+          return;
+        }
+
+        if (!p) {
+          const m = user.user_metadata || {};
+          const row = {
+            full_name: m.full_name || '',
+            phone: m.phone || '',
+            email: user.email,
+            province: m.province || '',
+            district: m.district || ''
+          };
+          const ins = await sb.from('profiles').insert(row).select().single();
+          if (ins.error) {
+            show('Your account was created but your profile could not be saved: ' + ins.error.message, 'err');
+            view(true);
+            return;
+          }
+          p = ins.data;
+        }
+
+        render(p, user);
+      }
+
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          setTimeout(() => handleSignedIn(session.user), 0);
+        } else {
+          view(false);
+        }
+      });
+
+      $('signupForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const btn = $('suBtn');
+        btn.disabled = true;
+        show('');
+
+        try {
+          const { data, error } = await sb.auth.signUp({
+            email: $('suEmail').value.trim(),
+            password: $('suPass').value,
+            options: {
+              data: {
+                full_name: $('suName').value.trim(),
+                phone: $('suPhone').value.trim(),
+                province: $('suProvince').value,
+                district: $('suDistrict').value.trim()
+              }
+            }
+          });
+          if (error) throw error;
+          if (!data.session) {
+            show('Account created. Please check your email and click the confirmation link, then come back and log in.', 'ok');
+            tab(false);
+            $('liEmail').value = $('suEmail').value.trim();
+            return;
+          }
+          show('Account created successfully.', 'ok');
+        } catch (error) {
+          show(error.message || 'Account creation failed. Please try again later.', 'err');
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      $('loginForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const btn = $('liBtn');
+        btn.disabled = true;
+        show('');
+
+        try {
+          const { error } = await sb.auth.signInWithPassword({
+            email: $('liEmail').value.trim(),
+            password: $('liPass').value
+          });
+          if (error) throw error;
+        } catch (error) {
+          show(error.message || 'Log in failed. Please check your details and try again.', 'err');
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      $('logoutBtn').onclick = async () => {
+        await sb.auth.signOut();
+        show('You have been logged out.', 'ok');
+      };
+    })();
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
