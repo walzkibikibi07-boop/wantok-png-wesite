@@ -37,7 +37,7 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
     .wrap { width: min(1200px, 92%); margin: 0 auto; }
-    .section { padding: 90px 0; }
+    .section { padding: 92px 0; }
     .eyebrow {
       display: inline-block;
       color: var(--yellow);
@@ -48,7 +48,7 @@
       margin-bottom: 16px;
     }
     h1, h2, h3, h4, p { margin-top: 0; }
-    h1 { font-size: clamp(44px, 7vw, 82px); line-height: 0.96; margin-bottom: 18px; letter-spacing: -2px; }
+    h1 { font-size: clamp(44px, 7vw, 84px); line-height: 0.96; margin-bottom: 18px; letter-spacing: -2px; }
     h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.1; margin-bottom: 12px; }
     h3 { font-size: clamp(22px, 2vw, 30px); line-height: 1.2; margin-bottom: 10px; }
     p { color: var(--muted); }
@@ -147,7 +147,7 @@
     .hero {
       padding: 72px 0 42px;
       background:
-        radial-gradient(circle at 80% 18%, rgba(28, 118, 93, 0.7), transparent 18%),
+        radial-gradient(circle at 80% 18%, rgba(28, 118, 93, 0.72), transparent 18%),
         linear-gradient(120deg, #061b16 0%, #0b2b23 42%, #061b16 100%);
       border-bottom: 1px solid var(--line);
       overflow: hidden;
@@ -357,6 +357,61 @@
       margin-bottom: 6px;
       color: var(--text);
     }
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .spotlight-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px 16px;
+      min-height: 160px;
+    }
+    .spotlight-card strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--yellow);
+      margin-bottom: 10px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .step {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px 18px;
+    }
+    .step-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #111a17;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .cta-band {
+      background: linear-gradient(120deg, #0b2a23, #092118);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 28px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
 
     .form-grid {
       display: grid;
@@ -406,19 +461,20 @@
     .footer-row strong { color: var(--text); }
 
     @media (max-width: 900px) {
-      .hero-grid, .cards, .product-grid, .stats-row, .split { grid-template-columns: 1fr 1fr; }
+      .hero-grid, .cards, .product-grid, .stats-row, .split, .spotlight-grid, .steps { grid-template-columns: 1fr 1fr; }
       .hero-grid { grid-template-columns: 1fr; }
       .toolbar { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 620px) {
-      .cards, .product-grid, .stats-row, .feature-list, .form-grid, .split { grid-template-columns: 1fr; }
+      .cards, .product-grid, .stats-row, .feature-list, .form-grid, .split, .spotlight-grid, .steps { grid-template-columns: 1fr; }
       nav { justify-content: center; }
       .topbar { justify-content: center; }
       .section { padding: 72px 0; }
       .hero { padding-top: 54px; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
+      .cta-band { align-items: flex-start; }
     }
   </style>
 </head>
@@ -601,6 +657,65 @@
       </div>
     </section>
 
+    <section class="section" id="why-us">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Why WANTOK PNG</div>
+            <h2>Built for a stronger, more connected PNG</h2>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-index">1</div>
+            <h3>Discover</h3>
+            <p>Find local businesses, service providers and jobs that are relevant to your area and skills.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">2</div>
+            <h3>Connect</h3>
+            <p>Build trust through profiles, community notices and transparent business information.</p>
+          </div>
+          <div class="step">
+            <div class="step-index">3</div>
+            <h3>Grow</h3>
+            <p>Support local enterprise and informed public development through better visibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="spotlights">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Province highlights</div>
+            <h2>Connected across PNG</h2>
+          </div>
+        </div>
+
+        <div class="spotlight-grid">
+          <div class="spotlight-card">
+            <strong>Port Moresby</strong>
+            <p>Commercial growth, services, corporate suppliers and major trading networks.</p>
+          </div>
+          <div class="spotlight-card">
+            <strong>Oro</strong>
+            <p>Farming, logistics, local trade and community-led enterprise.</p>
+          </div>
+          <div class="spotlight-card">
+            <strong>Morobe</strong>
+            <p>Industrial services, agriculture and regional opportunity hubs.</p>
+          </div>
+          <div class="spotlight-card">
+            <strong>Bougainville</strong>
+            <p>Community development, local enterprise and cultural commerce.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="jobs">
       <div class="wrap">
         <div class="section-head">
@@ -646,6 +761,14 @@
             <li><strong>Infrastructure tracking</strong>Roads, schools, clinics, water and public facilities in one timeline.</li>
             <li><strong>Public feedback</strong>Community comments and accountability channels for service improvement.</li>
           </ul>
+        </div>
+
+        <div class="cta-band">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 8px;">Public access</div>
+            <h3 style="margin-bottom: 0;">Make essential local information easier to find.</h3>
+          </div>
+          <a class="btn" href="#register">Register interest</a>
         </div>
       </div>
     </section>
