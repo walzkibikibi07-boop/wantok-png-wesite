@@ -1,1134 +1,827 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#061b16">
-  <meta name="description" content="WANTOK PNG is a premium digital platform connecting communities, businesses, jobs, government services and infrastructure opportunities across Papua New Guinea.">
-  <meta name="format-detection" content="telephone=no">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="wantok-png-logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="wantok-png-logo.png">
-  <title>WANTOK PNG | One Connected Future</title>
-  <style>
-    :root {
-      --bg: #061b16;
-      --bg-soft: #0d2d27;
-      --panel: #0b2921;
-      --panel-2: #102f29;
-      --line: rgba(255,255,255,0.09);
-      --green: #1ed06a;
-      --green-deep: #16bd48;
-      --yellow: #ffd21f;
-      --red: #e64d57;
-      --text: #edf7f2;
-      --muted: #b8d0c8;
-      --shadow: 0 28px 80px rgba(1, 16, 12, 0.38);
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WANTOK PNG | Business, Jobs, Community and Government Connect</title>
+<meta name="description" content="WANTOK PNG connects Papua New Guineans from the villages to the cities: find local businesses, jobs, community news and government services.">
+<meta name="theme-color" content="#06231b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="wantok-png-logo.png">
+<link rel="apple-touch-icon" href="wantok-png-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/*
+  PHOTOS: upload these (JPG, ideally under 400 KB each) into the same folder as index.html.
+  Any photo you leave out simply shows a colour gradient instead.
+  hero.jpg  marketplace.jpg  jobs.jpg  community.jpg  government.jpg
+  highlands.jpg  islands.jpg  city.jpg  village.jpg  join.jpg
+*/
+:root{--ink:#0a2a21;--ink2:#4a6258;--bg:#f5f3ec;--card:#fff;--line:#e4e0d3;--green:#10b85c;--green-d:#0a8f47;--deep:#06231b;--deep2:#0d3a2d;--yellow:#ffc928;--red:#d9434e;--radius:22px;--shadow:0 10px 30px rgba(6,35,27,.08)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.65 'Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
+img,svg{max-width:100%}
+a{color:var(--green-d)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--yellow);color:#000;padding:8px 14px;border-radius:8px;z-index:400}
+.skip:focus{left:8px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em}
+h2{font-size:clamp(26px,4vw,40px);margin:0 0 14px;font-weight:800}
+h3{margin:0 0 6px;font-size:19px;font-weight:800}
+p{margin:0 0 12px}
+.muted{color:var(--ink2)}
+.small{font-size:14px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-d);margin-bottom:10px}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body {
-      margin: 0;
-      background: #061b16;
-      color: var(--text);
-      font: 16px/1.6 Arial, Helvetica, sans-serif;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .wrap { width: min(1200px, 92%); margin: 0 auto; }
-    .section { padding: 92px 0; }
-    .eyebrow {
-      display: inline-block;
-      color: var(--yellow);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      margin-bottom: 16px;
-    }
-    h1, h2, h3, h4, p { margin-top: 0; }
-    h1 { font-size: clamp(44px, 7vw, 84px); line-height: 0.96; margin-bottom: 18px; letter-spacing: -2px; }
-    h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.1; margin-bottom: 12px; }
-    h3 { font-size: clamp(22px, 2vw, 30px); line-height: 1.2; margin-bottom: 10px; }
-    p { color: var(--muted); }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 0;
-      border-radius: 999px;
-      background: var(--yellow);
-      color: #111a17;
-      padding: 14px 22px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 12px 32px rgba(255, 210, 31, 0.22);
-    }
-    .btn:hover, .btn:focus-visible { transform: translateY(-2px); }
-    .btn.alt {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.14);
-      color: var(--text);
-      box-shadow: none;
-    }
-    .btn.green {
-      background: var(--green);
-      color: #081e18;
-      box-shadow: 0 12px 32px rgba(30, 208, 106, 0.18);
-    }
-    .pill {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-size: 12px;
-      color: var(--text);
-      background: rgba(255,255,255,0.02);
-    }
+/* ---------- header ---------- */
+header.top{position:fixed;left:0;right:0;top:0;z-index:100;transition:background .25s,box-shadow .25s}
+header.top.solid,header.top.open{background:rgba(6,35,27,.94);backdrop-filter:blur(12px);box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.bar{display:flex;align-items:center;gap:14px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:800;letter-spacing:.04em}
+.brand img{width:42px;height:42px;border-radius:12px;object-fit:cover;background:#fff}
+nav#nav{display:none;margin-left:auto;gap:2px;align-items:center}
+nav#nav a{color:rgba(255,255,255,.82);text-decoration:none;padding:9px 14px;border-radius:999px;font-weight:700;font-size:15px}
+nav#nav a:hover{color:#fff;background:rgba(255,255,255,.12)}
+nav#nav a[aria-current="page"]{color:var(--deep);background:#fff}
+nav#nav a.cta-nav{background:var(--green);color:#03170f;margin-left:8px}
+nav#nav a.cta-nav[aria-current="page"]{background:var(--yellow)}
+.menu-btn{margin-left:auto;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:12px;padding:9px 14px;font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+header.top.open nav#nav{display:flex;flex-direction:column;align-items:stretch;position:absolute;left:0;right:0;top:68px;background:var(--deep);padding:12px 16px 20px}
+header.top.open nav#nav a.cta-nav{margin:8px 0 0;text-align:center}
+@media(min-width:960px){nav#nav{display:flex}.menu-btn{display:none}}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: rgba(3, 15, 12, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 14px 0;
-      flex-wrap: wrap;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-    }
-    .logo {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      object-fit: contain;
-      background: #13251d;
-      border: 2px solid var(--yellow);
-    }
-    .brand .brand-main { color: var(--yellow); }
-    .brand .brand-accent { color: var(--green); }
-    .brand-tag {
-      display: block;
-      margin-top: 2px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      color: var(--muted);
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding-bottom: 10px;
-    }
-    nav a {
-      padding: 8px 12px;
-      border-radius: 10px;
-      color: #eaf6f0;
-      font-size: 14px;
-      font-weight: 700;
-    }
-    nav a:hover, nav a:focus-visible { background: rgba(29, 71, 58, 0.75); color: var(--yellow); }
+/* ---------- buttons / chips ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#03170f;border:0;border-radius:999px;padding:13px 24px;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{background:#0ea352;transform:translateY(-1px)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.btn.light{background:#fff;color:var(--deep)}
+.btn.light:hover{background:#f0f0ea}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.ghost.onDark{color:#fff;border-color:rgba(255,255,255,.7)}
+.btn.ghost.onDark:hover{background:#fff;color:var(--deep)}
+.btn.sm{padding:8px 16px;font-size:14px}
+.btn.danger{background:transparent;color:var(--red);border:1.5px solid rgba(217,67,78,.5)}
+.btn.danger:hover{background:var(--red);color:#fff}
+.chip{display:inline-block;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(16,184,92,.14);color:var(--green-d);width:fit-content}
+.chip.y{background:rgba(255,201,40,.28);color:#7a5a00}
+.chip.r{background:rgba(217,67,78,.14);color:var(--red)}
+.chip.w{background:rgba(255,255,255,.2);color:#fff;backdrop-filter:blur(6px)}
 
-    .hero {
-      padding: 72px 0 42px;
-      background:
-        radial-gradient(circle at 80% 18%, rgba(28, 118, 93, 0.72), transparent 18%),
-        linear-gradient(120deg, #061b16 0%, #0b2b23 42%, #061b16 100%);
-      border-bottom: 1px solid var(--line);
-      overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.22fr 0.78fr;
-      gap: 36px;
-      align-items: center;
-    }
-    .hero-copy p {
-      font-size: 1.08rem;
-      max-width: 680px;
-      color: #e4f2ec;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 28px 0 24px;
-    }
-    .quote {
-      display: inline-block;
-      background: var(--yellow);
-      color: #111a17;
-      border-radius: 18px;
-      padding: 16px 18px;
-      font-weight: 800;
-      font-style: italic;
-      transform: skew(-2deg);
-      border: 1px solid rgba(0,0,0,0.12);
-    }
-    .quote span { display: block; transform: skew(2deg); }
-    .hero-card {
-      background: rgba(10, 28, 24, 0.9);
-      border: 1px solid rgba(29, 98, 81, 0.82);
-      border-radius: 24px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-    .mini-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .mini-stat {
-      background: rgba(18, 52, 43, 0.9);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 18px 14px;
-    }
-    .mini-stat strong {
-      display: block;
-      color: var(--yellow);
-      font-size: 1.2rem;
-      margin-bottom: 4px;
-    }
-    .mini-stat span {
-      font-size: 0.76rem;
-      color: var(--muted);
-    }
-    .hero-footnote {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(92vh,760px);display:flex;align-items:center;color:#fff;padding:120px 0 90px;
+  background-image:linear-gradient(100deg,rgba(4,26,19,.86) 0%,rgba(4,26,19,.55) 55%,rgba(4,26,19,.25) 100%),url(hero.jpg),radial-gradient(900px 500px at 85% 0%,#14805a 0%,transparent 60%),linear-gradient(135deg,#0d3a2d,#04140f);
+  background-size:cover;background-position:center}
+.hero h1{font-size:clamp(38px,7.5vw,78px);font-weight:800;margin:0 0 18px;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero .lead{font-size:clamp(17px,2.4vw,21px);max-width:56ch;color:rgba(255,255,255,.88)}
+.hsearch{display:grid;gap:10px;margin-top:28px;background:rgba(255,255,255,.96);padding:10px;border-radius:26px;max-width:760px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.hsearch input,.hsearch select{border:0;background:#f3f1ea;color:var(--ink)}
+@media(min-width:720px){.hsearch{grid-template-columns:1.6fr 1fr auto;border-radius:999px;padding:8px}.hsearch input,.hsearch select{border-radius:999px;padding-inline:20px}}
+.hero .quote{margin-top:26px;font-weight:700;color:var(--yellow)}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.stat{background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:10px 18px;min-width:130px;font-size:14px}
+.stat b{display:block;font-size:26px;color:#fff}
 
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      padding-top: 42px;
-    }
-    .stat-box {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 22px 18px;
-    }
-    .stat-box .value {
-      display: block;
-      font-weight: 900;
-      font-size: clamp(22px, 2vw, 34px);
-      color: var(--yellow);
-      margin-bottom: 6px;
-    }
-    .stat-box .label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
+/* ---------- sections ---------- */
+section.block{padding:72px 0}
+section.tight{padding-top:0}
+.head-row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:24px}
+.banner{position:relative;color:#fff;padding:128px 0 64px;--img:none;
+  background-image:linear-gradient(100deg,rgba(4,26,19,.88),rgba(4,26,19,.5)),var(--img),radial-gradient(700px 400px at 90% 0%,#14805a,transparent 60%),linear-gradient(135deg,#0d3a2d,#04140f);background-size:cover;background-position:center}
+.banner h1{margin:0 0 8px;font-size:clamp(32px,5.5vw,56px);font-weight:800}
+.banner p{margin:0;color:rgba(255,255,255,.85);max-width:60ch;font-size:18px}
+.banner .inner{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between}
+.ban-marketplace{--img:url(marketplace.jpg)}.ban-jobs{--img:url(jobs.jpg)}.ban-community{--img:url(community.jpg)}.ban-government{--img:url(government.jpg)}.ban-account{--img:url(village.jpg)}.ban-about{--img:url(highlands.jpg)}
 
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .card {
-      background: linear-gradient(180deg, #0b2b23 0%, #091f1a 100%);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
-    }
-    .icon {
-      font-size: 2rem;
-      margin-bottom: 14px;
-    }
-    .card p { margin-bottom: 0; }
+/* photo cards */
+.pcs{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:640px){.pcs{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.pcs{grid-template-columns:repeat(4,1fr)}}
+.pc{position:relative;min-height:340px;border-radius:var(--radius);overflow:hidden;color:#fff;text-decoration:none;display:flex;align-items:flex-end;isolation:isolate;box-shadow:var(--shadow);
+  background-image:var(--img,none),linear-gradient(160deg,var(--g1,#14805a),var(--g2,#06231b));background-size:cover;background-position:center;transition:transform .3s}
+.pc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,26,19,0) 25%,rgba(4,26,19,.88) 100%)}
+.pc:hover{transform:translateY(-4px)}
+.pc .t{padding:22px}
+.pc h3{font-size:24px;color:#fff;margin-bottom:6px}
+.pc p{margin:0 0 12px;color:rgba(255,255,255,.88);font-size:15px}
+.pc .go{font-weight:800;font-size:14px;color:var(--yellow)}
 
-    .toolbar {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 12px;
-      margin: 22px 0 18px;
-    }
-    input, select, textarea {
-      width: 100%;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      background: rgba(6, 27, 22, 0.9);
-      color: var(--text);
-      padding: 13px 14px;
-      font: inherit;
-    }
-    input::placeholder, textarea::placeholder { color: #8ea9a0; }
-    input:focus, select:focus, textarea:focus {
-      outline: 2px solid var(--yellow);
-      outline-offset: 2px;
-      border-color: var(--yellow);
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 12px;
-    }
-    .product {
-      overflow: hidden;
-    }
-    .product .thumb {
-      height: 118px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #1a4d3d, #0b2d25);
-      font-size: 46px;
-      margin-bottom: 16px;
-    }
-    .product h3 { margin: 10px 0 8px; }
-    .product .meta { color: var(--muted); font-size: 0.82rem; }
-    .product .price {
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: var(--yellow);
-      margin-top: 12px;
-    }
-    .empty {
-      display: none;
-      margin-top: 18px;
-      border: 1px dashed rgba(255,255,255,0.16);
-      border-radius: 14px;
-      color: var(--muted);
-      padding: 20px;
-      background: rgba(255,255,255,0.02);
-    }
-    .split {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    .features-wrap {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 26px;
-      padding: 22px;
-    }
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .feature-list li {
-      background: rgba(6, 27, 22, 0.7);
-      border: 1px solid rgba(255,255,255,0.07);
-      padding: 18px 18px;
-      border-radius: 16px;
-    }
-    .feature-list strong {
-      display: block;
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-    .spotlight-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .spotlight-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 20px 16px;
-      min-height: 160px;
-    }
-    .spotlight-card strong {
-      display: block;
-      font-size: 1.3rem;
-      color: var(--yellow);
-      margin-bottom: 10px;
-    }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 20px;
-    }
-    .step {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 20px 18px;
-    }
-    .step-index {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--yellow);
-      color: #111a17;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-    .cta-band {
-      background: linear-gradient(120deg, #0b2a23, #092118);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 28px 26px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
+/* mosaic */
+.mosaic{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.tile{position:relative;min-height:190px;border-radius:var(--radius);overflow:hidden;color:#fff;display:flex;align-items:flex-end;isolation:isolate;
+  background-image:var(--img,none),linear-gradient(160deg,var(--g1,#14805a),var(--g2,#06231b));background-size:cover;background-position:center}
+.tile::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 40%,rgba(4,26,19,.8))}
+.tile span{padding:16px 18px;font-weight:800;font-size:18px}
+.tile small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,255,.85)}
+@media(min-width:800px){.mosaic{grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:230px 230px}.tile.big{grid-row:span 2}}
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .form-grid .full { grid-column: 1 / -1; }
-    .notice {
-      border-left: 4px solid var(--yellow);
-      background: rgba(22, 51, 43, 0.82);
-      border-radius: 12px;
-      padding: 15px 16px;
-      color: var(--text);
-      margin-top: 16px;
-      font-size: 0.96rem;
-    }
-    .notice.err { border-left-color: var(--red); }
-    .notice.ok { border-left-color: var(--green); }
-    .small { font-size: 0.8rem; color: var(--muted); }
-    .profile-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .profile-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      flex-wrap: wrap;
-    }
-    .profile-row span:first-child { color: var(--muted); }
+/* category tiles */
+.cats{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.cat{display:flex;flex-direction:column;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;line-height:1.3;transition:transform .2s,box-shadow .2s,border-color .2s}
+.cat:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--green)}
+.cat .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(16,184,92,.14);color:var(--green-d)}
+.ic svg,.ph svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-    footer {
-      background: #020d0a;
-      border-top: 1px solid var(--line);
-      padding: 30px 0 42px;
-    }
-    .footer-row {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-    .footer-row strong { color: var(--text); }
+/* steps */
+.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.step{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.step::before{content:counter(s);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--deep);color:var(--yellow);font-weight:800;margin-bottom:14px}
 
-    @media (max-width: 900px) {
-      .hero-grid, .cards, .product-grid, .stats-row, .split, .spotlight-grid, .steps { grid-template-columns: 1fr 1fr; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .toolbar { grid-template-columns: 1fr; }
-    }
+/* cta band */
+.cta{position:relative;border-radius:28px;overflow:hidden;color:#fff;padding:56px 28px;text-align:center;isolation:isolate;
+  background-image:linear-gradient(rgba(4,26,19,.72),rgba(4,26,19,.8)),url(join.jpg),linear-gradient(135deg,#14805a,#06231b);background-size:cover;background-position:center}
+.cta h2{max-width:20ch;margin-inline:auto}
+.cta p{max-width:52ch;margin:0 auto 22px;color:rgba(255,255,255,.88)}
 
-    @media (max-width: 620px) {
-      .cards, .product-grid, .stats-row, .feature-list, .form-grid, .split, .spotlight-grid, .steps { grid-template-columns: 1fr; }
-      nav { justify-content: center; }
-      .topbar { justify-content: center; }
-      .section { padding: 72px 0; }
-      .hero { padding-top: 54px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-      .cta-band { align-items: flex-start; }
-    }
-  </style>
+/* ---------- cards ---------- */
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.card .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .meta{color:var(--ink2);font-size:14px}
+.card .desc{white-space:pre-line;overflow-wrap:anywhere;margin:0}
+.card .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:10px}
+.card .ph{height:110px;display:flex;align-items:flex-end;justify-content:space-between;padding:14px 16px;color:#fff}
+.card .ph .big{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.2);display:grid;place-items:center;backdrop-filter:blur(6px)}
+.card.accent{border-left:6px solid var(--green)}
+.card.accent.y{border-left-color:var(--yellow)}
+a.card{text-decoration:none;color:inherit;transition:transform .2s}
+a.card:hover{transform:translateY(-3px)}
+.empty{border:2px dashed var(--line);border-radius:var(--radius);padding:36px;text-align:center;color:var(--ink2);background:rgba(255,255,255,.5)}
+.notice{background:#fff7d6;border:1px solid #f0d980;border-radius:14px;padding:12px 16px;font-size:14px;color:#5e4900}
+.error{background:#fde7e9;border:1px solid #f2b3b9;border-radius:14px;padding:12px 16px;font-size:14px;color:#8a1f29}
+.ok{background:#e1f7ea;border:1px solid #9fdfba;border-radius:14px;padding:12px 16px;font-size:14px;color:#0a5a2d}
+
+/* ---------- forms ---------- */
+.filters{display:grid;gap:10px;grid-template-columns:1fr;margin:-32px 0 28px;position:relative;z-index:5;background:var(--card);padding:12px;border-radius:24px;box-shadow:0 14px 40px rgba(6,35,27,.14);border:1px solid var(--line)}
+@media(min-width:760px){.filters{grid-template-columns:2fr 1fr 1fr}}
+form.f{display:grid;gap:14px}
+.row{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:600px){.row.two{grid-template-columns:1fr 1fr}}
+label{display:grid;gap:6px;font-weight:700;font-size:14px}
+label .hint{font-weight:400;color:var(--ink2)}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px}
+input:focus,select:focus,textarea:focus{border-color:var(--green)}
+textarea{min-height:120px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400}
+.check input{width:auto;margin-top:5px}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{background:#fff;border:1.5px solid var(--line);color:var(--ink2);border-radius:999px;padding:9px 18px;font:inherit;font-weight:800;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--deep);color:#fff;border-color:var(--deep)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.narrow{width:min(540px,100%)}
+.two-col{display:grid;gap:22px;grid-template-columns:1fr}
+@media(min-width:900px){.two-col{grid-template-columns:1fr 1fr}}
+.list-row{display:flex;gap:12px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding:14px 0;flex-wrap:wrap}
+.list-row:first-child{border-top:0}
+.prose{max-width:75ch}
+.prose h2{font-size:26px;margin-top:30px}
+.prose ul{padding-left:20px}
+.pad{padding:40px 0 20px}
+
+/* ---------- modal + toast ---------- */
+dialog{border:0;border-radius:26px;background:var(--bg);color:var(--ink);padding:0;width:min(660px,calc(100% - 24px));max-height:92vh;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(4,20,15,.7);backdrop-filter:blur(3px)}
+.modal-card{padding:26px;position:relative}
+.modal-card h2{padding-right:44px;font-size:28px}
+.x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-size:22px;cursor:pointer}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:500;display:grid;gap:8px;width:min(440px,calc(100% - 24px))}
+.t{background:var(--deep);color:#fff;border:1px solid rgba(16,184,92,.6);padding:13px 18px;border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.t.bad{background:#4a1319;border-color:rgba(217,67,78,.7)}
+
+/* ---------- footer ---------- */
+footer{background:var(--deep);color:rgba(255,255,255,.85);padding:56px 0 30px;margin-top:40px}
+footer .cols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+footer b{color:#fff}
+footer a{color:rgba(255,255,255,.75);text-decoration:none;display:block;padding:4px 0}
+footer a:hover{color:#fff}
+footer .muted{color:rgba(255,255,255,.65)}
+.loading{color:var(--ink2);padding:24px 0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* ===== REAL PHOTOGRAPH UPDATE ===== */
+.product .thumb{height:200px;width:100%;overflow:hidden;border-radius:14px;background:#102f29;margin-bottom:16px}
+.product .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.product:hover .thumb img{transform:scale(1.05)}
+.hero{padding:120px 0 80px;
+  background-image:linear-gradient(90deg,rgba(3,20,15,.94) 0%,rgba(4,26,19,.80) 55%,rgba(4,26,19,.48) 100%),url(hero.jpg),url("https://commons.wikimedia.org/wiki/Special:FilePath/%28Landscape_view_of_Papua_New_Guinea%29_-_DPLA_-_e205a9e14a4830f6a8867e7ed7f2388a.jpg?width=1500"),linear-gradient(135deg,#0d3a2d,#04140f);
+  background-size:cover;background-position:center;background-repeat:no-repeat;overflow:hidden}
+.spotlights{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.spotlight-card{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;background:#0b2921;border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:20px 16px;min-height:220px;color:#fff;
+  background-image:var(--img,none),linear-gradient(160deg,var(--g1,#14805a),var(--g2,#06231b));background-size:cover;background-position:center;transition:transform .3s}
+.spotlight-card:hover{transform:translateY(-4px)}
+.spotlight-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(3,15,12,.96),rgba(3,15,12,.10))}
+.spotlight-card strong{display:block;font-size:1.3rem;color:var(--yellow);margin-bottom:10px}
+.spotlight-card p{color:#fff;margin:0}
+.job-photo{display:block;width:100%;height:190px;object-fit:cover;border-radius:14px;margin-bottom:18px}
+@media(max-width:620px){.product .thumb{height:210px}.job-photo{height:200px}.spotlight-card{min-height:200px}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap topbar">
-      <a class="brand" href="#home" aria-label="WANTOK PNG home">
-        <img class="logo" src="wantok-png-logo.png" alt="WANTOK PNG logo">
-        <span>
-          <span class="brand-main">WANTOK</span> <span class="brand-accent">PNG</span>
-          <span class="brand-tag">OUR PEOPLE • OUR CULTURE • OUR FUTURE</span>
-        </span>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#marketplace">Marketplace</a>
-        <a href="#community">Community</a>
-        <a href="#jobs">Jobs</a>
-        <a href="#government">Government</a>
-        <a href="#account">Account</a>
-      </nav>
-      <a class="btn green" href="#register">Join WANTOK PNG</a>
-    </div>
-  </header>
+<a class="skip" href="#main">Skip to content</a>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">One connected future for Papua New Guinea</div>
-          <h1>WANTOK <span style="color: var(--yellow);">PNG</span></h1>
-          <h2>Business, community, jobs and government in one premium digital platform.</h2>
-          <p>Discover trusted local businesses, connect communities, follow infrastructure progress, find jobs and access public services in a more modern and connected PNG.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#marketplace">Explore Marketplace</a>
-            <a class="btn alt" href="#register">Register your business</a>
-          </div>
-          <div class="quote"><span>“From our villages to the world… We are all Wantok!”</span></div>
-        </div>
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#/"><img src="wantok-png-logo.png" alt="" width="42" height="42"><span>WANTOK PNG</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <a href="#/" data-r="">Home</a>
+      <a href="#/marketplace" data-r="marketplace">Marketplace</a>
+      <a href="#/jobs" data-r="jobs">Jobs</a>
+      <a href="#/community" data-r="community">Community</a>
+      <a href="#/government" data-r="government">Government</a>
+      <a href="#/account" data-r="account" id="navAccount" class="cta-nav">Log in</a>
+    </nav>
+  </div>
+</header>
 
-        <aside class="hero-card" aria-label="Platform overview">
-          <div class="eyebrow">Everything in one place</div>
-          <h3>Built for modern PNG</h3>
-          <div class="mini-grid">
-            <div class="mini-stat"><strong>🏪</strong><span>Business discovery</span></div>
-            <div class="mini-stat"><strong>🤝</strong><span>Community connection</span></div>
-            <div class="mini-stat"><strong>💼</strong><span>Jobs & services</span></div>
-            <div class="mini-stat"><strong>🏛️</strong><span>Government info</span></div>
-          </div>
-          <p class="hero-footnote">Designed for mobile-first access across communities, towns and cities.</p>
-        </aside>
-      </div>
+<main id="main" tabindex="-1"></main>
 
-      <div class="wrap stats-row" aria-label="Key metrics">
-        <div class="stat-box">
-          <span class="value">1K+</span>
-          <span class="label">Local businesses</span>
-        </div>
-        <div class="stat-box">
-          <span class="value">24/7</span>
-          <span class="label">Digital visibility</span>
-        </div>
-        <div class="stat-box">
-          <span class="value">40+</span>
-          <span class="label">Service categories</span>
-        </div>
-        <div class="stat-box">
-          <span class="value">100%</span>
-          <span class="label">Mobile friendly</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="marketplace">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Discover and connect</div>
-            <h2>Premium local marketplace</h2>
-          </div>
-        </div>
-
-        <div class="toolbar">
-          <input id="search" type="search" placeholder="Search businesses, products and services…" aria-label="Search listings">
-          <select id="category" aria-label="Filter by category">
-            <option value="">All categories</option>
-            <option>Hardware & Building</option>
-            <option>Groceries</option>
-            <option>Wholesale</option>
-            <option>Agriculture</option>
-            <option>Transport & Delivery</option>
-            <option>Other Services</option>
-          </select>
-          <select id="region" aria-label="Filter by location">
-            <option value="">All locations</option>
-            <option>Popondetta</option>
-            <option>Oro Province</option>
-            <option>Port Moresby</option>
-            <option>Other PNG locations</option>
-          </select>
-        </div>
-
-        <div class="product-grid" id="productGrid">
-          <article class="card product" data-name="cement nails roofing iron hardware building supplies" data-category="Hardware & Building" data-region="Popondetta">
-            <div class="thumb">🧱</div>
-            <span class="pill">Hardware & Building</span>
-            <h3>BuildRight Supplies</h3>
-            <p>Roofing, cement, tools and building materials for homes, villages and commercial work.</p>
-            <div class="price">K 420</div>
-            <div class="meta">Popondetta • Shipping available</div>
-          </article>
-
-          <article class="card product" data-name="rice tinned fish flour cooking oil grocery food" data-category="Groceries" data-region="Popondetta">
-            <div class="thumb">🛒</div>
-            <span class="pill">Groceries</span>
-            <h3>Local Basket Market</h3>
-            <p>Everyday household essentials, staples and food items delivered with care.</p>
-            <div class="price">K 180</div>
-            <div class="meta">Popondetta • Daily stock</div>
-          </article>
-
-          <article class="card product" data-name="wholesale bulk stock shop goods" data-category="Wholesale" data-region="Port Moresby">
-            <div class="thumb">📦</div>
-            <span class="pill">Wholesale</span>
-            <h3>PNG Bulk Trade</h3>
-            <p>Bulk reseller supplies for retail stores and local enterprises across the country.</p>
-            <div class="price">K 980</div>
-            <div class="meta">Port Moresby • MOQ available</div>
-          </article>
-
-          <article class="card product" data-name="fresh produce garden cocoa coffee copra agriculture" data-category="Agriculture" data-region="Oro Province">
-            <div class="thumb">🌱</div>
-            <span class="pill">Agriculture</span>
-            <h3>Village Harvest Co-op</h3>
-            <p>Fresh produce, cocoa, coffee and community farm support for local growers.</p>
-            <div class="price">K 260</div>
-            <div class="meta">Oro Province • Community sourcing</div>
-          </article>
-
-          <article class="card product" data-name="delivery transport freight parcel goods" data-category="Transport & Delivery" data-region="Popondetta">
-            <div class="thumb">🚚</div>
-            <span class="pill">Transport & Delivery</span>
-            <h3>Island Route Logistics</h3>
-            <p>Parcel delivery, freight handling and local transport for communities and businesses.</p>
-            <div class="price">K 150</div>
-            <div class="meta">Popondetta • Same-day dispatch</div>
-          </article>
-
-          <article class="card product" data-name="phone repair tailoring bilum services" data-category="Other Services" data-region="Other PNG locations">
-            <div class="thumb">🧵</div>
-            <span class="pill">Other Services</span>
-            <h3>Home Fix & Craft</h3>
-            <p>Phone repair, tailoring and cultural craft services available across local communities.</p>
-            <div class="price">K 90</div>
-            <div class="meta">Other PNG locations • By appointment</div>
-          </article>
-        </div>
-
-        <div id="empty" class="empty">No sample listings match your search. Try another keyword, category or location.</div>
-        <p class="notice">These are example listing cards for demonstration. The live directory and verified listings are ready for integration with a managed backend.</p>
-      </div>
-    </section>
-
-    <section class="section" id="community">
-      <div class="wrap split">
-        <div>
-          <div class="eyebrow">Our people, culture and future</div>
-          <h2>Community first</h2>
-          <p>WANTOK PNG is designed to strengthen trust, local visibility and informed connection across villages, towns and cities. It brings communities together around opportunity, culture and reliable information.</p>
-          <p>With more accessible local listings and connected information, people can discover services, share updates and support one another more easily.</p>
-        </div>
-        <div class="features-wrap">
-          <ul class="feature-list">
-            <li><strong>Community notices</strong>Share local updates, events and public notices.</li>
-            <li><strong>Culture & talent</strong>Celebrate art, language, music and local skill.</li>
-            <li><strong>Safety & trust</strong>Reduce misinformation with verified listings.</li>
-            <li><strong>Local growth</strong>Support community-led business visibility and opportunity.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="why-us">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Why WANTOK PNG</div>
-            <h2>Built for a stronger, more connected PNG</h2>
-          </div>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step-index">1</div>
-            <h3>Discover</h3>
-            <p>Find local businesses, service providers and jobs that are relevant to your area and skills.</p>
-          </div>
-          <div class="step">
-            <div class="step-index">2</div>
-            <h3>Connect</h3>
-            <p>Build trust through profiles, community notices and transparent business information.</p>
-          </div>
-          <div class="step">
-            <div class="step-index">3</div>
-            <h3>Grow</h3>
-            <p>Support local enterprise and informed public development through better visibility.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="spotlights">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Province highlights</div>
-            <h2>Connected across PNG</h2>
-          </div>
-        </div>
-
-        <div class="spotlight-grid">
-          <div class="spotlight-card">
-            <strong>Port Moresby</strong>
-            <p>Commercial growth, services, corporate suppliers and major trading networks.</p>
-          </div>
-          <div class="spotlight-card">
-            <strong>Oro</strong>
-            <p>Farming, logistics, local trade and community-led enterprise.</p>
-          </div>
-          <div class="spotlight-card">
-            <strong>Morobe</strong>
-            <p>Industrial services, agriculture and regional opportunity hubs.</p>
-          </div>
-          <div class="spotlight-card">
-            <strong>Bougainville</strong>
-            <p>Community development, local enterprise and cultural commerce.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="jobs">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Skills meet opportunity</div>
-            <h2>Jobs, services and opportunity</h2>
-          </div>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="icon">💼</div>
-            <h3>Job listings</h3>
-            <p>Employers can post roles, while job seekers can discover opportunities in agriculture, construction, retail and services.</p>
-          </article>
-          <article class="card">
-            <div class="icon">🧰</div>
-            <h3>Skilled workers</h3>
-            <p>Highlight local trades, technical skills and everyday service providers who support communities.</p>
-          </article>
-          <article class="card">
-            <div class="icon">🎓</div>
-            <h3>Training & youth</h3>
-            <p>Promote apprenticeships, skill-building programs, internships and youth pathways into work.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="government">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Public information & accountability</div>
-            <h2>Government and infrastructure visibility</h2>
-          </div>
-        </div>
-
-        <div class="features-wrap">
-          <ul class="feature-list">
-            <li><strong>Government departments</strong>Directory of key public offices, agencies and official resources.</li>
-            <li><strong>District progress</strong>Updates on local projects, district priorities and public works.</li>
-            <li><strong>Infrastructure tracking</strong>Roads, schools, clinics, water and public facilities in one timeline.</li>
-            <li><strong>Public feedback</strong>Community comments and accountability channels for service improvement.</li>
-          </ul>
-        </div>
-
-        <div class="cta-band">
-          <div>
-            <div class="eyebrow" style="margin-bottom: 8px;">Public access</div>
-            <h3 style="margin-bottom: 0;">Make essential local information easier to find.</h3>
-          </div>
-          <a class="btn" href="#register">Register interest</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="account">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Your WANTOK PNG account</div>
-            <h2>Sign up, log in and manage your profile</h2>
-          </div>
-        </div>
-
-        <div class="cards" style="grid-template-columns: 1fr 1fr;">
-          <div class="card" id="authLoggedOut">
-            <div class="tabs" style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
-              <button type="button" class="btn green" id="tabSignup">Sign up</button>
-              <button type="button" class="btn alt" id="tabLogin">Log in</button>
-            </div>
-
-            <form id="signupForm">
-              <div class="form-grid">
-                <div><label for="suName">Full name *</label><input id="suName" required autocomplete="name" placeholder="Full name"></div>
-                <div><label for="suPhone">Phone / WhatsApp *</label><input id="suPhone" required inputmode="tel" autocomplete="tel" placeholder="e.g. 7XX XXXXX"></div>
-                <div><label for="suEmail">Email *</label><input id="suEmail" type="email" required autocomplete="email" placeholder="name@example.com"></div>
-                <div><label for="suProvince">Province *</label>
-                  <select id="suProvince" required>
-                    <option value="">Choose a province</option>
-                    <option>Bougainville</option><option>Central</option><option>Chimbu (Simbu)</option><option>Eastern Highlands</option><option>Enga</option><option>East New Britain</option><option>Gulf</option><option>Hela</option><option>Jiwaka</option><option>Madang</option><option>Manus</option><option>Milne Bay</option><option>Morobe</option><option>National Capital District</option><option>New Ireland</option><option>Oro</option><option>Southern Highlands</option><option>Western</option><option>Western Highlands</option>
-                  </select>
-                </div>
-                <div><label for="suDistrict">District *</label><input id="suDistrict" required placeholder="e.g. Sohe"></div>
-                <div><label for="suPass">Password *</label><input id="suPass" type="password" required minlength="8" autocomplete="new-password"></div>
-                <div class="full"><button class="btn" type="submit" id="suBtn">Create my account</button></div>
-              </div>
-            </form>
-
-            <form id="loginForm" hidden>
-              <div class="form-grid">
-                <div class="full"><label for="liEmail">Email *</label><input id="liEmail" type="email" required autocomplete="email"></div>
-                <div class="full"><label for="liPass">Password *</label><input id="liPass" type="password" required autocomplete="current-password"></div>
-                <div class="full"><button class="btn" type="submit" id="liBtn">Log in</button></div>
-              </div>
-            </form>
-
-            <p class="small">Your details are stored securely with Supabase. Do not enter bank details or other sensitive information.</p>
-            <div id="authMessage" class="notice" role="status" hidden></div>
-          </div>
-
-          <div class="card" id="authLoggedIn" hidden>
-            <h3>My profile</h3>
-            <div class="profile-list">
-              <div class="profile-row"><span>Name</span><span id="pfName"></span></div>
-              <div class="profile-row"><span>Phone</span><span id="pfPhone"></span></div>
-              <div class="profile-row"><span>Email</span><span id="pfEmail"></span></div>
-              <div class="profile-row"><span>Province</span><span id="pfProvince"></span></div>
-              <div class="profile-row"><span>District</span><span id="pfDistrict"></span></div>
-            </div>
-            <p><button type="button" class="btn alt" id="logoutBtn">Log out</button></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="register">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Take the first step</div>
-            <h2>Register your business or organisation</h2>
-          </div>
-        </div>
-
-        <form id="interestForm" class="card">
-          <div class="form-grid">
-            <div><label for="fullName">Your name *</label><input id="fullName" name="fullName" required placeholder="Full name"></div>
-            <div><label for="phone">Phone / WhatsApp *</label><input id="phone" name="phone" required inputmode="tel" placeholder="e.g. 7XX XXXXX"></div>
-            <div><label for="businessName">Business / organisation name *</label><input id="businessName" name="businessName" required placeholder="Business name"></div>
-            <div><label for="businessCategory">Category *</label>
-              <select id="businessCategory" name="businessCategory" required>
-                <option value="">Choose a category</option>
-                <option>Hardware & Building</option>
-                <option>Groceries</option>
-                <option>Wholesale</option>
-                <option>Agriculture</option>
-                <option>Transport & Delivery</option>
-                <option>Other Services</option>
-              </select>
-            </div>
-            <div><label for="location">Town / Province *</label><input id="location" name="location" required placeholder="e.g. Popondetta, Oro Province"></div>
-            <div><label for="email">Email (optional)</label><input id="email" name="email" type="email" placeholder="name@example.com"></div>
-            <div class="full"><label for="details">Products, services or message</label><textarea id="details" name="details" rows="4" placeholder="Tell us what you offer or what opportunity you are interested in."></textarea></div>
-            <div class="full"><button class="btn" type="submit" id="regBtn">Submit my registration</button></div>
-          </div>
-          <div id="formMessage" class="notice" role="status" hidden></div>
-          <p class="small">Privacy note: your details are used only to contact you about WANTOK PNG and future platform opportunities.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-row">
+<footer>
+  <div class="wrap">
+    <div class="cols">
       <div>
-        <strong>WANTOK PNG</strong><br>
-        Our People • Our Culture • Our Future<br>
-        <span class="small">Connecting people, businesses, communities and Government.</span>
+        <b>WANTOK PNG</b>
+        <p class="muted small">From our villages to the world. We are all Wantok.</p>
       </div>
       <div>
-        <a href="#home">Back to top ↑</a><br>
-        <span class="small">Independent community platform • Not an official government website</span>
+        <b>Explore</b>
+        <a href="#/marketplace">Marketplace</a>
+        <a href="#/jobs">Jobs</a>
+        <a href="#/community">Community</a>
+        <a href="#/government">Government connect</a>
+      </div>
+      <div>
+        <b>About</b>
+        <a href="#/about">About WANTOK PNG</a>
+        <a href="#/privacy">Privacy policy</a>
+        <a href="#/terms">Terms of use</a>
+        <a href="#/government">Contact and feedback</a>
       </div>
     </div>
-  </footer>
+    <p class="muted small" style="margin-top:26px">WANTOK PNG is an independent community platform. It is not an official government website and is not run by any government department.</p>
+    <p class="muted small">&copy; <span id="yr"></span> WANTOK PNG</p>
+  </div>
+</footer>
 
-  <script>
-    const searchInput = document.getElementById('search');
-    const categoryInput = document.getElementById('category');
-    const regionInput = document.getElementById('region');
-    const products = [...document.querySelectorAll('.product')];
+<dialog id="modal"><div class="modal-card"><button class="x" id="modalX" aria-label="Close">&times;</button><div id="modalBody"></div></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
 
-    function filterProducts() {
-      const q = searchInput.value.trim().toLowerCase();
-      const cat = categoryInput.value;
-      const region = regionInput.value;
-      let visible = 0;
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+'use strict';
 
-      products.forEach(card => {
-        const matchText = (card.dataset.name + ' ' + card.innerText).toLowerCase().includes(q);
-        const matchCat = !cat || card.dataset.category === cat;
-        const matchRegion = !region || card.dataset.region === region;
-        const show = matchText && matchCat && matchRegion;
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
+/* ---------- config ---------- */
+var SUPABASE_URL = 'https://rpcekiqhvsmzjmjimnsj.supabase.co';
+var SUPABASE_KEY = 'sb_publishable_bmR_OLpVkON13vH-uTCkRg_GGH8jllW';
+var CONTACT_EMAIL = ''; // optional: put a public contact email here to show it on the About page
 
-      document.getElementById('empty').style.display = visible ? 'none' : 'block';
-    }
+var PROVINCES = ['Bougainville','Central','Chimbu (Simbu)','East New Britain','East Sepik','Eastern Highlands','Enga','Gulf','Hela','Jiwaka','Madang','Manus','Milne Bay','Morobe','National Capital District','New Ireland','Oro','Sandaun (West Sepik)','Southern Highlands','Western','Western Highlands','West New Britain'];
+var CATEGORIES = ['Grocery and retail','Food and catering','Building and construction','Transport and logistics','Agriculture and fisheries','Health and wellness','Education and training','Technology and digital','Accommodation and tourism','Trades and repairs','Beauty and fashion','Professional services','Other'];
+var JOB_TYPES = ['Full-time','Part-time','Casual or contract','Internship or training','Volunteer'];
+var KINDS = {notice:'Community notice',event:'Event',culture:'Culture and talent',safety:'Safety and trust',growth:'Local growth'};
 
-    searchInput?.addEventListener('input', filterProducts);
-    categoryInput?.addEventListener('change', filterProducts);
-    regionInput?.addEventListener('change', filterProducts);
+/* category icons (simple line icons) and colours */
+var ICONS = {
+ 'Grocery and retail':'<path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 016 0"/>',
+ 'Food and catering':'<path d="M7 3v8M5 3v5a2 2 0 004 0V3M7 11v10M17 3c-2 2-3 5-3 8h3v10"/>',
+ 'Building and construction':'<path d="M14 5l5 5-3 3-5-5zM11 8L4 15l3 3 7-7"/>',
+ 'Transport and logistics':'<path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+ 'Agriculture and fisheries':'<path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15"/><path d="M5 19l8-8"/>',
+ 'Health and wellness':'<path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.500-7 10-7 10z"/>',
+ 'Education and training':'<path d="M4 5h6a2 2 0 012 2v13a2 2 0 00-2-2H4zM20 5h-6a2 2 0 00-2 2v13a2 2 0 012-2h6z"/>',
+ 'Technology and digital':'<rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+ 'Accommodation and tourism':'<path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 00-3-3h-7v5"/>',
+ 'Trades and repairs':'<path d="M14 6a4 4 0 005 5l-9 9a2.5 2.5 0 01-4-4l9-9a4 4 0 00-1-1z"/>',
+ 'Beauty and fashion':'<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8 7.5L20 18M8 16.5L20 6"/>',
+ 'Professional services':'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/>',
+ 'Other':'<circle cx="6" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/>'
+};
+var GRADS = [['#14805a','#06231b'],['#c98a00','#4a2f00'],['#0f7a8a','#052a33'],['#7a3fa0','#25103a'],['#b8432f','#3e130b'],['#2f7d32','#0b2a0d']];
+function icon(cat){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+(ICONS[cat]||ICONS.Other)+'</svg>';}
+function grad(cat){var i=Math.max(0,CATEGORIES.indexOf(cat))%GRADS.length;return 'linear-gradient(135deg,'+GRADS[i][0]+','+GRADS[i][1]+')';}
 
-    const STORAGE_KEYS = {
-      registrations: 'wantok-png-registrations',
-      profile: 'wantok-png-local-profile'
-    };
+/* ---------- helpers ---------- */
+var $ = function(s,r){return (r||document).querySelector(s);};
+var main = $('#main');
+var header = $('#top');
+var state = {user:null, profile:null, authTab:'login', recovery:false, returnTo:null, key:''};
+var navId = 0;
+var cameFromEmail = /access_token|type=(signup|recovery|magiclink)/.test(location.hash);
 
-    function saveLocal(key, value) {
-      try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
-    }
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function opts(list,placeholder,selected){
+  return (placeholder?'<option value="">'+esc(placeholder)+'</option>':'')+list.map(function(x){return '<option'+(x===selected?' selected':'')+'>'+esc(x)+'</option>';}).join('');
+}
+function fmtDate(iso){try{return new Date(iso).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'});}catch(e){return '';}}
+function todayLocal(){return new Date().toLocaleDateString('en-CA');}
+function telHref(p){return 'tel:'+String(p).replace(/[^\d+]/g,'');}
+function waHref(p){var d=String(p).replace(/\D/g,'');if(d.indexOf('00')===0)d=d.slice(2);if(d.length<=8)d='675'+d.replace(/^0+/,'');return 'https://wa.me/'+d;}
+function validPhone(p){return !p||/^[+\d][\d\s()\-]{5,19}$/.test(p.trim());}
+function validEmail(e){return !e||/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.trim());}
+function val(form,name){var el=form.elements[name];return el?el.value.trim():'';}
+function params(){var q=location.hash.split('?')[1]||'';return new URLSearchParams(q);}
 
-    function readLocal(key) {
-      try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { return null; }
-    }
+function toast(msg,bad){
+  var d=document.createElement('div');d.className='t'+(bad?' bad':'');d.textContent=msg;
+  $('#toast').appendChild(d);setTimeout(function(){d.remove();},bad?6500:4200);
+}
+var modal=$('#modal');
+function openModal(html){$('#modalBody').innerHTML=html;if(!modal.open)modal.showModal();var f=$('#modalBody input,#modalBody select,#modalBody textarea');if(f)f.focus();}
+function closeModal(){if(modal.open)modal.close();}
+$('#modalX').addEventListener('click',closeModal);
+modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
 
-    document.getElementById('interestForm')?.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const form = this;
-      const box = document.getElementById('formMessage');
-      const btn = document.getElementById('regBtn');
-      const show = (t, c) => { box.hidden = false; box.textContent = t; box.className = 'notice ' + c; };
-      const v = id => document.getElementById(id).value.trim();
+function banner(cls,title,sub,actions){
+  return '<section class="banner ban-'+cls+'"><div class="wrap"><div class="inner"><div><h1>'+esc(title)+'</h1><p>'+esc(sub)+'</p></div><div>'+(actions||'')+'</div></div></div></section>';
+}
+function setMsg(el,type,text){el.className=type;el.textContent=text;el.hidden=false;}
+function setHeader(){header.classList.toggle('solid',state.key!==''||window.scrollY>30);}
+window.addEventListener('scroll',setHeader,{passive:true});
 
-      const payload = {
-        full_name: v('fullName'),
-        phone: v('phone'),
-        business_name: v('businessName'),
-        category: v('businessCategory'),
-        location: v('location'),
-        email: v('email') || null,
-        details: v('details') || null,
-        created_at: new Date().toISOString()
-      };
+/* ---------- supabase ---------- */
+var sb=null;
+try{sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);}catch(e){console.error(e);}
 
-      btn.disabled = true;
-      try {
-        if (window.wantokSb) {
-          const { error } = await window.wantokSb.from('registrations').insert({
-            full_name: payload.full_name,
-            phone: payload.phone,
-            business_name: payload.business_name,
-            category: payload.category,
-            location: payload.location,
-            email: payload.email,
-            details: payload.details
-          });
-          if (error) throw error;
-          form.reset();
-          show('Thank you! Your registration was received and the team will follow up soon.', 'ok');
-        } else {
-          const list = readLocal(STORAGE_KEYS.registrations) || [];
-          list.push(payload);
-          saveLocal(STORAGE_KEYS.registrations, list);
-          form.reset();
-          show('Your registration was saved locally because the remote service is unavailable. It will be retried later.', 'ok');
-        }
-      } catch (error) {
-        const list = readLocal(STORAGE_KEYS.registrations) || [];
-        list.push(payload);
-        saveLocal(STORAGE_KEYS.registrations, list);
-        form.reset();
-        show('Your registration was saved locally and will be retried later. Please check back or contact the team directly if needed.', 'ok');
-      } finally {
-        btn.disabled = false;
-      }
+function requireLogin(){
+  if(state.user)return true;
+  state.returnTo=location.hash||'#/';
+  state.authTab='login';
+  toast('Please log in or create a free account first.');
+  location.hash='#/account';
+  return false;
+}
+function displayName(){
+  if(state.profile&&state.profile.full_name)return state.profile.full_name;
+  if(state.user&&state.user.user_metadata&&state.user.user_metadata.full_name)return state.user.user_metadata.full_name;
+  return state.user&&state.user.email?state.user.email.split('@')[0]:'Member';
+}
+async function loadProfile(){
+  if(!sb||!state.user){state.profile=null;return;}
+  try{
+    var r=await sb.from('profiles').select('*').eq('user_id',state.user.id).maybeSingle();
+    if(r.error)throw r.error;
+    if(r.data){state.profile=r.data;return;}
+    var m=state.user.user_metadata||{};
+    var row={user_id:state.user.id,full_name:m.full_name||null,phone:m.phone||null,province:m.province||null,district:m.district||null};
+    var ins=await sb.from('profiles').insert(row).select().maybeSingle();
+    state.profile=ins.data||row;
+  }catch(e){console.error('profile',e);state.profile=state.profile||null;}
+}
+function updateHeader(){
+  var a=$('#navAccount');
+  a.textContent=state.user?displayName().split(' ')[0]:'Log in';
+}
+
+if(sb){
+  sb.auth.getSession().then(function(r){
+    state.user=r.data&&r.data.session?r.data.session.user:null;
+    loadProfile().then(function(){updateHeader();});
+  });
+  sb.auth.onAuthStateChange(function(event,session){
+    state.user=session?session.user:null;
+    setTimeout(async function(){
+      if(event==='PASSWORD_RECOVERY'){state.recovery=true;location.hash='#/account';route();return;}
+      await loadProfile();updateHeader();
+      if(event==='SIGNED_IN'&&cameFromEmail){cameFromEmail=false;toast('Your email is confirmed. Welcome to WANTOK PNG!');location.hash='#/account';}
+      if(/^#\/account/.test(location.hash))route();
+    },0);
+  });
+}
+
+/* ---------- data ---------- */
+async function loadApproved(table,order,limit){
+  var r=await sb.from(table).select('*').eq('status','approved').order(order||'created_at',{ascending:false}).limit(limit||300);
+  if(r.error)throw r.error;return r.data||[];
+}
+function loadError(el,e){console.error(e);el.innerHTML='<div class="error">We could not load this right now. Please check your internet connection and try again.</div>';}
+
+/* ---------- cards ---------- */
+function bizCard(b){
+  var links='';
+  if(b.phone)links+='<a class="btn sm" href="'+esc(telHref(b.phone))+'">Call</a>';
+  if(b.whatsapp)links+='<a class="btn sm ghost" target="_blank" rel="noopener" href="'+esc(waHref(b.whatsapp))+'">WhatsApp</a>';
+  if(b.email)links+='<a class="btn sm ghost" href="mailto:'+esc(b.email)+'">Email</a>';
+  return '<article class="card"><div class="ph" style="background:'+grad(b.category)+'"><span class="chip w">'+esc(b.category)+'</span><span class="big">'+icon(b.category)+'</span></div>'+
+    '<div class="body"><h3>'+esc(b.name)+'</h3><div class="meta">'+esc([b.town,b.province].filter(Boolean).join(', '))+'</div>'+
+    '<p class="desc">'+esc(b.description)+'</p>'+(links?'<div class="links">'+links+'</div>':'')+'</div></article>';
+}
+function jobCard(j){
+  var closed=j.closing_date&&j.closing_date<todayLocal();
+  return '<article class="card accent"><div class="body"><img class="job-photo" src="jobs.jpg" alt="" loading="lazy" onerror="this.remove()"><div><span class="chip">'+esc(j.job_type)+'</span> '+(j.closing_date?'<span class="chip y">'+(closed?'Closed ':'Closes ')+esc(fmtDate(j.closing_date))+'</span>':'')+'</div>'+
+    '<h3>'+esc(j.title)+'</h3><div class="meta">'+esc(j.employer)+' &middot; '+esc([j.town,j.province].filter(Boolean).join(', '))+'</div>'+
+    '<p class="desc">'+esc(j.description)+'</p><p class="small" style="margin:0"><b>How to apply:</b> <span style="overflow-wrap:anywhere">'+esc(j.how_to_apply)+'</span></p></div></article>';
+}
+function postCard(p){
+  return '<article class="card accent y"><div class="body"><div><span class="chip y">'+esc(KINDS[p.kind]||p.kind)+'</span></div><h3>'+esc(p.title)+'</h3>'+
+    '<div class="meta">'+esc(p.author_name)+(p.province?' &middot; '+esc(p.province):'')+' &middot; '+esc(fmtDate(p.created_at))+'</div>'+
+    '<p class="desc">'+esc(p.body)+'</p></div></article>';
+}
+
+/* ---------- pages ---------- */
+async function pageHome(id){
+  var catTiles=CATEGORIES.map(function(c){return '<a class="cat" href="#/marketplace?c='+encodeURIComponent(c)+'"><span class="ic">'+icon(c)+'</span>'+esc(c)+'</a>';}).join('');
+  main.innerHTML=
+  '<section class="hero"><div class="wrap">'+
+    '<span class="chip w" style="margin-bottom:18px">Papua New Guinea&rsquo;s digital platform</span>'+
+    '<h1>One connected future for <em>Papua New Guinea</em></h1>'+
+    '<p class="lead">From the villages to the cities, find local businesses, jobs and training, share community news, and reach government services, all in one place.</p>'+
+    '<form class="hsearch" id="hs"><input id="hq" type="search" placeholder="What are you looking for? e.g. fresh produce, builder, catering" aria-label="Search the marketplace"><select id="hp" aria-label="Province">'+opts(PROVINCES,'All provinces')+'</select><button class="btn" type="submit">Search</button></form>'+
+    '<div class="actions" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px"><a class="btn light" href="#/account" id="homeJoin">Join free</a><a class="btn ghost onDark" href="#/marketplace">Browse marketplace</a></div>'+
+    '<p class="quote">From our villages to the world&hellip; We are all Wantok!</p>'+
+    '<div class="stats" id="stats" hidden></div>'+
+  '</div></section>'+
+
+  '<section class="block"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Explore</span><h2>Everything in one place</h2></div></div><div class="pcs">'+
+    '<a class="pc" href="#/marketplace" style="--img:url(marketplace.jpg);--g1:#14805a;--g2:#06231b"><div class="t"><h3>Marketplace</h3><p>Find and contact local businesses, or list your own.</p><span class="go">Browse businesses &rarr;</span></div></a>'+
+    '<a class="pc" href="#/jobs" style="--img:url(jobs.jpg);--g1:#c98a00;--g2:#3e2700"><div class="t"><h3>Jobs and skills</h3><p>Openings, training and volunteer roles.</p><span class="go">See opportunities &rarr;</span></div></a>'+
+    '<a class="pc" href="#/community" style="--img:url(community.jpg);--g1:#0f7a8a;--g2:#052a33"><div class="t"><h3>Community</h3><p>Notices, events, culture and local stories.</p><span class="go">Join the conversation &rarr;</span></div></a>'+
+    '<a class="pc" href="#/government" style="--img:url(government.jpg);--g1:#7a3fa0;--g2:#25103a"><div class="t"><h3>Government connect</h3><p>National agencies and a way to send feedback.</p><span class="go">Find services &rarr;</span></div></a>'+
+  '</div></div></section>'+
+
+  '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Marketplace</span><h2>Browse by category</h2></div><a class="btn ghost sm" href="#/marketplace">See all</a></div><div class="cats">'+catTiles+'</div></div></section>'+
+
+  '<section class="block tight" id="latestWrap" hidden><div class="wrap"><div class="head-row"><div><span class="eyebrow">Fresh listings</span><h2>Latest in the marketplace</h2></div><a class="btn ghost sm" href="#/marketplace">View all</a></div><div class="grid" id="latest"></div></div></section>'+
+
+  '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Our country</span><h2>From the highlands to the islands</h2></div></div><div class="mosaic">'+
+    '<div class="tile big" style="--img:url(highlands.jpg);--g1:#2f7d32;--g2:#0b2a0d"><span>Highlands<small>Coffee, gardens and strong communities</small></span></div>'+
+    '<div class="tile" style="--img:url(islands.jpg);--g1:#0f7a8a;--g2:#052a33"><span>Islands and coast<small>Fishing, trade and tourism</small></span></div>'+
+    '<div class="tile" style="--img:url(city.jpg);--g1:#7a3fa0;--g2:#25103a"><span>Towns and cities<small>Business and opportunity</small></span></div>'+
+    '<div class="tile" style="--img:url(village.jpg);--g1:#c98a00;--g2:#3e2700"><span>Villages<small>Where Wantok begins</small></span></div>'+
+    '<div class="tile" style="--img:url(community.jpg);--g1:#b8432f;--g2:#3e130b"><span>People<small>Talent, culture and pride</small></span></div>'+
+  '</div></div></section>'+
+
+  '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Provinces</span><h2>Explore by province</h2></div></div><div class="spotlights"><a class="spotlight-card" href="#/marketplace?p=Oro" style="--g1:#14805a;--g2:#06231b"><strong>Oro</strong><p>See businesses and services here</p></a><a class="spotlight-card" href="#/marketplace?p=Morobe" style="--g1:#c98a00;--g2:#3e2700"><strong>Morobe</strong><p>See businesses and services here</p></a><a class="spotlight-card" href="#/marketplace?p=National%20Capital%20District" style="--g1:#7a3fa0;--g2:#25103a"><strong>National Capital District</strong><p>See businesses and services here</p></a><a class="spotlight-card" href="#/marketplace?p=Bougainville" style="--g1:#0f7a8a;--g2:#052a33"><strong>Bougainville</strong><p>See businesses and services here</p></a></div></div></section>'+
+  '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Simple</span><h2>How it works</h2></div></div><div class="steps">'+
+    '<div class="step"><h3>Create an account</h3><p class="muted">Sign up free with your email, your province and district.</p></div>'+
+    '<div class="step"><h3>Post or search</h3><p class="muted">List a business, a job or a community post, or search what others have shared.</p></div>'+
+    '<div class="step"><h3>Connect directly</h3><p class="muted">Call, message on WhatsApp or email. Wantok to Wantok, no middleman.</p></div>'+
+  '</div></div></section>'+
+
+  '<section class="block tight"><div class="wrap"><div class="cta"><h2>Join your Wantok today</h2><p>List your business, find your next job or share news from your community. It is free.</p><a class="btn" href="#/account" id="homeJoin2">Create a free account</a></div></div></section>';
+
+  if(state.user){$('#homeJoin').textContent='My account';$('#homeJoin2').textContent='Go to my account';}
+  $('#hs').addEventListener('submit',function(e){
+    e.preventDefault();
+    var q=$('#hq').value.trim(),p=$('#hp').value,s=[];
+    if(q)s.push('q='+encodeURIComponent(q));if(p)s.push('p='+encodeURIComponent(p));
+    location.hash='#/marketplace'+(s.length?'?'+s.join('&'):'');
+  });
+  if(!sb)return;
+  try{
+    var counts=await Promise.all([['businesses','Businesses listed'],['jobs','Jobs and opportunities'],['posts','Community posts']].map(async function(t){
+      var r=await sb.from(t[0]).select('id',{count:'exact',head:true}).eq('status','approved');
+      return {label:t[1],n:r.count||0};
+    }));
+    if(id!==navId)return;
+    var shown=counts.filter(function(c){return c.n>0;});
+    var el=$('#stats');
+    if(el&&shown.length){el.innerHTML=shown.map(function(c){return '<div class="stat"><b>'+c.n+'</b>'+esc(c.label)+'</div>';}).join('');el.hidden=false;}
+    var latest=await loadApproved('businesses','created_at',3);
+    if(id!==navId)return;
+    if(latest.length){$('#latest').innerHTML=latest.map(bizCard).join('');$('#latestWrap').hidden=false;}
+  }catch(e){console.error(e);}
+}
+
+/* marketplace */
+async function pageMarket(id){
+  var pr=params();
+  main.innerHTML=banner('marketplace','Marketplace','Discover local businesses and services across Papua New Guinea, and contact them directly.','<button class="btn" id="addBiz">List your business</button>')+
+  '<div class="wrap"><div class="filters">'+
+    '<input type="search" id="q" placeholder="Search by name or description" aria-label="Search">'+
+    '<select id="fc" aria-label="Category">'+opts(CATEGORIES,'All categories',pr.get('c'))+'</select>'+
+    '<select id="fp" aria-label="Province">'+opts(PROVINCES,'All provinces',pr.get('p'))+'</select>'+
+  '</div><div id="list" class="grid"><div class="loading">Loading&hellip;</div></div></div>';
+  $('#q').value=pr.get('q')||'';
+  $('#addBiz').addEventListener('click',function(){if(requireLogin())bizForm();});
+  var list=$('#list'),items=[];
+  function apply(){
+    var q=$('#q').value.toLowerCase(),c=$('#fc').value,p=$('#fp').value;
+    var out=items.filter(function(b){return (!c||b.category===c)&&(!p||b.province===p)&&(!q||(b.name+' '+b.description+' '+(b.town||'')).toLowerCase().indexOf(q)>-1);});
+    list.innerHTML=out.length?out.map(bizCard).join(''):'<div class="empty" style="grid-column:1/-1">'+(items.length?'No businesses match your search.':'No businesses are listed yet. Be the first to list yours.')+'</div>';
+  }
+  ['q','fc','fp'].forEach(function(x){$('#'+x).addEventListener('input',apply);});
+  try{items=await loadApproved('businesses');if(id!==navId)return;apply();}catch(e){loadError(list,e);}
+}
+function bizForm(){
+  openModal('<h2>List your business</h2><p class="muted small">Listings are checked by our team before they appear. Contact details you add here will be public.</p>'+
+  '<form class="f" id="bf" novalidate>'+
+    '<label>Business name<input name="name" required maxlength="120"></label>'+
+    '<div class="row two"><label>Category<select name="category" required>'+opts(CATEGORIES,'Choose...')+'</select></label>'+
+    '<label>Province<select name="province" required>'+opts(PROVINCES,'Choose...',state.profile&&state.profile.province)+'</select></label></div>'+
+    '<label>Town or village<input name="town" maxlength="80"></label>'+
+    '<label>What do you offer?<textarea name="description" required minlength="10" maxlength="1500"></textarea></label>'+
+    '<div class="row two"><label>Phone<input name="phone" type="tel" maxlength="20" placeholder="e.g. 7123 4567"></label>'+
+    '<label>WhatsApp <span class="hint">(with country code, e.g. 675 7123 4567)</span><input name="whatsapp" type="tel" maxlength="20"></label></div>'+
+    '<label>Email<input name="email" type="email" maxlength="120"></label>'+
+    '<div id="bm" hidden></div><button class="btn" type="submit">Submit for review</button></form>');
+  $('#bf').addEventListener('submit',async function(e){
+    e.preventDefault();var f=e.target,m=$('#bm'),btn=f.querySelector('button[type=submit]');
+    var row={name:val(f,'name'),category:val(f,'category'),province:val(f,'province'),town:val(f,'town')||null,description:val(f,'description'),phone:val(f,'phone')||null,whatsapp:val(f,'whatsapp')||null,email:val(f,'email')||null};
+    if(row.name.length<2||!row.category||!row.province||row.description.length<10)return setMsg(m,'error','Please fill in the business name, category, province and a short description (at least 10 characters).');
+    if(!validPhone(row.phone)||!validPhone(row.whatsapp))return setMsg(m,'error','Please check the phone number. Use digits, spaces, + or - only.');
+    if(!validEmail(row.email))return setMsg(m,'error','Please check the email address.');
+    if(!row.phone&&!row.whatsapp&&!row.email)return setMsg(m,'error','Add at least one way for customers to contact you.');
+    btn.disabled=true;
+    var r=await sb.from('businesses').insert(row);
+    btn.disabled=false;
+    if(r.error){console.error(r.error);return setMsg(m,'error','We could not save your listing. Please try again.');}
+    closeModal();toast('Thank you! Your business was submitted and will appear once it is approved.');
+  });
+}
+
+/* jobs */
+async function pageJobs(id){
+  main.innerHTML=banner('jobs','Jobs and skills','Openings, training and volunteer roles from employers across the country.','<button class="btn" id="addJob">Post a job</button>')+
+  '<div class="wrap"><div class="filters">'+
+    '<input type="search" id="q" placeholder="Search jobs" aria-label="Search">'+
+    '<select id="ft" aria-label="Job type">'+opts(JOB_TYPES,'All types')+'</select>'+
+    '<select id="fp" aria-label="Province">'+opts(PROVINCES,'All provinces')+'</select>'+
+  '</div><div id="list" class="grid"><div class="loading">Loading&hellip;</div></div></div>';
+  $('#addJob').addEventListener('click',function(){if(requireLogin())jobForm();});
+  var list=$('#list'),items=[];
+  function apply(){
+    var q=$('#q').value.toLowerCase(),t=$('#ft').value,p=$('#fp').value,today=todayLocal();
+    var out=items.filter(function(j){return (!j.closing_date||j.closing_date>=today)&&(!t||j.job_type===t)&&(!p||j.province===p)&&(!q||(j.title+' '+j.employer+' '+j.description).toLowerCase().indexOf(q)>-1);});
+    list.innerHTML=out.length?out.map(jobCard).join(''):'<div class="empty" style="grid-column:1/-1">'+(items.length?'No open jobs match your search.':'No jobs are posted yet. Employers can post the first one.')+'</div>';
+  }
+  ['q','ft','fp'].forEach(function(x){$('#'+x).addEventListener('input',apply);});
+  try{items=await loadApproved('jobs');if(id!==navId)return;apply();}catch(e){loadError(list,e);}
+}
+function jobForm(){
+  openModal('<h2>Post a job or opportunity</h2><p class="muted small">Posts are checked by our team before they appear. Only post real opportunities. Never ask applicants to pay money.</p>'+
+  '<form class="f" id="jf" novalidate>'+
+    '<label>Job title<input name="title" required maxlength="120"></label>'+
+    '<label>Employer or organisation<input name="employer" required maxlength="120"></label>'+
+    '<div class="row two"><label>Type<select name="job_type" required>'+opts(JOB_TYPES,'Choose...')+'</select></label>'+
+    '<label>Province<select name="province" required>'+opts(PROVINCES,'Choose...',state.profile&&state.profile.province)+'</select></label></div>'+
+    '<div class="row two"><label>Town<input name="town" maxlength="80"></label><label>Closing date <span class="hint">(optional)</span><input name="closing_date" type="date"></label></div>'+
+    '<label>Description<textarea name="description" required minlength="10" maxlength="2500"></textarea></label>'+
+    '<label>How to apply<input name="how_to_apply" required maxlength="400" placeholder="Email, phone or address"></label>'+
+    '<div id="jm" hidden></div><button class="btn" type="submit">Submit for review</button></form>');
+  $('#jf').addEventListener('submit',async function(e){
+    e.preventDefault();var f=e.target,m=$('#jm'),btn=f.querySelector('button[type=submit]');
+    var row={title:val(f,'title'),employer:val(f,'employer'),job_type:val(f,'job_type'),province:val(f,'province'),town:val(f,'town')||null,closing_date:val(f,'closing_date')||null,description:val(f,'description'),how_to_apply:val(f,'how_to_apply')};
+    if(row.title.length<3||row.employer.length<2||!row.job_type||!row.province||row.description.length<10||row.how_to_apply.length<3)return setMsg(m,'error','Please complete all required fields.');
+    btn.disabled=true;
+    var r=await sb.from('jobs').insert(row);
+    btn.disabled=false;
+    if(r.error){console.error(r.error);return setMsg(m,'error','We could not save your post. Please try again.');}
+    closeModal();toast('Thank you! Your job post was submitted and will appear once it is approved.');
+  });
+}
+
+/* community */
+async function pageCommunity(id){
+  main.innerHTML=banner('community','Community','Notices, events, culture and talent, safety messages and local growth stories.','<button class="btn" id="addPost">Share something</button>')+
+  '<div class="wrap pad"><div class="tabs" id="kt"></div><div id="list" class="grid"><div class="loading">Loading&hellip;</div></div></div>';
+  $('#addPost').addEventListener('click',function(){if(requireLogin())postForm();});
+  var kind='',list=$('#list'),items=[];
+  function tabs(){
+    var all=[['','All']].concat(Object.keys(KINDS).map(function(k){return [k,KINDS[k]];}));
+    $('#kt').innerHTML=all.map(function(t){return '<button class="tab" data-k="'+t[0]+'" aria-pressed="'+(t[0]===kind)+'">'+esc(t[1])+'</button>';}).join('');
+    document.querySelectorAll('#kt .tab').forEach(function(b){b.addEventListener('click',function(){kind=b.dataset.k;tabs();apply();});});
+  }
+  function apply(){
+    var out=items.filter(function(p){return !kind||p.kind===kind;});
+    list.innerHTML=out.length?out.map(postCard).join(''):'<div class="empty" style="grid-column:1/-1">Nothing here yet. Share the first post.</div>';
+  }
+  tabs();
+  try{items=await loadApproved('posts');if(id!==navId)return;apply();}catch(e){loadError(list,e);}
+}
+function postForm(){
+  openModal('<h2>Share with the community</h2><p class="muted small">Posts are checked by our team before they appear. Be respectful and truthful. Do not post private information about other people.</p>'+
+  '<form class="f" id="pf" novalidate>'+
+    '<div class="row two"><label>Type<select name="kind" required>'+Object.keys(KINDS).map(function(k){return '<option value="'+k+'">'+esc(KINDS[k])+'</option>';}).join('')+'</select></label>'+
+    '<label>Province <span class="hint">(optional)</span><select name="province">'+opts(PROVINCES,'Whole country',state.profile&&state.profile.province)+'</select></label></div>'+
+    '<label>Title<input name="title" required maxlength="140"></label>'+
+    '<label>Message<textarea name="body" required minlength="10" maxlength="3000"></textarea></label>'+
+    '<div id="pm" hidden></div><button class="btn" type="submit">Submit for review</button></form>');
+  $('#pf').addEventListener('submit',async function(e){
+    e.preventDefault();var f=e.target,m=$('#pm'),btn=f.querySelector('button[type=submit]');
+    var row={kind:val(f,'kind'),province:val(f,'province')||null,title:val(f,'title'),body:val(f,'body'),author_name:displayName().slice(0,80)};
+    if(row.title.length<3||row.body.length<10)return setMsg(m,'error','Please add a title and a message of at least 10 characters.');
+    btn.disabled=true;
+    var r=await sb.from('posts').insert(row);
+    btn.disabled=false;
+    if(r.error){console.error(r.error);return setMsg(m,'error','We could not save your post. Please try again.');}
+    closeModal();toast('Thank you! Your post was submitted and will appear once it is approved.');
+  });
+}
+
+/* government */
+async function pageGov(id){
+  main.innerHTML=banner('government','Government connect','Find key national agencies and send feedback or concerns about services in your area.','')+
+  '<div class="wrap pad"><div class="notice" style="margin-bottom:24px">WANTOK PNG is independent and is not an official government website. The links below go to the agencies\' own websites.</div>'+
+  '<h2>National agencies</h2><div id="gov" class="grid"><div class="loading">Loading&hellip;</div></div>'+
+  '<div class="two-col" style="margin-top:48px"><div><h2 id="feedback">Feedback and concerns</h2><p class="muted">Tell us about a service delivery problem, a damaged road or facility, a suggestion, or a question about this website. Messages are read by the WANTOK PNG team.</p>'+
+  '<p class="muted small">For emergencies, contact the police, an ambulance or your nearest health centre directly. Do not use this form.</p></div>'+
+  '<form class="f panel" id="ff" novalidate>'+
+    '<label>Topic<select name="topic" required>'+opts(['Service delivery problem','Roads and infrastructure','Suggestion or idea','Report a problem on this website','Other'],'Choose...')+'</select></label>'+
+    '<div class="row two"><label>Province<select name="province">'+opts(PROVINCES,'Choose...',state.profile&&state.profile.province)+'</select></label>'+
+    '<label>Your name <span class="hint">(optional)</span><input name="name" maxlength="80"></label></div>'+
+    '<label>Email or phone <span class="hint">(optional, if you want a reply)</span><input name="contact" maxlength="120"></label>'+
+    '<label>Your message<textarea name="message" required minlength="10" maxlength="3000"></textarea></label>'+
+    '<label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>'+
+    '<div id="fm" hidden></div><button class="btn" type="submit">Send feedback</button></form></div></div>';
+  var g=$('#gov');
+  try{
+    var r=await sb.from('gov_services').select('*').order('sort');
+    if(r.error)throw r.error;if(id!==navId)return;
+    g.innerHTML=(r.data||[]).length?r.data.map(function(s){
+      return '<a class="card" target="_blank" rel="noopener" href="'+esc(s.url||'#')+'"><div class="body"><span class="chip">Official website</span><h3>'+esc(s.name)+'</h3><p class="muted" style="margin:0">'+esc(s.description)+'</p></div></a>';
+    }).join(''):'<div class="empty" style="grid-column:1/-1">The directory is being prepared.</div>';
+  }catch(e){loadError(g,e);}
+  $('#ff').addEventListener('submit',async function(e){
+    e.preventDefault();var f=e.target,m=$('#fm'),btn=f.querySelector('button[type=submit]');
+    if(val(f,'website')){f.reset();return setMsg(m,'ok','Thank you. Your message was sent.');}
+    var row={topic:val(f,'topic'),province:val(f,'province')||null,name:val(f,'name')||null,contact:val(f,'contact')||null,message:val(f,'message')};
+    if(!row.topic||row.message.length<10)return setMsg(m,'error','Please choose a topic and write a message of at least 10 characters.');
+    btn.disabled=true;
+    var r2=await sb.from('feedback').insert(row);
+    btn.disabled=false;
+    if(r2.error){console.error(r2.error);return setMsg(m,'error','We could not send your message. Please try again.');}
+    f.reset();setMsg(m,'ok','Thank you. Your message was sent to the WANTOK PNG team.');
+  });
+}
+
+/* account */
+async function pageAccount(id){
+  if(!sb){main.innerHTML=banner('account','Your account','','')+'<div class="wrap pad"><div class="error">The sign-in service could not be loaded. Please check your connection and reload.</div></div>';return;}
+  if(state.recovery)return accountRecovery();
+  if(state.user)return accountHome(id);
+  accountAuth();
+}
+function accountRecovery(){
+  main.innerHTML=banner('account','Set a new password','Choose a new password for your account.','')+
+  '<div class="wrap pad"><form class="f panel narrow" id="nf" novalidate>'+
+  '<label>New password <span class="hint">(at least 8 characters)</span><input name="p1" type="password" minlength="8" autocomplete="new-password" required></label>'+
+  '<label>Confirm password<input name="p2" type="password" autocomplete="new-password" required></label>'+
+  '<div id="am" hidden></div><button class="btn" type="submit">Save password</button></form></div>';
+  $('#nf').addEventListener('submit',async function(e){
+    e.preventDefault();var f=e.target,m=$('#am');
+    if(f.elements.p1.value.length<8)return setMsg(m,'error','Password must be at least 8 characters.');
+    if(f.elements.p1.value!==f.elements.p2.value)return setMsg(m,'error','The two passwords do not match.');
+    var r=await sb.auth.updateUser({password:f.elements.p1.value});
+    if(r.error)return setMsg(m,'error',r.error.message||'Could not update password.');
+    state.recovery=false;toast('Password updated.');route();
+  });
+}
+function accountAuth(){
+  var t=state.authTab;
+  main.innerHTML=banner('account','Your account','Log in or create a free account to list a business, post a job or share with the community.','')+
+  '<div class="wrap pad"><div class="narrow"><div class="tabs"><button class="tab" data-t="login" aria-pressed="'+(t==='login')+'">Log in</button><button class="tab" data-t="signup" aria-pressed="'+(t==='signup')+'">Sign up</button></div><div class="panel" id="ap"></div></div></div>';
+  document.querySelectorAll('.tabs .tab').forEach(function(b){b.addEventListener('click',function(){state.authTab=b.dataset.t;accountAuth();});});
+  var ap=$('#ap');
+  if(t==='login'){
+    ap.innerHTML='<form class="f" id="lf" novalidate><label>Email<input name="email" type="email" autocomplete="email" required></label>'+
+    '<label>Password<input name="password" type="password" autocomplete="current-password" required></label>'+
+    '<div id="am" hidden></div><button class="btn" type="submit">Log in</button>'+
+    '<button class="btn ghost sm" type="button" id="forgot">Forgot password?</button></form>';
+    $('#lf').addEventListener('submit',async function(e){
+      e.preventDefault();var f=e.target,m=$('#am'),btn=f.querySelector('button[type=submit]');
+      if(!validEmail(val(f,'email'))||!val(f,'email')||!f.elements.password.value)return setMsg(m,'error','Please enter your email and password.');
+      btn.disabled=true;
+      var r=await sb.auth.signInWithPassword({email:val(f,'email'),password:f.elements.password.value});
+      btn.disabled=false;
+      if(r.error)return setMsg(m,'error',/confirm/i.test(r.error.message)?'Please confirm your email first. Check your inbox for our message.':'Email or password is not correct.');
+      var back=state.returnTo;state.returnTo=null;toast('Welcome back!');
+      if(back&&back!=='#/account')location.hash=back;
     });
-  </script>
+    $('#forgot').addEventListener('click',async function(){
+      var f=$('#lf'),m=$('#am'),em=val(f,'email');
+      if(!em||!validEmail(em))return setMsg(m,'error','Type your email above first, then tap "Forgot password?".');
+      var r=await sb.auth.resetPasswordForEmail(em,{redirectTo:location.origin+location.pathname});
+      if(r.error)return setMsg(m,'error','Could not send the reset email. Please try again later.');
+      setMsg(m,'ok','If that email has an account, a reset link is on its way.');
+    });
+  }else{
+    ap.innerHTML='<form class="f" id="sf" novalidate>'+
+    '<label>Full name<input name="full_name" autocomplete="name" maxlength="80" required></label>'+
+    '<label>Email<input name="email" type="email" autocomplete="email" required></label>'+
+    '<label>Phone <span class="hint">(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="20"></label>'+
+    '<div class="row two"><label>Province<select name="province" required>'+opts(PROVINCES,'Choose...')+'</select></label><label>District<input name="district" maxlength="80" required></label></div>'+
+    '<label>Password <span class="hint">(at least 8 characters)</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label>'+
+    '<label class="check"><input type="checkbox" name="terms" required><span>I agree to the <a href="#/terms" target="_blank">Terms of use</a> and <a href="#/privacy" target="_blank">Privacy policy</a>.</span></label>'+
+    '<div id="am" hidden></div><button class="btn" type="submit">Create account</button></form>';
+    $('#sf').addEventListener('submit',async function(e){
+      e.preventDefault();var f=e.target,m=$('#am'),btn=f.querySelector('button[type=submit]');
+      var d={full_name:val(f,'full_name'),phone:val(f,'phone'),province:val(f,'province'),district:val(f,'district')};
+      var email=val(f,'email'),pw=f.elements.password.value;
+      if(d.full_name.length<2||!email||!validEmail(email)||!d.province||!d.district)return setMsg(m,'error','Please fill in your name, a valid email, province and district.');
+      if(!validPhone(d.phone))return setMsg(m,'error','Please check the phone number.');
+      if(pw.length<8)return setMsg(m,'error','Password must be at least 8 characters.');
+      if(!f.elements.terms.checked)return setMsg(m,'error','Please accept the Terms and Privacy policy to continue.');
+      btn.disabled=true;
+      var r=await sb.auth.signUp({email:email,password:pw,options:{data:d,emailRedirectTo:location.origin+location.pathname}});
+      btn.disabled=false;
+      if(r.error)return setMsg(m,'error',r.error.message||'Could not create the account.');
+      if(r.data&&r.data.user&&r.data.user.identities&&r.data.user.identities.length===0)return setMsg(m,'error','An account with this email already exists. Try logging in.');
+      if(r.data&&r.data.session){toast('Welcome to WANTOK PNG!');}
+      else{f.reset();setMsg(m,'ok','Almost done! We sent a confirmation link to '+email+'. Open it to activate your account, then log in.');}
+    });
+  }
+}
+async function accountHome(id){
+  var p=state.profile||{};
+  main.innerHTML=banner('account','Hello, '+displayName().split(' ')[0],'Manage your details and your posts.','<button class="btn light" id="out">Log out</button>')+
+  '<div class="wrap pad"><div class="two-col"><form class="f panel" id="pr" novalidate><h2 style="font-size:26px">Your details</h2>'+
+  '<label>Full name<input name="full_name" maxlength="80" value="'+esc(p.full_name||'')+'"></label>'+
+  '<label>Email<input value="'+esc(state.user.email||'')+'" disabled></label>'+
+  '<label>Phone<input name="phone" type="tel" maxlength="20" value="'+esc(p.phone||'')+'"></label>'+
+  '<div class="row two"><label>Province<select name="province">'+opts(PROVINCES,'Choose...',p.province)+'</select></label><label>District<input name="district" maxlength="80" value="'+esc(p.district||'')+'"></label></div>'+
+  '<div id="am" hidden></div><button class="btn" type="submit">Save details</button></form>'+
+  '<div class="panel"><h2 style="font-size:26px">Your submissions</h2><div id="mine"><div class="loading">Loading&hellip;</div></div></div></div></div>';
+  $('#out').addEventListener('click',async function(){await sb.auth.signOut();state.user=null;state.profile=null;updateHeader();toast('You are logged out.');location.hash='#/';});
+  $('#pr').addEventListener('submit',async function(e){
+    e.preventDefault();var f=e.target,m=$('#am');
+    var row={full_name:val(f,'full_name')||null,phone:val(f,'phone')||null,province:val(f,'province')||null,district:val(f,'district')||null};
+    if(!validPhone(row.phone))return setMsg(m,'error','Please check the phone number.');
+    var r=await sb.from('profiles').update(row).eq('user_id',state.user.id).select().maybeSingle();
+    if(r.error)return setMsg(m,'error','Could not save your details. Please try again.');
+    if(!r.data){var r2=await sb.from('profiles').insert(Object.assign({user_id:state.user.id},row));if(r2.error)return setMsg(m,'error','Could not save your details. Please try again.');}
+    await loadProfile();updateHeader();setMsg(m,'ok','Your details were saved.');
+  });
+  var mine=$('#mine');
+  try{
+    var defs=[['businesses','name','Business'],['jobs','title','Job'],['posts','title','Post']];
+    var res=await Promise.all(defs.map(function(d){return sb.from(d[0]).select('id,'+d[1]+',status,created_at').eq(d[0]==='posts'?'author':'owner',state.user.id).order('created_at',{ascending:false});}));
+    if(id!==navId)return;
+    var rows=[];
+    res.forEach(function(r,i){if(r.error)throw r.error;(r.data||[]).forEach(function(x){rows.push({table:defs[i][0],kind:defs[i][2],title:x[defs[i][1]],status:x.status,id:x.id,at:x.created_at});});});
+    rows.sort(function(a,b){return a.at<b.at?1:-1;});
+    mine.innerHTML=rows.length?rows.map(function(r){
+      var c=r.status==='approved'?'':r.status==='rejected'?' r':' y';
+      return '<div class="list-row"><div><b>'+esc(r.title)+'</b><br><span class="muted small">'+esc(r.kind)+' &middot; '+esc(fmtDate(r.at))+'</span> <span class="chip'+c+'">'+(r.status==='pending'?'Waiting for approval':esc(r.status))+'</span></div><button class="btn danger sm" data-t="'+r.table+'" data-id="'+esc(r.id)+'">Delete</button></div>';
+    }).join(''):'<p class="muted">You have not submitted anything yet.</p>';
+    mine.querySelectorAll('button[data-id]').forEach(function(b){b.addEventListener('click',async function(){
+      if(!confirm('Delete this item? This cannot be undone.'))return;
+      var r=await sb.from(b.dataset.t).delete().eq('id',b.dataset.id);
+      if(r.error)return toast('Could not delete. Please try again.',true);
+      toast('Deleted.');route();
+    });});
+  }catch(e){loadError(mine,e);}
+}
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    (function () {
-      const SUPABASE_URL = 'https://rpcekiqhvsmzjmjimnsj.supabase.co';
-      const SUPABASE_KEY = 'sb_publishable_bmR_OLpVkON13vH-uTCkRg_GGH8jllW';
-      const $ = id => document.getElementById(id);
-      const msg = $('authMessage');
+/* static pages */
+function contactLine(){return CONTACT_EMAIL?'You can email us at <a href="mailto:'+esc(CONTACT_EMAIL)+'">'+esc(CONTACT_EMAIL)+'</a> or use the <a href="#/government">feedback form</a>.':'You can reach us through the <a href="#/government">feedback form</a>.';}
+function pageAbout(){
+  main.innerHTML=banner('about','About WANTOK PNG','A national digital platform that connects Papua New Guineans, from the villages to the cities.','')+
+  '<div class="wrap prose pad"><p>In Papua New Guinea, <b>wantok</b> means the people you share language, land and trust with. WANTOK PNG takes that idea online. It is a free platform where people can:</p>'+
+  '<ul><li>discover and contact local businesses and services in the <a href="#/marketplace">Marketplace</a>;</li><li>find or offer work, training and volunteer roles in <a href="#/jobs">Jobs</a>;</li><li>share notices, events, culture and local growth stories in the <a href="#/community">Community</a>;</li><li>find national agencies and send feedback through <a href="#/government">Government connect</a>.</li></ul>'+
+  '<h2>How listings are checked</h2><p>Every business listing, job post and community post is reviewed by our team before it is shown to the public. We may reject or remove anything that is misleading, unsafe or against our <a href="#/terms">Terms of use</a>.</p>'+
+  '<h2>Independence</h2><p>WANTOK PNG is an independent community platform. It is not an official government website, and a listing on WANTOK PNG is not a government approval or endorsement.</p>'+
+  '<h2>Contact</h2><p>'+contactLine()+'</p></div>';
+}
+function pagePrivacy(){
+  main.innerHTML=banner('about','Privacy policy','How WANTOK PNG handles your information.','')+
+  '<div class="wrap prose pad"><p class="muted small">Last updated: October 2026</p>'+
+  '<h2>What we collect</h2><ul><li><b>Account details:</b> your name, email address, password (stored securely, we cannot read it), and optionally your phone number, province and district.</li><li><b>What you submit:</b> business listings, job posts, community posts and feedback messages.</li><li><b>Technical data:</b> your browser keeps a login session on your device so you stay signed in.</li></ul>'+
+  '<h2>What is public</h2><p>Once approved, the content of your business listing, job post or community post is visible to everyone, including any phone number, WhatsApp number or email you chose to put in it. Your account email, phone, province and district are not shown publicly. Community posts show the name on your account.</p>'+
+  '<h2>How we use it</h2><p>To run your account, publish approved content, review submissions, respond to feedback and keep the platform safe. We do not sell your personal information.</p>'+
+  '<h2>Where it is stored</h2><p>Data is stored with our hosting and database provider, Supabase, which processes it on our behalf.</p>'+
+  '<h2>Your choices</h2><p>You can edit your details and delete your own listings and posts from your <a href="#/account">account page</a>. To ask us to delete your account or data, contact us. '+contactLine()+'</p>'+
+  '<h2>Changes</h2><p>We may update this policy and will change the date above when we do.</p></div>';
+}
+function pageTerms(){
+  main.innerHTML=banner('about','Terms of use','The rules for using WANTOK PNG.','')+
+  '<div class="wrap prose pad"><p class="muted small">Last updated: October 2026</p>'+
+  '<h2>Using the platform</h2><ul><li>You must give true information and keep your account secure.</li><li>You are responsible for what you post. Only post things you have the right to share.</li><li>Do not post anything illegal, false, abusive, discriminatory, sexual, or that exposes private information about others.</li><li>Do not use the platform for scams. Real employers never ask applicants to pay to get a job.</li></ul>'+
+  '<h2>Review and removal</h2><p>We review submissions before they are published and may reject, edit or remove content, or close accounts, that break these terms.</p>'+
+  '<h2>No guarantees</h2><p>WANTOK PNG connects people but does not run the businesses, employers or services listed. We do not guarantee their quality, safety or honesty. Please take care when dealing with others, meet in safe public places and never send money to people you do not know.</p>'+
+  '<h2>Independence</h2><p>WANTOK PNG is not a government website. Links to government agencies lead to their own websites, which we do not control.</p>'+
+  '<h2>Contact</h2><p>'+contactLine()+'</p></div>';
+}
 
-      function show(text, type) {
-        if (!msg) return;
-        msg.hidden = !text;
-        msg.textContent = text || '';
-        msg.className = 'notice' + (type ? ' ' + type : '');
-      }
-
-      if (!window.supabase) {
-        show('The account service could not load. Check your internet connection and refresh the page.', 'err');
-        return;
-      }
-
-      const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-      window.wantokSb = sb;
-
-      function view(loggedIn) {
-        $('authLoggedOut').hidden = loggedIn;
-        $('authLoggedIn').hidden = !loggedIn;
-      }
-
-      function tab(signup) {
-        $('signupForm').hidden = !signup;
-        $('loginForm').hidden = signup;
-        $('tabSignup').className = 'btn ' + (signup ? 'green' : 'alt');
-        $('tabLogin').className = 'btn ' + (signup ? 'alt' : 'green');
-        show('');
-      }
-
-      $('tabSignup').onclick = () => tab(true);
-      $('tabLogin').onclick = () => tab(false);
-
-      function render(p, user) {
-        $('pfName').textContent = p.full_name || '';
-        $('pfPhone').textContent = p.phone || '';
-        $('pfEmail').textContent = p.email || user.email || '';
-        $('pfProvince').textContent = p.province || '';
-        $('pfDistrict').textContent = p.district || '';
-        view(true);
-      }
-
-      async function handleSignedIn(user) {
-        let { data: p, error } = await sb.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
-        if (error) {
-          show('Could not load your profile: ' + error.message, 'err');
-          view(true);
-          return;
-        }
-
-        if (!p) {
-          const m = user.user_metadata || {};
-          const row = {
-            full_name: m.full_name || '',
-            phone: m.phone || '',
-            email: user.email,
-            province: m.province || '',
-            district: m.district || ''
-          };
-          const ins = await sb.from('profiles').insert(row).select().single();
-          if (ins.error) {
-            show('Your account was created but your profile could not be saved: ' + ins.error.message, 'err');
-            view(true);
-            return;
-          }
-          p = ins.data;
-        }
-
-        render(p, user);
-      }
-
-      sb.auth.onAuthStateChange((event, session) => {
-        if (session && session.user) {
-          setTimeout(() => handleSignedIn(session.user), 0);
-        } else {
-          view(false);
-        }
-      });
-
-      $('signupForm').addEventListener('submit', async e => {
-        e.preventDefault();
-        const btn = $('suBtn');
-        btn.disabled = true;
-        show('');
-
-        try {
-          const { data, error } = await sb.auth.signUp({
-            email: $('suEmail').value.trim(),
-            password: $('suPass').value,
-            options: {
-              data: {
-                full_name: $('suName').value.trim(),
-                phone: $('suPhone').value.trim(),
-                province: $('suProvince').value,
-                district: $('suDistrict').value.trim()
-              }
-            }
-          });
-          if (error) throw error;
-          if (!data.session) {
-            show('Account created. Please check your email and click the confirmation link, then come back and log in.', 'ok');
-            tab(false);
-            $('liEmail').value = $('suEmail').value.trim();
-            return;
-          }
-          show('Account created successfully.', 'ok');
-        } catch (error) {
-          show(error.message || 'Account creation failed. Please try again later.', 'err');
-        } finally {
-          btn.disabled = false;
-        }
-      });
-
-      $('loginForm').addEventListener('submit', async e => {
-        e.preventDefault();
-        const btn = $('liBtn');
-        btn.disabled = true;
-        show('');
-
-        try {
-          const { error } = await sb.auth.signInWithPassword({
-            email: $('liEmail').value.trim(),
-            password: $('liPass').value
-          });
-          if (error) throw error;
-        } catch (error) {
-          show(error.message || 'Log in failed. Please check your details and try again.', 'err');
-        } finally {
-          btn.disabled = false;
-        }
-      });
-
-      $('logoutBtn').onclick = async () => {
-        await sb.auth.signOut();
-        show('You have been logged out.', 'ok');
-      };
-    })();
-  </script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(() => {});
-      });
-    }
-  </script>
+/* ---------- router ---------- */
+var routes={'':pageHome,marketplace:pageMarket,jobs:pageJobs,community:pageCommunity,government:pageGov,account:pageAccount,about:pageAbout,privacy:pagePrivacy,terms:pageTerms};
+var titles={marketplace:'Marketplace',jobs:'Jobs',community:'Community',government:'Government connect',account:'Account',about:'About',privacy:'Privacy policy',terms:'Terms of use'};
+function route(){
+  var m=location.hash.match(/^#\/([a-z]*)/),key=m?m[1]:'';
+  if(!routes.hasOwnProperty(key))key='';
+  state.key=key;
+  var id=++navId;
+  document.querySelectorAll('#nav a').forEach(function(a){if(a.dataset.r===key)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+  header.classList.remove('open');$('#menuBtn').setAttribute('aria-expanded','false');
+  setHeader();
+  document.title=(titles[key]?titles[key]+' | ':'')+'WANTOK PNG';
+  closeModal();
+  window.scrollTo(0,0);
+  Promise.resolve(routes[key](id)).catch(function(e){console.error(e);});
+}
+window.addEventListener('hashchange',route);
+$('#menuBtn').addEventListener('click',function(){var o=header.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false');});
+$('#yr').textContent=new Date().getFullYear();
+if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}
+route();
+})();
+</script>
 </body>
 </html>
