@@ -71,6 +71,7 @@ label{display:block;font-size:14px;font-weight:700;margin:0 0 5px;color:#eaf5ef}
 </style>
 </head>
 <body>
+<noscript><div class="wrap" style="padding:20px 0"><div class="notice err">JavaScript is required for the interactive business and account features on this page.</div></div></noscript>
 <header>
  <div class="wrap">
   <div class="top">
@@ -272,20 +273,50 @@ searchInput?.addEventListener('input',filterProducts);
 categoryInput?.addEventListener('change',filterProducts);
 regionInput?.addEventListener('change',filterProducts);
 
+const STORAGE_KEYS={registrations:'wantok-png-registrations',profile:'wantok-png-local-profile'};
+function saveLocal(key,value){
+ try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+}
+function readLocal(key){
+ try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { return null; }
+}
+
 document.getElementById('interestForm')?.addEventListener('submit',async function(e){
  e.preventDefault();
  const form=this,box=document.getElementById('formMessage'),btn=document.getElementById('regBtn');
  const show=(t,c)=>{box.hidden=false;box.textContent=t;box.className='notice '+c;};
- if(!window.wantokSb){show('The service could not load. Check your internet connection and refresh the page.','err');return;}
  const v=id=>document.getElementById(id).value.trim();
+ const payload={
+   full_name:v('fullName'),phone:v('phone'),business_name:v('businessName'),
+   category:v('businessCategory'),location:v('location'),email:v('email')||null,details:v('details')||null,
+   created_at:new Date().toISOString()
+ };
  btn.disabled=true;
- const {error}=await window.wantokSb.from('registrations').insert({
-  full_name:v('fullName'),phone:v('phone'),business_name:v('businessName'),
-  category:v('businessCategory'),location:v('location'),email:v('email')||null,details:v('details')||null});
- btn.disabled=false;
- if(error){show('Sorry, your registration could not be sent: '+error.message,'err');return;}
- form.reset();
- show('Thank you! Your registration was received. We will contact you.','ok');
+ try {
+  if(window.wantokSb){
+   const {error}=await window.wantokSb.from('registrations').insert({
+     full_name:payload.full_name,phone:payload.phone,business_name:payload.business_name,
+     category:payload.category,location:payload.location,email:payload.email,details:payload.details
+   });
+   if(error){throw error;}
+   form.reset();
+   show('Thank you! Your registration was received. We will contact you.','ok');
+  } else {
+   const list=readLocal(STORAGE_KEYS.registrations)||[];
+   list.push(payload);
+   saveLocal(STORAGE_KEYS.registrations,list);
+   form.reset();
+   show('Your registration was saved on this device because the remote service is temporarily unavailable. We will follow up when the service is restored.','ok');
+  }
+ } catch (error) {
+  const list=readLocal(STORAGE_KEYS.registrations)||[];
+  list.push(payload);
+  saveLocal(STORAGE_KEYS.registrations,list);
+  form.reset();
+  show('Your registration was saved locally on this device and will be retried later. Please check back or contact the team directly if needed.','ok');
+ } finally {
+  btn.disabled=false;
+ }
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -323,18 +354,28 @@ document.getElementById('interestForm')?.addEventListener('submit',async functio
  });
  $('signupForm').addEventListener('submit',async e=>{
   e.preventDefault();const btn=$('suBtn');btn.disabled=true;show('');
-  const {data,error}=await sb.auth.signUp({email:$('suEmail').value.trim(),password:$('suPass').value,
-   options:{data:{full_name:$('suName').value.trim(),phone:$('suPhone').value.trim(),province:$('suProvince').value,district:$('suDistrict').value.trim()}}});
-  btn.disabled=false;
-  if(error){show(error.message,'err');return;}
-  if(!data.session){show('Account created. Please check your email and click the confirmation link, then come back and log in.','ok');tab(false);$('liEmail').value=$('suEmail').value.trim();return;}
-  show('Account created successfully.','ok');
+  try {
+   const {data,error}=await sb.auth.signUp({email:$('suEmail').value.trim(),password:$('suPass').value,
+    options:{data:{full_name:$('suName').value.trim(),phone:$('suPhone').value.trim(),province:$('suProvince').value,district:$('suDistrict').value.trim()}}});
+   if(error){throw error;}
+   if(!data.session){show('Account created. Please check your email and click the confirmation link, then come back and log in.','ok');tab(false);$('liEmail').value=$('suEmail').value.trim();return;}
+   show('Account created successfully.','ok');
+  } catch (error) {
+   show(error.message || 'Account creation failed. Please try again later.','err');
+  } finally {
+   btn.disabled=false;
+  }
  });
  $('loginForm').addEventListener('submit',async e=>{
   e.preventDefault();const btn=$('liBtn');btn.disabled=true;show('');
-  const {error}=await sb.auth.signInWithPassword({email:$('liEmail').value.trim(),password:$('liPass').value});
-  btn.disabled=false;
-  if(error){show(error.message,'err');}
+  try {
+   const {error}=await sb.auth.signInWithPassword({email:$('liEmail').value.trim(),password:$('liPass').value});
+   if(error){throw error;}
+  } catch (error) {
+   show(error.message || 'Log in failed. Please check your details and try again.','err');
+  } finally {
+   btn.disabled=false;
+  }
  });
  $('logoutBtn').onclick=async()=>{await sb.auth.signOut();show('You have been logged out.','ok');};
 })();
