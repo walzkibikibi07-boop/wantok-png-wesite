@@ -19,7 +19,7 @@
   hero.jpg  marketplace.jpg  jobs.jpg  community.jpg  government.jpg
   highlands.jpg  islands.jpg  city.jpg  village.jpg  join.jpg
 */
-:root{--ink:#0a2a21;--ink2:#4a6258;--bg:#f5f3ec;--card:#fff;--line:#e4e0d3;--green:#10b85c;--green-d:#0a8f47;--deep:#06231b;--deep2:#0d3a2d;--yellow:#ffc928;--red:#d9434e;--radius:22px;--shadow:0 18px 40px rgba(8,34,27,.12)}
+:root{--ink:#0a2a21;--ink2:#4a6258;--bg:#f5f3ec;--card:#fff;--line:#e4e0d3;--green:#10b85c;--green-d:#0a8f47;--deep:#06231b;--deep2:#0d3a2d;--yellow:#ffc928;--red:#d9434e;--radius:22px;--shadow:0 10px 30px rgba(6,35,27,.08)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth}
@@ -56,7 +56,7 @@ header.top.open nav#nav a.cta-nav{margin:8px 0 0;text-align:center}
 @media(min-width:960px){nav#nav{display:flex}.menu-btn{display:none}}
 
 /* ---------- buttons / chips ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#03170f;border:0;border-radius:999px;padding:13px 24px;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#03170f;border:0;border-radius:999px;padding:13px 24px;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;transition:transform .15s,background .15s}
 .btn:hover{background:#0ea352;transform:translateY(-1px)}
 .btn:disabled{opacity:.6;cursor:wait;transform:none}
 .btn.light{background:#fff;color:var(--deep)}
@@ -97,7 +97,7 @@ section.tight{padding-top:0}
 .banner h1{margin:0 0 8px;font-size:clamp(32px,5.5vw,56px);font-weight:800}
 .banner p{margin:0;color:rgba(255,255,255,.85);max-width:60ch;font-size:18px}
 .banner .inner{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between}
-.ban-marketplace{--img:url(marketplace.jpg)}.ban-jobs{--img:url(jobs.jpg)}.ban-community{--img:url(community.jpg)}.ban-government{--img:url(government.jpg)}.ban-account{--img:url(village.jpg)}.ban-about{--img:url(city.jpg)}
+.ban-marketplace{--img:url(marketplace.jpg)}.ban-jobs{--img:url(jobs.jpg)}.ban-community{--img:url(community.jpg)}.ban-government{--img:url(government.jpg)}.ban-account{--img:url(village.jpg)}.ban-about{--img:url(highlands.jpg)}
 
 /* photo cards */
 .pcs{display:grid;gap:18px;grid-template-columns:1fr}
@@ -123,7 +123,7 @@ section.tight{padding-top:0}
 
 /* category tiles */
 .cats{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-.cat{display:flex;flex-direction:column;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.cat{display:flex;flex-direction:column;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;line-height:1.3;transition:transform .2s,box-shadow .2s,border-color .2s}
 .cat:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--green)}
 .cat .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(16,184,92,.14);color:var(--green-d)}
 .ic svg,.ph svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -158,7 +158,7 @@ a.card:hover{transform:translateY(-3px)}
 .ok{background:#e1f7ea;border:1px solid #9fdfba;border-radius:14px;padding:12px 16px;font-size:14px;color:#0a5a2d}
 
 /* ---------- forms ---------- */
-.filters{display:grid;gap:10px;grid-template-columns:1fr;margin:-32px 0 28px;position:relative;z-index:5;background:var(--card);padding:12px;border-radius:24px;box-shadow:0 14px 40px rgba(6,35,27,.12)}
+.filters{display:grid;gap:10px;grid-template-columns:1fr;margin:-32px 0 28px;position:relative;z-index:5;background:var(--card);padding:12px;border-radius:24px;box-shadow:0 14px 40px rgba(6,35,27,.14);border:1px solid var(--line)}
 @media(min-width:760px){.filters{grid-template-columns:2fr 1fr 1fr}}
 form.f{display:grid;gap:14px}
 .row{display:grid;gap:14px;grid-template-columns:1fr}
@@ -210,10 +210,10 @@ footer .muted{color:rgba(255,255,255,.65)}
 .product .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
 .product:hover .thumb img{transform:scale(1.05)}
 .hero{padding:120px 0 80px;
-  background-image:linear-gradient(90deg,rgba(3,20,15,.94) 0%,rgba(4,26,19,.80) 55%,rgba(4,26,19,.48) 100%),url(hero.jpg),url("https://commons.wikimedia.org/wiki/Special:FilePath/%28Landscape_vie[...]
+  background-image:linear-gradient(90deg,rgba(3,20,15,.94) 0%,rgba(4,26,19,.80) 55%,rgba(4,26,19,.48) 100%),url(hero.jpg),url("https://commons.wikimedia.org/wiki/Special:FilePath/%28Landscape_view_of_Papua_New_Guinea%29_-_DPLA_-_e205a9e14a4830f6a8867e7ed7f2388a.jpg?width=1500"),linear-gradient(135deg,#0d3a2d,#04140f);
   background-size:cover;background-position:center;background-repeat:no-repeat;overflow:hidden}
 .spotlights{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.spotlight-card{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;background:#0b2921;border:1px solid rgba(255,255,255,.12);border-radius:22px;min-height:230px;padding:18px;color:#fff;box-shadow: var(--shadow);
+.spotlight-card{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;background:#0b2921;border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:20px 16px;min-height:220px;color:#fff;
   background-image:var(--img,none),linear-gradient(160deg,var(--g1,#14805a),var(--g2,#06231b));background-size:cover;background-position:center;transition:transform .3s}
 .spotlight-card:hover{transform:translateY(-4px)}
 .spotlight-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(3,15,12,.96),rgba(3,15,12,.10))}
@@ -222,226 +222,15 @@ footer .muted{color:rgba(255,255,255,.65)}
 .job-photo{display:block;width:100%;height:190px;object-fit:cover;border-radius:14px;margin-bottom:18px}
 @media(max-width:620px){.product .thumb{height:210px}.job-photo{height:200px}.spotlight-card{min-height:200px}}
 
-.contact-feedback {
-  background: linear-gradient(135deg, var(--deep) 0%, var(--deep2) 100%);
-  color: #fff;
-  padding: 60px 20px;
-  border-radius: 26px;
-  box-shadow: 0 18px 42px rgba(6, 35, 27, 0.18);
-  margin-top: 30px;
-}
-
-.contact-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.contact-header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.country-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--yellow);
-  color: var(--yellow);
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-}
-
-.contact-feedback h2 {
-  margin: 22px 0 10px;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: #fff;
-}
-
-.title-line {
-  width: 120px;
-  height: 4px;
-  background: var(--yellow);
-  margin: 0 auto 18px;
-  border-radius: 999px;
-}
-
-.contact-feedback h3 {
-  margin: 0 auto;
-  max-width: 700px;
-  font-size: clamp(1.25rem, 2vw, 2rem);
-  color: var(--yellow);
-  line-height: 1.5;
-}
-
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 28px;
-  align-items: start;
-}
-
-.contact-info,
-.contact-form {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
-  padding: 28px 22px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-}
-
-.contact-info p {
-  margin: 0 0 22px;
-  color: #dfeeea;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.info-card {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.info-card h4,
-.contact-form h4 {
-  margin: 0 0 8px;
-  color: var(--yellow);
-  font-size: 1.3rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #fff;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: all 0.3s ease;
-  font-weight: 700;
-}
-
-.social-link span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--green);
-  color: var(--deep);
-  font-weight: 800;
-  font-size: 1rem;
-}
-
-.social-link:hover {
-  transform: translateY(-2px);
-  border-color: var(--yellow);
-  background: rgba(255,201,40,0.08);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form-group label {
-  color: #edf7f3;
-  font-weight: 700;
-  font-size: 0.96rem;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 14px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.03);
-  color: #fff;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: rgba(255,255,255,0.6);
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 4px rgba(16,184,92,0.15);
-}
-
-.submit-btn {
-  border: none;
-  background: linear-gradient(135deg, var(--yellow), #ffbf1d);
-  color: var(--deep);
-  font-weight: 800;
-  padding: 16px 18px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 10px 20px rgba(255,201,40,0.2);
-}
-
-.submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 26px rgba(255,201,40,0.28);
-}
-
-.closing-message {
-  margin-top: 28px;
-  text-align: center;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,0.15);
-}
-
-.closing-message p {
-  margin: 0 0 8px;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--yellow);
-}
-
-.closing-message strong {
-  font-size: 1.1rem;
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .contact-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-feedback {
-    padding: 50px 16px;
-  }
-
-  .contact-info,
-  .contact-form {
-    padding: 22px 18px;
-  }
-}
+/* connect card */
+.connect{display:grid;gap:10px;margin-top:20px}
+.connect a{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 16px;text-decoration:none;color:var(--ink);font-weight:700;overflow-wrap:anywhere;transition:transform .2s,border-color .2s}
+.connect a:hover{transform:translateY(-2px);border-color:var(--green)}
+.connect .ci{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(16,184,92,.14);color:var(--green-d)}
+.connect .ci svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.closing{margin-top:44px;text-align:center;background:linear-gradient(135deg,var(--deep),var(--deep2));color:#fff;border-radius:var(--radius);padding:30px 20px}
+.closing p{margin:0 0 4px;color:var(--yellow);font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:14px}
+.closing strong{font-size:clamp(18px,3vw,24px)}
 </style>
 </head>
 <body>
@@ -486,7 +275,7 @@ footer .muted{color:rgba(255,255,255,.65)}
         <a href="#/government">Contact and feedback</a>
       </div>
     </div>
-    <p class="muted small" style="margin-top:26px">WANTOK PNG is an independent community platform. It is not an official government website and is not run by any government department.</p>
+    <p class="muted small" style="margin-top:26px">WANTOK PNG is Papua New Guinea&rsquo;s National Digital Platform, connecting the grassroots level from the villages to all Papua New Guineans across the country.</p>
     <p class="muted small">&copy; <span id="yr"></span> WANTOK PNG</p>
   </div>
 </footer>
@@ -502,9 +291,12 @@ footer .muted{color:rgba(255,255,255,.65)}
 /* ---------- config ---------- */
 var SUPABASE_URL = 'https://rpcekiqhvsmzjmjimnsj.supabase.co';
 var SUPABASE_KEY = 'sb_publishable_bmR_OLpVkON13vH-uTCkRg_GGH8jllW';
-var CONTACT_EMAIL = ''; // optional: put a public contact email here to show it on the About page
+var CONTACT_EMAIL = 'walzkibikibi07@gmail.com'; // shown publicly on the Government and About pages
+var WHATSAPP_NUMBER = ''; // e.g. '67572345678' (country code 675, no + or spaces). Leave empty to hide the WhatsApp link.
+var FACEBOOK_URL = '';    // e.g. 'https://www.facebook.com/yourpage'. Leave empty to hide the Facebook link.
+var OFFICE_ADDRESS = 'Port Moresby, Papua New Guinea'; // leave empty to hide
 
-var PROVINCES = ['Bougainville','Central','Chimbu (Simbu)','East New Britain','East Sepik','Eastern Highlands','Enga','Gulf','Hela','Jiwaka','Madang','Manus','Milne Bay','Morobe','National Capital District','New Ireland','Northern','Sandaun (West Sepik)','Southern Highlands','Western','Western Highlands','West New Britain'];
+var PROVINCES = ['Bougainville','Central','Chimbu (Simbu)','East New Britain','East Sepik','Eastern Highlands','Enga','Gulf','Hela','Jiwaka','Madang','Manus','Milne Bay','Morobe','National Capital District','New Ireland','Oro','Sandaun (West Sepik)','Southern Highlands','Western','Western Highlands','West New Britain'];
 var CATEGORIES = ['Grocery and retail','Food and catering','Building and construction','Transport and logistics','Agriculture and fisheries','Health and wellness','Education and training','Technology and digital','Accommodation and tourism','Trades and repairs','Beauty and fashion','Professional services','Other'];
 var JOB_TYPES = ['Full-time','Part-time','Casual or contract','Internship or training','Volunteer'];
 var KINDS = {notice:'Community notice',event:'Event',culture:'Culture and talent',safety:'Safety and trust',growth:'Local growth'};
@@ -526,7 +318,7 @@ var ICONS = {
  'Other':'<circle cx="6" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/>'
 };
 var GRADS = [['#14805a','#06231b'],['#c98a00','#4a2f00'],['#0f7a8a','#052a33'],['#7a3fa0','#25103a'],['#b8432f','#3e130b'],['#2f7d32','#0b2a0d']];
-function icon(cat){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+(ICONS[cat]||ICONS.Other)+'</svg>';} 
+function icon(cat){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+(ICONS[cat]||ICONS.Other)+'</svg>';}
 function grad(cat){var i=Math.max(0,CATEGORIES.indexOf(cat))%GRADS.length;return 'linear-gradient(135deg,'+GRADS[i][0]+','+GRADS[i][1]+')';}
 
 /* ---------- helpers ---------- */
@@ -630,19 +422,19 @@ function bizCard(b){
   if(b.phone)links+='<a class="btn sm" href="'+esc(telHref(b.phone))+'">Call</a>';
   if(b.whatsapp)links+='<a class="btn sm ghost" target="_blank" rel="noopener" href="'+esc(waHref(b.whatsapp))+'">WhatsApp</a>';
   if(b.email)links+='<a class="btn sm ghost" href="mailto:'+esc(b.email)+'">Email</a>';
-  return '<article class="card"><div class="ph" style="background:'+grad(b.category)+'"><span class="chip w">'+esc(b.category)+'</span><span class="big">'+icon(b.category)+'</span></div>'+ 
-    '<div class="body"><h3>'+esc(b.name)+'</h3><div class="meta">'+esc([b.town,b.province].filter(Boolean).join(', '))+'</div>'+ 
+  return '<article class="card"><div class="ph" style="background:'+grad(b.category)+'"><span class="chip w">'+esc(b.category)+'</span><span class="big">'+icon(b.category)+'</span></div>'+
+    '<div class="body"><h3>'+esc(b.name)+'</h3><div class="meta">'+esc([b.town,b.province].filter(Boolean).join(', '))+'</div>'+
     '<p class="desc">'+esc(b.description)+'</p>'+(links?'<div class="links">'+links+'</div>':'')+'</div></article>';
 }
 function jobCard(j){
   var closed=j.closing_date&&j.closing_date<todayLocal();
-  return '<article class="card accent"><div class="body"><img class="job-photo" src="jobs.jpg" alt="" loading="lazy" onerror="this.remove()"><div><span class="chip">'+esc(j.job_type)+'</span> '+(closed?'<span class="chip r">Closed</span>':'')+'</div>'+ 
-    '<h3>'+esc(j.title)+'</h3><div class="meta">'+esc(j.employer)+' &middot; '+esc([j.town,j.province].filter(Boolean).join(', '))+'</div>'+ 
+  return '<article class="card accent"><div class="body"><img class="job-photo" src="jobs.jpg" alt="" loading="lazy" onerror="this.remove()"><div><span class="chip">'+esc(j.job_type)+'</span> '+(j.closing_date?'<span class="chip y">'+(closed?'Closed ':'Closes ')+esc(fmtDate(j.closing_date))+'</span>':'')+'</div>'+
+    '<h3>'+esc(j.title)+'</h3><div class="meta">'+esc(j.employer)+' &middot; '+esc([j.town,j.province].filter(Boolean).join(', '))+'</div>'+
     '<p class="desc">'+esc(j.description)+'</p><p class="small" style="margin:0"><b>How to apply:</b> <span style="overflow-wrap:anywhere">'+esc(j.how_to_apply)+'</span></p></div></article>';
 }
 function postCard(p){
-  return '<article class="card accent y"><div class="body"><div><span class="chip y">'+esc(KINDS[p.kind]||p.kind)+'</span></div><h3>'+esc(p.title)+'</h3>'+ 
-    '<div class="meta">'+esc(p.author_name)+(p.province?' &middot; '+esc(p.province):'')+' &middot; '+esc(fmtDate(p.created_at))+'</div>'+ 
+  return '<article class="card accent y"><div class="body"><div><span class="chip y">'+esc(KINDS[p.kind]||p.kind)+'</span></div><h3>'+esc(p.title)+'</h3>'+
+    '<div class="meta">'+esc(p.author_name)+(p.province?' &middot; '+esc(p.province):'')+' &middot; '+esc(fmtDate(p.created_at))+'</div>'+
     '<p class="desc">'+esc(p.body)+'</p></div></article>';
 }
 
@@ -654,40 +446,39 @@ async function pageHome(id){
     '<span class="chip w" style="margin-bottom:18px">Papua New Guinea&rsquo;s digital platform</span>'+
     '<h1>One connected future for <em>Papua New Guinea</em></h1>'+
     '<p class="lead">From the villages to the cities, find local businesses, jobs and training, share community news, and reach government services, all in one place.</p>'+
-    '<form class="hsearch" id="hs"><input id="hq" type="search" placeholder="What are you looking for? e.g. fresh produce, builder, catering" aria-label="Search the marketplace"><select id="hp" aria-label="Province"><option value="">All provinces</option>'+PROVINCES.map(function(x){return '<option>'+esc(x)+'</option>';}).join('')+'</select><button class="btn" type="submit">Search</button></form>'+
-    '<div class="actions" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px"><a class="btn light" href="#/account" id="homeJoin">Join free</a><a class="btn ghost onDark" href="#/marketplace" id="homeJoin2">Browse listings</a></div>'+
+    '<form class="hsearch" id="hs"><input id="hq" type="search" placeholder="What are you looking for? e.g. fresh produce, builder, catering" aria-label="Search the marketplace"><select id="hp" aria-label="Province">'+opts(PROVINCES,'All provinces')+'</select><button class="btn" type="submit">Search</button></form>'+
+    '<div class="actions" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px"><a class="btn light" href="#/account" id="homeJoin">Join free</a><a class="btn ghost onDark" href="#/marketplace">Browse marketplace</a></div>'+
     '<p class="quote">From our villages to the world&hellip; We are all Wantok!</p>'+
     '<div class="stats" id="stats" hidden></div>'+
-  '</div></section>'+ 
+  '</div></section>'+
 
   '<section class="block"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Explore</span><h2>Everything in one place</h2></div></div><div class="pcs">'+
-    '<a class="pc" href="#/marketplace" style="--img:url(marketplace.jpg);--g1:#14805a;--g2:#06231b"><div class="t"><h3>Marketplace</h3><p>Find and contact local businesses, or list your own.</p><span class="go">See marketplace</span></div></a>'+
-    '<a class="pc" href="#/jobs" style="--img:url(jobs.jpg);--g1:#c98a00;--g2:#3e2700"><div class="t"><h3>Jobs and skills</h3><p>Openings, training and volunteer roles.</p><span class="go">See opportunities</span></div></a>'+
-    '<a class="pc" href="#/community" style="--img:url(community.jpg);--g1:#0f7a8a;--g2:#052a33"><div class="t"><h3>Community</h3><p>Notices, events, culture and local stories.</p><span class="go">Join in</span></div></a>'+
-    '<a class="pc" href="#/government" style="--img:url(government.jpg);--g1:#7a3fa0;--g2:#25103a"><div class="t"><h3>Government connect</h3><p>National agencies and a way to send feedback.</p><span class="go">Get connected</span></div></a>'+
-  '</div></div></section>'+ 
+    '<a class="pc" href="#/marketplace" style="--img:url(marketplace.jpg);--g1:#14805a;--g2:#06231b"><div class="t"><h3>Marketplace</h3><p>Find and contact local businesses, or list your own.</p><span class="go">Browse businesses &rarr;</span></div></a>'+
+    '<a class="pc" href="#/jobs" style="--img:url(jobs.jpg);--g1:#c98a00;--g2:#3e2700"><div class="t"><h3>Jobs and skills</h3><p>Openings, training and volunteer roles.</p><span class="go">See opportunities &rarr;</span></div></a>'+
+    '<a class="pc" href="#/community" style="--img:url(community.jpg);--g1:#0f7a8a;--g2:#052a33"><div class="t"><h3>Community</h3><p>Notices, events, culture and local stories.</p><span class="go">Join the conversation &rarr;</span></div></a>'+
+    '<a class="pc" href="#/government" style="--img:url(government.jpg);--g1:#7a3fa0;--g2:#25103a"><div class="t"><h3>Government connect</h3><p>National agencies and a way to send feedback.</p><span class="go">Find services &rarr;</span></div></a>'+
+  '</div></div></section>'+
 
-  '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Marketplace</span><h2>Browse by category</h2></div><a class="btn ghost sm" href="#/marketplace">View all</a></div><div class="cats">'+catTiles+'</div></div></section>'+ 
+  '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Marketplace</span><h2>Browse by category</h2></div><a class="btn ghost sm" href="#/marketplace">See all</a></div><div class="cats">'+catTiles+'</div></div></section>'+
 
-  '<section class="block tight" id="latestWrap" hidden><div class="wrap"><div class="head-row"><div><span class="eyebrow">Fresh listings</span><h2>Latest in the marketplace</h2></div><a class="btn ghost sm" href="#/marketplace">View more</a></div><div id="latest" class="grid"></div></div></section>'+ 
+  '<section class="block tight" id="latestWrap" hidden><div class="wrap"><div class="head-row"><div><span class="eyebrow">Fresh listings</span><h2>Latest in the marketplace</h2></div><a class="btn ghost sm" href="#/marketplace">View all</a></div><div class="grid" id="latest"></div></div></section>'+
 
   '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Our country</span><h2>From the highlands to the islands</h2></div></div><div class="mosaic">'+
     '<div class="tile big" style="--img:url(highlands.jpg);--g1:#2f7d32;--g2:#0b2a0d"><span>Highlands<small>Coffee, gardens and strong communities</small></span></div>'+
     '<div class="tile" style="--img:url(islands.jpg);--g1:#0f7a8a;--g2:#052a33"><span>Islands and coast<small>Fishing, trade and tourism</small></span></div>'+
-    '<div class="tile" style="--img:url(city.jpg);--g1:#7a3fa0;--g2:#25103a"><span>Towns and cities<small>Business and urban life</small></span></div>'+
+    '<div class="tile" style="--img:url(city.jpg),url("https://commons.wikimedia.org/wiki/Special:FilePath/Port_Moresby.jpg?width=1000");--g1:#7a3fa0;--g2:#25103a"><span>Towns and cities<small>Business and opportunity</small></span></div>'+
     '<div class="tile" style="--img:url(village.jpg);--g1:#c98a00;--g2:#3e2700"><span>Villages<small>Where Wantok begins</small></span></div>'+
     '<div class="tile" style="--img:url(community.jpg);--g1:#b8432f;--g2:#3e130b"><span>People<small>Talent, culture and pride</small></span></div>'+
-  '</div></div></section>'+ 
+  '</div></div></section>'+
 
-  '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Provinces</span><h2>Explore by province</h2></div></div><div class="spotlights">'+PROVINCES.slice(0,6).map(function(p){return '<a class="spotlight-card" href="#/marketplace?p='+encodeURIComponent(p)+'" style="--img:url(city.jpg);--g1:#0b362b;--g2:#0c1e18"><div><strong>'+esc(p)+'</strong><p>Business, work and local connections.</p></div></a>';}).join('')+'</div></div></section>'+ 
-
+  '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Provinces</span><h2>Explore by province</h2></div></div><div class="spotlights"><a class="spotlight-card" href="#/marketplace?p=Oro" style="--g1:#14805a;--g2:#06231b"><strong>Oro</strong><p>See businesses and services here</p></a><a class="spotlight-card" href="#/marketplace?p=Morobe" style="--g1:#c98a00;--g2:#3e2700"><strong>Morobe</strong><p>See businesses and services here</p></a><a class="spotlight-card" href="#/marketplace?p=National%20Capital%20District" style="--img:url(city.jpg),url("https://commons.wikimedia.org/wiki/Special:FilePath/Port_Moresby.jpg?width=1000");--g1:#7a3fa0;--g2:#25103a"><strong>National Capital District</strong><p>See businesses and services here</p></a><a class="spotlight-card" href="#/marketplace?p=Bougainville" style="--g1:#0f7a8a;--g2:#052a33"><strong>Bougainville</strong><p>See businesses and services here</p></a></div></div></section>'+
   '<section class="block tight"><div class="wrap"><div class="head-row"><div><span class="eyebrow">Simple</span><h2>How it works</h2></div></div><div class="steps">'+
     '<div class="step"><h3>Create an account</h3><p class="muted">Sign up free with your email, your province and district.</p></div>'+
     '<div class="step"><h3>Post or search</h3><p class="muted">List a business, a job or a community post, or search what others have shared.</p></div>'+
     '<div class="step"><h3>Connect directly</h3><p class="muted">Call, message on WhatsApp or email. Wantok to Wantok, no middleman.</p></div>'+
-  '</div></div></section>'+ 
+  '</div></div></section>'+
 
-  '<section class="block tight"><div class="wrap"><div class="cta"><h2>Join your Wantok today</h2><p>List your business, find your next job or share news from your community. It is free.</p><a class="btn light" href="#/account">Create account</a></div></div></section>';
+  '<section class="block tight"><div class="wrap"><div class="cta"><h2>Join your Wantok today</h2><p>List your business, find your next job or share news from your community. It is free.</p><a class="btn" href="#/account" id="homeJoin2">Create a free account</a></div></div></section>';
 
   if(state.user){$('#homeJoin').textContent='My account';$('#homeJoin2').textContent='Go to my account';}
   $('#hs').addEventListener('submit',function(e){
@@ -727,22 +518,22 @@ async function pageMarket(id){
   function apply(){
     var q=$('#q').value.toLowerCase(),c=$('#fc').value,p=$('#fp').value;
     var out=items.filter(function(b){return (!c||b.category===c)&&(!p||b.province===p)&&(!q||(b.name+' '+b.description+' '+(b.town||'')).toLowerCase().indexOf(q)>-1);});
-    list.innerHTML=out.length?out.map(bizCard).join(''):'<div class="empty" style="grid-column:1/-1">'+(items.length?'No businesses match your search.':'No businesses are listed yet. Be the first to add one.')+'</div>';
+    list.innerHTML=out.length?out.map(bizCard).join(''):'<div class="empty" style="grid-column:1/-1">'+(items.length?'No businesses match your search.':'No businesses are listed yet. Be the first to list yours.')+'</div>';
   }
   ['q','fc','fp'].forEach(function(x){$('#'+x).addEventListener('input',apply);});
   try{items=await loadApproved('businesses');if(id!==navId)return;apply();}catch(e){loadError(list,e);}
 }
 function bizForm(){
-  openModal('<h2>List your business</h2><p class="muted small">Listings are checked by our team before they appear. Contact details you add here will be public.</p>'+ 
-  '<form class="f" id="bf" novalidate>'+ 
-    '<label>Business name<input name="name" required maxlength="120"></label>'+ 
-    '<div class="row two"><label>Category<select name="category" required>'+opts(CATEGORIES,'Choose...')+'</select></label>'+ 
-    '<label>Province<select name="province" required>'+opts(PROVINCES,'Choose...',state.profile&&state.profile.province)+'</select></label></div>'+ 
-    '<label>Town or village<input name="town" maxlength="80"></label>'+ 
-    '<label>What do you offer?<textarea name="description" required minlength="10" maxlength="1500"></textarea></label>'+ 
-    '<div class="row two"><label>Phone<input name="phone" type="tel" maxlength="20" placeholder="e.g. 7123 4567"></label>'+ 
-    '<label>WhatsApp <span class="hint">(with country code, e.g. 675 7123 4567)</span><input name="whatsapp" type="tel" maxlength="20"></label></div>'+ 
-    '<label>Email<input name="email" type="email" maxlength="120"></label>'+ 
+  openModal('<h2>List your business</h2><p class="muted small">Listings are checked by our team before they appear. Contact details you add here will be public.</p>'+
+  '<form class="f" id="bf" novalidate>'+
+    '<label>Business name<input name="name" required maxlength="120"></label>'+
+    '<div class="row two"><label>Category<select name="category" required>'+opts(CATEGORIES,'Choose...')+'</select></label>'+
+    '<label>Province<select name="province" required>'+opts(PROVINCES,'Choose...',state.profile&&state.profile.province)+'</select></label></div>'+
+    '<label>Town or village<input name="town" maxlength="80"></label>'+
+    '<label>What do you offer?<textarea name="description" required minlength="10" maxlength="1500"></textarea></label>'+
+    '<div class="row two"><label>Phone<input name="phone" type="tel" maxlength="20" placeholder="e.g. 7123 4567"></label>'+
+    '<label>WhatsApp <span class="hint">(with country code, e.g. 675 7123 4567)</span><input name="whatsapp" type="tel" maxlength="20"></label></div>'+
+    '<label>Email<input name="email" type="email" maxlength="120"></label>'+
     '<div id="bm" hidden></div><button class="btn" type="submit">Submit for review</button></form>');
   $('#bf').addEventListener('submit',async function(e){
     e.preventDefault();var f=e.target,m=$('#bm'),btn=f.querySelector('button[type=submit]');
@@ -772,21 +563,21 @@ async function pageJobs(id){
   function apply(){
     var q=$('#q').value.toLowerCase(),t=$('#ft').value,p=$('#fp').value,today=todayLocal();
     var out=items.filter(function(j){return (!j.closing_date||j.closing_date>=today)&&(!t||j.job_type===t)&&(!p||j.province===p)&&(!q||(j.title+' '+j.employer+' '+j.description).toLowerCase().indexOf(q)>-1);});
-    list.innerHTML=out.length?out.map(jobCard).join(''):'<div class="empty" style="grid-column:1/-1">'+(items.length?'No open jobs match your search.':'No jobs are posted yet. Employers can post one here.')+'</div>';
+    list.innerHTML=out.length?out.map(jobCard).join(''):'<div class="empty" style="grid-column:1/-1">'+(items.length?'No open jobs match your search.':'No jobs are posted yet. Employers can post the first one.')+'</div>';
   }
   ['q','ft','fp'].forEach(function(x){$('#'+x).addEventListener('input',apply);});
   try{items=await loadApproved('jobs');if(id!==navId)return;apply();}catch(e){loadError(list,e);}
 }
 function jobForm(){
-  openModal('<h2>Post a job or opportunity</h2><p class="muted small">Posts are checked by our team before they appear. Only post real opportunities. Never ask applicants to pay money.</p>'+ 
-  '<form class="f" id="jf" novalidate>'+ 
-    '<label>Job title<input name="title" required maxlength="120"></label>'+ 
-    '<label>Employer or organisation<input name="employer" required maxlength="120"></label>'+ 
-    '<div class="row two"><label>Type<select name="job_type" required>'+opts(JOB_TYPES,'Choose...')+'</select></label>'+ 
-    '<label>Province<select name="province" required>'+opts(PROVINCES,'Choose...',state.profile&&state.profile.province)+'</select></label></div>'+ 
-    '<div class="row two"><label>Town<input name="town" maxlength="80"></label><label>Closing date <span class="hint">(optional)</span><input name="closing_date" type="date"></label></div>'+ 
-    '<label>Description<textarea name="description" required minlength="10" maxlength="2500"></textarea></label>'+ 
-    '<label>How to apply<input name="how_to_apply" required maxlength="400" placeholder="Email, phone or address"></label>'+ 
+  openModal('<h2>Post a job or opportunity</h2><p class="muted small">Posts are checked by our team before they appear. Only post real opportunities. Never ask applicants to pay money.</p>'+
+  '<form class="f" id="jf" novalidate>'+
+    '<label>Job title<input name="title" required maxlength="120"></label>'+
+    '<label>Employer or organisation<input name="employer" required maxlength="120"></label>'+
+    '<div class="row two"><label>Type<select name="job_type" required>'+opts(JOB_TYPES,'Choose...')+'</select></label>'+
+    '<label>Province<select name="province" required>'+opts(PROVINCES,'Choose...',state.profile&&state.profile.province)+'</select></label></div>'+
+    '<div class="row two"><label>Town<input name="town" maxlength="80"></label><label>Closing date <span class="hint">(optional)</span><input name="closing_date" type="date"></label></div>'+
+    '<label>Description<textarea name="description" required minlength="10" maxlength="2500"></textarea></label>'+
+    '<label>How to apply<input name="how_to_apply" required maxlength="400" placeholder="Email, phone or address"></label>'+
     '<div id="jm" hidden></div><button class="btn" type="submit">Submit for review</button></form>');
   $('#jf').addEventListener('submit',async function(e){
     e.preventDefault();var f=e.target,m=$('#jm'),btn=f.querySelector('button[type=submit]');
@@ -819,12 +610,12 @@ async function pageCommunity(id){
   try{items=await loadApproved('posts');if(id!==navId)return;apply();}catch(e){loadError(list,e);}
 }
 function postForm(){
-  openModal('<h2>Share with the community</h2><p class="muted small">Posts are checked by our team before they appear. Be respectful and truthful. Do not post private information about other people.</p>'+ 
-  '<form class="f" id="pf" novalidate>'+ 
-    '<div class="row two"><label>Type<select name="kind" required>'+Object.keys(KINDS).map(function(k){return '<option value="'+k+'">'+esc(KINDS[k])+'</option>';}).join('')+'</select></label>'+ 
-    '<label>Province <span class="hint">(optional)</span><select name="province">'+opts(PROVINCES,'Whole country',state.profile&&state.profile.province)+'</select></label></div>'+ 
-    '<label>Title<input name="title" required maxlength="140"></label>'+ 
-    '<label>Message<textarea name="body" required minlength="10" maxlength="3000"></textarea></label>'+ 
+  openModal('<h2>Share with the community</h2><p class="muted small">Posts are checked by our team before they appear. Be respectful and truthful. Do not post private information about other people.</p>'+
+  '<form class="f" id="pf" novalidate>'+
+    '<div class="row two"><label>Type<select name="kind" required>'+Object.keys(KINDS).map(function(k){return '<option value="'+k+'">'+esc(KINDS[k])+'</option>';}).join('')+'</select></label>'+
+    '<label>Province <span class="hint">(optional)</span><select name="province">'+opts(PROVINCES,'Whole country',state.profile&&state.profile.province)+'</select></label></div>'+
+    '<label>Title<input name="title" required maxlength="140"></label>'+
+    '<label>Message<textarea name="body" required minlength="10" maxlength="3000"></textarea></label>'+
     '<div id="pm" hidden></div><button class="btn" type="submit">Submit for review</button></form>');
   $('#pf').addEventListener('submit',async function(e){
     e.preventDefault();var f=e.target,m=$('#pm'),btn=f.querySelector('button[type=submit]');
@@ -840,53 +631,33 @@ function postForm(){
 
 /* government */
 async function pageGov(id){
-  main.innerHTML=banner('government','Government connect','Find key national agencies and send feedback or concerns about services in your area.')+
-  '<div class="wrap pad"><div class="notice" style="margin-bottom:24px">WANTOK PNG is independent and is not an official government website. The links below go to the agencies\' own websites.</div>'+ 
-  '<h2>National agencies</h2><div id="gov" class="grid"><div class="loading">Loading&hellip;</div></div>'+ 
-  '<section id="contact-feedback" class="contact-feedback">'+
-    '<div class="contact-wrapper">'+
-      '<div class="contact-header">'+
-        '<span class="country-badge">🇵🇬 PAPUA NEW GUINEA</span>'+
-        '<h2>Contact & Feedback</h2>'+
-        '<div class="title-line"></div>'+
-        '<h3>WANTOK PNG — A National Digital Hub for Papua New Guinea</h3>'+
-      '</div>'+ 
-      '<div class="contact-layout">'+
-        '<div class="contact-info">'+
-          '<p>We value your feedback, suggestions, ideas, and support. Help us build a stronger, more connected, and inclusive digital future for Papua New Guinea.</p>'+ 
-          '<div class="info-card">'+
-            '<h4>Connect With Us</h4>'+ 
-            '<a href="https://wa.me/67570000000?text=Hello%20WANTOK%20PNG%2C%20I%20would%20like%20to%20connect%20with%20you." target="_blank" rel="noopener" class="social-link"><span>💬</span>WhatsApp</a>'+ 
-            '<a href="https://facebook.com/wantokpng" target="_blank" rel="noopener" class="social-link"><span>f</span>Facebook</a>'+ 
-            '<a href="https://maps.google.com/?q=Port+Moresby+Papua+New+Guinea" target="_blank" rel="noopener" class="social-link"><span>📍</span>Office Address: Port Moresby, Papua New Guinea</a>'+ 
-            '<a href="mailto:walzkibikibi07@gmail.com" class="social-link"><span>✉️</span>walzkibikibi07@gmail.com</a>'+ 
-          '</div>'+ 
-        '</div>'+ 
-        '<form class="contact-form" id="ff" novalidate>'+ 
-          '<h4>Send Us a Message</h4>'+ 
-          '<div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your full name" required /></div>'+ 
-          '<div class="form-group"><label for="contact">Email or Phone</label><input type="text" id="contact" name="contact" placeholder="example@email.com or 675..." required /></div>'+ 
-          '<div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Write your message here..." required ></textarea></div>'+ 
-          '<button type="submit" class="submit-btn">Send Message</button>'+ 
-          '<div id="fm" hidden></div>'+ 
-        '</form>'+ 
-      '</div>'+ 
-      '<div class="closing-message"><p>One Nation, One People</p><strong>God Bless Papua New Guinea 🇵🇬</strong></div>'+ 
-    '</div>'+ 
-  '</section>'+ 
-  '</div>';
+  main.innerHTML=banner('government','Government connect','Find key national agencies and send feedback or concerns about services in your area.','')+
+  '<div class="wrap pad">'+
+  '<h2>National agencies</h2><div id="gov" class="grid"><div class="loading">Loading&hellip;</div></div>'+
+  '<div class="two-col" style="margin-top:48px"><div><h2 id="feedback">Contact and feedback</h2><p class="muted">Tell us about a service delivery problem, a damaged road or facility, a suggestion, or a question about this website. Messages are read by the WANTOK PNG team.</p>'+
+  '<p class="muted small">For emergencies, contact the police, an ambulance or your nearest health centre directly. Do not use this form.</p>'+connectCard()+'</div>'+
+  '<form class="f panel" id="ff" novalidate>'+
+    '<label>Topic<select name="topic" required>'+opts(['Service delivery problem','Roads and infrastructure','Suggestion or idea','Report a problem on this website','Other'],'Choose...')+'</select></label>'+
+    '<div class="row two"><label>Province<select name="province">'+opts(PROVINCES,'Choose...',state.profile&&state.profile.province)+'</select></label>'+
+    '<label>Your name <span class="hint">(optional)</span><input name="name" maxlength="80"></label></div>'+
+    '<label>Email or phone <span class="hint">(optional, if you want a reply)</span><input name="contact" maxlength="120"></label>'+
+    '<label>Your message<textarea name="message" required minlength="10" maxlength="3000"></textarea></label>'+
+    '<label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>'+
+    '<div id="fm" hidden></div><button class="btn" type="submit">Send feedback</button></form></div>'+
+  '<div class="closing"><p>One Nation, One People</p><strong>God Bless Papua New Guinea</strong></div></div>';
   var g=$('#gov');
   try{
     var r=await sb.from('gov_services').select('*').order('sort');
     if(r.error)throw r.error;if(id!==navId)return;
     g.innerHTML=(r.data||[]).length?r.data.map(function(s){
-      return '<a class="card" target="_blank" rel="noopener" href="'+esc(s.url||'#')+'"><div class="body"><span class="chip">Official website</span><h3>'+esc(s.name)+'</h3><p class="muted" style="margin:0">'+esc(s.summary||'')+'</p></div></a>';
+      return '<a class="card" target="_blank" rel="noopener" href="'+esc(s.url||'#')+'"><div class="body"><span class="chip">Official website</span><h3>'+esc(s.name)+'</h3><p class="muted" style="margin:0">'+esc(s.description)+'</p></div></a>';
     }).join(''):'<div class="empty" style="grid-column:1/-1">The directory is being prepared.</div>';
   }catch(e){loadError(g,e);}
   $('#ff').addEventListener('submit',async function(e){
     e.preventDefault();var f=e.target,m=$('#fm'),btn=f.querySelector('button[type=submit]');
-    if(val(f,'name').length<2||val(f,'message').length<10)return setMsg(m,'error','Please add your name and a message of at least 10 characters.');
-    var row={name:val(f,'name')||null,contact:val(f,'contact')||null,message:val(f,'message')};
+    if(val(f,'website')){f.reset();return setMsg(m,'ok','Thank you. Your message was sent.');}
+    var row={topic:val(f,'topic'),province:val(f,'province')||null,name:val(f,'name')||null,contact:val(f,'contact')||null,message:val(f,'message')};
+    if(!row.topic||row.message.length<10)return setMsg(m,'error','Please choose a topic and write a message of at least 10 characters.');
     btn.disabled=true;
     var r2=await sb.from('feedback').insert(row);
     btn.disabled=false;
@@ -904,9 +675,9 @@ async function pageAccount(id){
 }
 function accountRecovery(){
   main.innerHTML=banner('account','Set a new password','Choose a new password for your account.','')+
-  '<div class="wrap pad"><form class="f panel narrow" id="nf" novalidate>'+ 
-  '<label>New password <span class="hint">(at least 8 characters)</span><input name="p1" type="password" minlength="8" autocomplete="new-password" required></label>'+ 
-  '<label>Confirm password<input name="p2" type="password" autocomplete="new-password" required></label>'+ 
+  '<div class="wrap pad"><form class="f panel narrow" id="nf" novalidate>'+
+  '<label>New password <span class="hint">(at least 8 characters)</span><input name="p1" type="password" minlength="8" autocomplete="new-password" required></label>'+
+  '<label>Confirm password<input name="p2" type="password" autocomplete="new-password" required></label>'+
   '<div id="am" hidden></div><button class="btn" type="submit">Save password</button></form></div>';
   $('#nf').addEventListener('submit',async function(e){
     e.preventDefault();var f=e.target,m=$('#am');
@@ -920,13 +691,13 @@ function accountRecovery(){
 function accountAuth(){
   var t=state.authTab;
   main.innerHTML=banner('account','Your account','Log in or create a free account to list a business, post a job or share with the community.','')+
-  '<div class="wrap pad"><div class="narrow"><div class="tabs"><button class="tab" data-t="login" aria-pressed="'+(t==='login')+'">Log in</button><button class="tab" data-t="signup" aria-pressed="'+(t==='signup')+'">Create account</button></div><div id="ap"></div></div></div>';
+  '<div class="wrap pad"><div class="narrow"><div class="tabs"><button class="tab" data-t="login" aria-pressed="'+(t==='login')+'">Log in</button><button class="tab" data-t="signup" aria-pressed="'+(t==='signup')+'">Sign up</button></div><div class="panel" id="ap"></div></div></div>';
   document.querySelectorAll('.tabs .tab').forEach(function(b){b.addEventListener('click',function(){state.authTab=b.dataset.t;accountAuth();});});
   var ap=$('#ap');
   if(t==='login'){
-    ap.innerHTML='<form class="f" id="lf" novalidate><label>Email<input name="email" type="email" autocomplete="email" required></label>'+ 
-    '<label>Password<input name="password" type="password" autocomplete="current-password" required></label>'+ 
-    '<div id="am" hidden></div><button class="btn" type="submit">Log in</button>'+ 
+    ap.innerHTML='<form class="f" id="lf" novalidate><label>Email<input name="email" type="email" autocomplete="email" required></label>'+
+    '<label>Password<input name="password" type="password" autocomplete="current-password" required></label>'+
+    '<div id="am" hidden></div><button class="btn" type="submit">Log in</button>'+
     '<button class="btn ghost sm" type="button" id="forgot">Forgot password?</button></form>';
     $('#lf').addEventListener('submit',async function(e){
       e.preventDefault();var f=e.target,m=$('#am'),btn=f.querySelector('button[type=submit]');
@@ -946,13 +717,13 @@ function accountAuth(){
       setMsg(m,'ok','If that email has an account, a reset link is on its way.');
     });
   }else{
-    ap.innerHTML='<form class="f" id="sf" novalidate>'+ 
-    '<label>Full name<input name="full_name" autocomplete="name" maxlength="80" required></label>'+ 
-    '<label>Email<input name="email" type="email" autocomplete="email" required></label>'+ 
-    '<label>Phone <span class="hint">(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="20"></label>'+ 
-    '<div class="row two"><label>Province<select name="province" required>'+opts(PROVINCES,'Choose...')+'</select></label><label>District<input name="district" maxlength="80" required></label></div>'+ 
-    '<label>Password <span class="hint">(at least 8 characters)</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label>'+ 
-    '<label class="check"><input type="checkbox" name="terms" required><span>I agree to the <a href="#/terms" target="_blank">Terms of use</a> and <a href="#/privacy" target="_blank">Privacy policy</a>.</span></label>'+ 
+    ap.innerHTML='<form class="f" id="sf" novalidate>'+
+    '<label>Full name<input name="full_name" autocomplete="name" maxlength="80" required></label>'+
+    '<label>Email<input name="email" type="email" autocomplete="email" required></label>'+
+    '<label>Phone <span class="hint">(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="20"></label>'+
+    '<div class="row two"><label>Province<select name="province" required>'+opts(PROVINCES,'Choose...')+'</select></label><label>District<input name="district" maxlength="80" required></label></div>'+
+    '<label>Password <span class="hint">(at least 8 characters)</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label>'+
+    '<label class="check"><input type="checkbox" name="terms" required><span>I agree to the <a href="#/terms" target="_blank">Terms of use</a> and <a href="#/privacy" target="_blank">Privacy policy</a>.</span></label>'+
     '<div id="am" hidden></div><button class="btn" type="submit">Create account</button></form>';
     $('#sf').addEventListener('submit',async function(e){
       e.preventDefault();var f=e.target,m=$('#am'),btn=f.querySelector('button[type=submit]');
@@ -975,12 +746,12 @@ function accountAuth(){
 async function accountHome(id){
   var p=state.profile||{};
   main.innerHTML=banner('account','Hello, '+displayName().split(' ')[0],'Manage your details and your posts.','<button class="btn light" id="out">Log out</button>')+
-  '<div class="wrap pad"><div class="two-col"><form class="f panel" id="pr" novalidate><h2 style="font-size:26px">Your details</h2>'+ 
-  '<label>Full name<input name="full_name" maxlength="80" value="'+esc(p.full_name||'')+'"></label>'+ 
-  '<label>Email<input value="'+esc(state.user.email||'')+'" disabled></label>'+ 
-  '<label>Phone<input name="phone" type="tel" maxlength="20" value="'+esc(p.phone||'')+'"></label>'+ 
-  '<div class="row two"><label>Province<select name="province">'+opts(PROVINCES,'Choose...',p.province)+'</select></label><label>District<input name="district" maxlength="80" value="'+esc(p.district||'')+'"></label></div>'+ 
-  '<div id="am" hidden></div><button class="btn" type="submit">Save details</button></form>'+ 
+  '<div class="wrap pad"><div class="two-col"><form class="f panel" id="pr" novalidate><h2 style="font-size:26px">Your details</h2>'+
+  '<label>Full name<input name="full_name" maxlength="80" value="'+esc(p.full_name||'')+'"></label>'+
+  '<label>Email<input value="'+esc(state.user.email||'')+'" disabled></label>'+
+  '<label>Phone<input name="phone" type="tel" maxlength="20" value="'+esc(p.phone||'')+'"></label>'+
+  '<div class="row two"><label>Province<select name="province">'+opts(PROVINCES,'Choose...',p.province)+'</select></label><label>District<input name="district" maxlength="80" value="'+esc(p.district||'')+'"></label></div>'+
+  '<div id="am" hidden></div><button class="btn" type="submit">Save details</button></form>'+
   '<div class="panel"><h2 style="font-size:26px">Your submissions</h2><div id="mine"><div class="loading">Loading&hellip;</div></div></div></div></div>';
   $('#out').addEventListener('click',async function(){await sb.auth.signOut();state.user=null;state.profile=null;updateHeader();toast('You are logged out.');location.hash='#/';});
   $('#pr').addEventListener('submit',async function(e){
@@ -995,14 +766,14 @@ async function accountHome(id){
   var mine=$('#mine');
   try{
     var defs=[['businesses','name','Business'],['jobs','title','Job'],['posts','title','Post']];
-    var res=await Promise.all(defs.map(function(d){return sb.from(d[0]).select('id,'+d[1]+',status,created_at').eq('user_id',state.user.id).order('created_at',{ascending:false});}));
+    var res=await Promise.all(defs.map(function(d){return sb.from(d[0]).select('id,'+d[1]+',status,created_at').eq(d[0]==='posts'?'author':'owner',state.user.id).order('created_at',{ascending:false});}));
     if(id!==navId)return;
     var rows=[];
     res.forEach(function(r,i){if(r.error)throw r.error;(r.data||[]).forEach(function(x){rows.push({table:defs[i][0],kind:defs[i][2],title:x[defs[i][1]],status:x.status,id:x.id,at:x.created_at});});});
     rows.sort(function(a,b){return a.at<b.at?1:-1;});
     mine.innerHTML=rows.length?rows.map(function(r){
       var c=r.status==='approved'?'':r.status==='rejected'?' r':' y';
-      return '<div class="list-row"><div><b>'+esc(r.title)+'</b><br><span class="muted small">'+esc(r.kind)+' &middot; '+esc(fmtDate(r.at))+'</span> <span class="chip'+c+'">'+(r.status==='pending'?'Pending':r.status==='rejected'?'Rejected':'Approved')+'</span></div><button class="btn danger sm" data-id="'+r.id+'" data-t="'+r.table+'">Delete</button></div>';
+      return '<div class="list-row"><div><b>'+esc(r.title)+'</b><br><span class="muted small">'+esc(r.kind)+' &middot; '+esc(fmtDate(r.at))+'</span> <span class="chip'+c+'">'+(r.status==='pending'?'Waiting for approval':esc(r.status))+'</span></div><button class="btn danger sm" data-t="'+r.table+'" data-id="'+esc(r.id)+'">Delete</button></div>';
     }).join(''):'<p class="muted">You have not submitted anything yet.</p>';
     mine.querySelectorAll('button[data-id]').forEach(function(b){b.addEventListener('click',async function(){
       if(!confirm('Delete this item? This cannot be undone.'))return;
@@ -1013,33 +784,42 @@ async function accountHome(id){
   }catch(e){loadError(mine,e);}
 }
 
+
+function connectCard(){
+  function ic(d){return '<span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true">'+d+'</svg></span>';}
+  var h='<h3 style="margin-top:22px">Connect with us</h3><div class="connect">';
+  if(WHATSAPP_NUMBER)h+='<a target="_blank" rel="noopener" href="https://wa.me/'+esc(WHATSAPP_NUMBER)+'?text='+encodeURIComponent('Hello WANTOK PNG, I would like to connect with you.')+'">'+ic('<path d="M4 20l1.3-4.2A8 8 0 1112 20a8 8 0 01-3.8-1z"/>')+'WhatsApp</a>';
+  if(FACEBOOK_URL)h+='<a target="_blank" rel="noopener" href="'+esc(FACEBOOK_URL)+'">'+ic('<path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/>')+'Facebook</a>';
+  if(OFFICE_ADDRESS)h+='<a target="_blank" rel="noopener" href="https://maps.google.com/?q='+encodeURIComponent(OFFICE_ADDRESS)+'">'+ic('<path d="M12 21s-6-5.500-6-10a6 6 0 0112 0c0 4.500-6 10-6 10z"/><circle cx="12" cy="11" r="2"/>')+esc(OFFICE_ADDRESS)+'</a>';
+  if(CONTACT_EMAIL)h+='<a href="mailto:'+esc(CONTACT_EMAIL)+'">'+ic('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>')+esc(CONTACT_EMAIL)+'</a>';
+  return h+'</div>';
+}
 /* static pages */
-function contactLine(){return CONTACT_EMAIL?'You can email us at <a href="mailto:'+esc(CONTACT_EMAIL)+'">'+esc(CONTACT_EMAIL)+'</a> or use the <a href="#/government">feedback form</a>.':'You can use the <a href="#/government">feedback form</a> or contact us through our WhatsApp and social links.';}
+function contactLine(){return CONTACT_EMAIL?'You can email us at <a href="mailto:'+esc(CONTACT_EMAIL)+'">'+esc(CONTACT_EMAIL)+'</a> or use the <a href="#/government">feedback form</a>.':'You can reach us through the <a href="#/government">feedback form</a>.';}
 function pageAbout(){
   main.innerHTML=banner('about','About WANTOK PNG','A national digital platform that connects Papua New Guineans, from the villages to the cities.','')+
-  '<div class="wrap prose pad"><p>In Papua New Guinea, <b>wantok</b> means the people you share language, land and trust with. WANTOK PNG takes that idea online. It is a free platform where people can discover businesses, seek jobs and training, share announcements and community stories, and find government services they need.</p>'+ 
-  '<h2>What we do</h2><ul><li>discover and contact local businesses and services in the <a href="#/marketplace">Marketplace</a>;</li><li>find or offer work, training and volunteer roles in <a href="#/jobs">Jobs</a>;</li><li>see notices, events and stories in <a href="#/community">Community</a>;</li><li>find national agencies and give feedback through <a href="#/government">Government connect</a>.</li></ul>'+ 
-  '<h2>How listings are checked</h2><p>Every business listing, job post and community post is reviewed by our team before it is shown to the public. We may reject or remove anything that is misleading, illegal or unsafe.</p>'+ 
-  '<h2>Independence</h2><p>WANTOK PNG is an independent community platform. It is not an official government website, and a listing on WANTOK PNG is not a government approval or endorsement.</p>'+ 
+  '<div class="wrap prose pad"><p>In Papua New Guinea, <b>wantok</b> means the people you share language, land and trust with. WANTOK PNG takes that idea online. It is a free platform where people can:</p>'+
+  '<ul><li>discover and contact local businesses and services in the <a href="#/marketplace">Marketplace</a>;</li><li>find or offer work, training and volunteer roles in <a href="#/jobs">Jobs</a>;</li><li>share notices, events, culture and local growth stories in the <a href="#/community">Community</a>;</li><li>find national agencies and send feedback through <a href="#/government">Government connect</a>.</li></ul>'+
+  '<h2>How listings are checked</h2><p>Every business listing, job post and community post is reviewed by our team before it is shown to the public. We may reject or remove anything that is misleading, unsafe or against our <a href="#/terms">Terms of use</a>.</p>'+
   '<h2>Contact</h2><p>'+contactLine()+'</p></div>';
 }
 function pagePrivacy(){
   main.innerHTML=banner('about','Privacy policy','How WANTOK PNG handles your information.','')+
-  '<div class="wrap prose pad"><p class="muted small">Last updated: October 2026</p>'+ 
-  '<h2>What we collect</h2><ul><li><b>Account details:</b> your name, email address, password (stored securely, we cannot read it), and optionally your phone number, province and district.</li><li><b>Content you post:</b> business listings, job posts, community posts and feedback messages.</li></ul>'+ 
-  '<h2>What is public</h2><p>Once approved, the content of your business listing, job post or community post is visible to everyone, including any phone number, WhatsApp number or email you chose to include.</p>'+ 
-  '<h2>How we use it</h2><p>To run your account, publish approved content, review submissions, respond to feedback and keep the platform safe. We do not sell your personal information.</p>'+ 
-  '<h2>Where it is stored</h2><p>Data is stored with our hosting and database provider, Supabase, which processes it on our behalf.</p>'+ 
-  '<h2>Your choices</h2><p>You can edit your details and delete your own listings and posts from your <a href="#/account">account page</a>. To ask us to delete your account or data, contact us.</p>'+ 
+  '<div class="wrap prose pad"><p class="muted small">Last updated: October 2026</p>'+
+  '<h2>What we collect</h2><ul><li><b>Account details:</b> your name, email address, password (stored securely, we cannot read it), and optionally your phone number, province and district.</li><li><b>What you submit:</b> business listings, job posts, community posts and feedback messages.</li><li><b>Technical data:</b> your browser keeps a login session on your device so you stay signed in.</li></ul>'+
+  '<h2>What is public</h2><p>Once approved, the content of your business listing, job post or community post is visible to everyone, including any phone number, WhatsApp number or email you chose to put in it. Your account email, phone, province and district are not shown publicly. Community posts show the name on your account.</p>'+
+  '<h2>How we use it</h2><p>To run your account, publish approved content, review submissions, respond to feedback and keep the platform safe. We do not sell your personal information.</p>'+
+  '<h2>Where it is stored</h2><p>Data is stored with our hosting and database provider, Supabase, which processes it on our behalf.</p>'+
+  '<h2>Your choices</h2><p>You can edit your details and delete your own listings and posts from your <a href="#/account">account page</a>. To ask us to delete your account or data, contact us. '+contactLine()+'</p>'+
   '<h2>Changes</h2><p>We may update this policy and will change the date above when we do.</p></div>';
 }
 function pageTerms(){
   main.innerHTML=banner('about','Terms of use','The rules for using WANTOK PNG.','')+
-  '<div class="wrap prose pad"><p class="muted small">Last updated: October 2026</p>'+ 
-  '<h2>Using the platform</h2><ul><li>You must give true information and keep your account secure.</li><li>You are responsible for what you post. Only post things you have the right to share.</li><li>Do not post false, abusive, threatening or illegal content.</li></ul>'+ 
-  '<h2>Review and removal</h2><p>We review submissions before they are published and may reject, edit or remove content, or close accounts, that break these terms.</p>'+ 
-  '<h2>No guarantees</h2><p>WANTOK PNG connects people but does not run the businesses, employers or services listed. We do not guarantee their quality, safety or honesty. Please take care when dealing with any listing.</p>'+ 
-  '<h2>Independence</h2><p>WANTOK PNG is not a government website. Links to government agencies lead to their own websites, which we do not control.</p>'+ 
+  '<div class="wrap prose pad"><p class="muted small">Last updated: October 2026</p>'+
+  '<h2>Using the platform</h2><ul><li>You must give true information and keep your account secure.</li><li>You are responsible for what you post. Only post things you have the right to share.</li><li>Do not post anything illegal, false, abusive, discriminatory, sexual, or that exposes private information about others.</li><li>Do not use the platform for scams. Real employers never ask applicants to pay to get a job.</li></ul>'+
+  '<h2>Review and removal</h2><p>We review submissions before they are published and may reject, edit or remove content, or close accounts, that break these terms.</p>'+
+  '<h2>No guarantees</h2><p>WANTOK PNG connects people but does not run the businesses, employers or services listed. We do not guarantee their quality, safety or honesty. Please take care when dealing with others, meet in safe public places and never send money to people you do not know.</p>'+
+  '<h2>External links</h2><p>Links to other websites, including government agencies, lead to sites we do not control.</p>'+
   '<h2>Contact</h2><p>'+contactLine()+'</p></div>';
 }
 
@@ -1062,7 +842,7 @@ function route(){
 window.addEventListener('hashchange',route);
 $('#menuBtn').addEventListener('click',function(){var o=header.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false');});
 $('#yr').textContent=new Date().getFullYear();
-if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){})}
+if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});}).catch(function(){});}
 route();
 })();
 </script>
