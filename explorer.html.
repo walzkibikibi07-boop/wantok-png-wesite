@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WANTOK PNG · Explore</title>
+<meta name="theme-color" content="#0f2a22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ee;--ink:#0f2a22;--muted:#5b6b64;--green:#12a150;--gold:#f2b705;--red:#d7263d;--card:#fff;--line:#e4e0d4}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+a{color:inherit;text-decoration:none}
+header.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--ink);color:#fff}
+header.top .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+header.top img{width:36px;height:36px;border-radius:50%;object-fit:cover;background:#fff}
+.btn{display:inline-block;border:0;border-radius:999px;padding:10px 18px;font:700 14px inherit;background:var(--green);color:#06210f;cursor:pointer}
+.btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}
+.cover{position:relative;min-height:88vh;overflow:hidden;color:#fff;display:grid;place-items:center;text-align:center;padding:72px 20px 110px;
+ background:radial-gradient(1200px 600px at 20% 10%,#1b5c45 0,transparent 60%),radial-gradient(900px 500px at 90% 90%,#7a1d2b 0,transparent 55%),#0f2a22}
+.cover .stage{position:absolute;inset:0;pointer-events:none}
+.ph{position:absolute;width:var(--w,150px);aspect-ratio:3/4;border-radius:16px;overflow:hidden;border:4px solid #fff;box-shadow:0 18px 40px rgba(0,0,0,.45);
+ background:linear-gradient(135deg,#2a7a5a,#f2b705);transform:rotate(var(--r,0deg));animation:float var(--t,9s) ease-in-out infinite;animation-delay:var(--d,0s)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-22px) rotate(calc(var(--r,0deg) + 3deg))}}
+.cover .copy{position:relative;z-index:2;max-width:560px;background:rgba(15,42,34,.55);backdrop-filter:blur(6px);padding:26px 22px;border-radius:24px}
+.eyebrow{display:inline-block;background:var(--gold);color:#3b2d00;font-weight:800;font-size:12px;letter-spacing:1px;padding:4px 12px;border-radius:999px;margin-bottom:12px}
+.cover h1{font-size:clamp(30px,8vw,52px);line-height:1.08;font-weight:800}
+.cover p{margin:12px 0 20px;color:#dbeee4}
+.cover .btn{font-size:16px;padding:13px 26px}
+.cover .scroll{position:absolute;bottom:18px;left:0;right:0;z-index:2;font-size:13px;color:#cfe6da}
+main{max-width:1000px;margin:0 auto;padding:36px 16px 60px}
+h2{font-size:26px;font-weight:800;margin-bottom:4px}
+.sub{color:var(--muted);margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:150px;border-radius:20px;padding:16px;color:#fff;overflow:hidden;background:var(--c,#12a150);transition:transform .2s}
+.tile:active,.tile:hover{transform:translateY(-3px)}
+.tile .em{position:absolute;top:10px;right:14px;font-size:38px;opacity:.9}
+.tile b{font-size:18px}
+.tile span{font-size:13px;opacity:.9}
+.tile .n{position:absolute;top:12px;left:14px;background:rgba(255,255,255,.22);padding:2px 10px;border-radius:999px;font-size:12px;font-weight:800}
+section.block{margin-top:44px;scroll-margin-top:70px}
+.list{display:grid;gap:10px}
+@media(min-width:720px){.list{grid-template-columns:1fr 1fr}}
+.item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.item h3{font-size:16px}
+.item p{font-size:14px;color:var(--muted);margin-top:4px}
+.chip{display:inline-block;font-size:11px;font-weight:800;background:#e7f6ee;color:#0b6b35;padding:2px 9px;border-radius:999px;margin-bottom:6px}
+.empty{background:#fff;border:1.5px dashed var(--line);border-radius:16px;padding:18px;color:var(--muted);text-align:center}
+footer{background:var(--ink);color:#cfe6da;text-align:center;padding:26px 16px;font-size:14px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="./"><img src="wantok-png-logo.png" alt="" onerror="this.style.visibility='hidden'">WANTOK PNG</a>
+  <a class="btn ghost" href="./">Sign in / Account</a>
+</header>
+
+<section class="cover">
+  <div class="stage" id="stage"></div>
+  <div class="copy">
+    <span class="eyebrow">PNG'S NATIONAL DIGITAL PLATFORM</span>
+    <h1>Explore Papua New Guinea, from village to nation.</h1>
+    <p>Marketplace, jobs, communities and government services, all in one place for every Papua New Guinean.</p>
+    <a class="btn" href="#explore">(Explore)</a>
+  </div>
+  <div class="scroll">Scroll to explore ↓</div>
+</section>
+
+<main id="explore">
+  <h2>(Explore)</h2>
+  <p class="sub">Choose where you want to go.</p>
+  <div class="grid">
+    <a class="tile" href="#market" style="--c:#12a150"><span class="n" id="n-market">…</span><span class="em">🛒</span><b>Marketplace</b><span>Local businesses and products</span></a>
+    <a class="tile" href="#jobs" style="--c:#1f6feb"><span class="n" id="n-jobs">…</span><span class="em">💼</span><b>Jobs</b><span>Work and opportunities</span></a>
+    <a class="tile" href="#communities" style="--c:#c2410c"><span class="n" id="n-posts">…</span><span class="em">🤝</span><b>Communities</b><span>News, notices and wantoks</span></a>
+    <a class="tile" href="#government" style="--c:#7a1d2b"><span class="n" id="n-gov">…</span><span class="em">🏛️</span><b>Government</b><span>Official services and ICT</span></a>
+    <a class="tile" href="#feedback" style="--c:#6d28d9"><span class="em">💬</span><b>Feedback</b><span>Tell us what you think</span></a>
+    <a class="tile" href="./" style="--c:#0f2a22"><span class="em">👤</span><b>My account</b><span>Profile and submissions</span></a>
+  </div>
+
+  <section class="block" id="market"><h2>Marketplace</h2><p class="sub">Approved local businesses.</p><div class="list" id="l-market"></div></section>
+  <section class="block" id="jobs"><h2>Jobs</h2><p class="sub">Latest approved job listings.</p><div class="list" id="l-jobs"></div></section>
+  <section class="block" id="communities"><h2>Communities</h2><p class="sub">Posts from across the provinces.</p><div class="list" id="l-posts"></div></section>
+  <section class="block" id="government"><h2>Government</h2><p class="sub">Official Government and ICT websites.</p><div class="list" id="l-gov"></div></section>
+  <section class="block" id="feedback"><h2>Feedback</h2><p class="sub">Help us improve WANTOK PNG.</p>
+    <form class="item" id="fb" style="display:grid;gap:10px">
+      <input name="name" placeholder="Your name (optional)" style="padding:12px;border:1px solid var(--line);border-radius:12px;font:inherit">
+      <input name="contact" placeholder="Phone or email (optional)" style="padding:12px;border:1px solid var(--line);border-radius:12px;font:inherit">
+      <textarea name="message" required rows="4" placeholder="Your message" style="padding:12px;border:1px solid var(--line);border-radius:12px;font:inherit"></textarea>
+      <button class="btn" type="submit">Send feedback</button>
+      <p id="fbm"></p>
+    </form>
+  </section>
+</main>
+
+<footer>© WANTOK PNG · Connecting the grassroots, from the villages to all Papua New Guineans.</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+var sb=supabase.createClient('https://rpcekiqhvsmzjmjimnsj.supabase.co','sb_publishable_bmR_OLpVkON13vH-uTCkRg_GGH8jllW');
+function $(s){return document.querySelector(s)}
+function esc(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+var PHOTOS=['photos/1.jpg','photos/2.jpg','photos/3.jpg','photos/4.jpg','photos/5.jpg','photos/6.jpg','photos/7.jpg'];
+var spots=[
+ {l:'4%',t:'8%',w:130,r:-6,d:0,t2:9},{l:'74%',t:'6%',w:150,r:5,d:1,t2:11},
+ {l:'-2%',t:'42%',w:120,r:4,d:2,t2:10},{l:'80%',t:'40%',w:125,r:-5,d:.5,t2:12},
+ {l:'10%',t:'74%',w:140,r:6,d:1.5,t2:9.5},{l:'70%',t:'72%',w:135,r:-4,d:2.5,t2:10.5},
+ {l:'40%',t:'2%',w:100,r:3,d:3,t2:13},{l:'42%',t:'82%',w:105,r:-3,d:.8,t2:11.5}];
+var stage=$('#stage');
+spots.forEach(function(s,i){
+  var d=document.createElement('div');d.className='ph';
+  d.style.cssText='left:'+s.l+';top:'+s.t+';--w:'+s.w+'px;--r:'+s.r+'deg;--d:'+s.d+'s;--t:'+s.t2+'s';
+  var im=new Image();im.alt='';im.loading='lazy';im.src=PHOTOS[i%PHOTOS.length];
+  im.onerror=function(){im.remove()};
+  d.appendChild(im);stage.appendChild(d);
+});
+
+function card(chip,title,text,href){
+  var inner='<span class="chip">'+esc(chip)+'</span><h3>'+esc(title)+'</h3>'+(text?'<p>'+esc(text)+'</p>':'');
+  return href?'<a class="item" target="_blank" rel="noopener" href="'+esc(href)+'">'+inner+'</a>':'<div class="item">'+inner+'</div>';
+}
+function fill(sel,rows,fn,emptyMsg){
+  $(sel).innerHTML=rows&&rows.length?rows.map(fn).join(''):'<div class="empty">'+emptyMsg+'</div>';
+}
+async function load(){
+  var m=await sb.from('businesses').select('*').eq('status','approved').order('created_at',{ascending:false}).limit(30);
+  var j=await sb.from('jobs').select('*').eq('status','approved').order('created_at',{ascending:false}).limit(30);
+  var p=await sb.from('posts').select('*').eq('status','approved').order('created_at',{ascending:false}).limit(30);
+  var g=await sb.from('gov_services').select('*').order('sort');
+  $('#n-market').textContent=(m.data||[]).length;
+  $('#n-jobs').textContent=(j.data||[]).length;
+  $('#n-posts').textContent=(p.data||[]).length;
+  $('#n-gov').textContent=(g.data||[]).length;
+  fill('#l-market',m.data,function(b){return card(b.category||'Business',b.name,[b.town,b.province].filter(Boolean).join(', ')+(b.description?' · '+b.description:''))},'No businesses yet. Be the first to list yours from My account.');
+  fill('#l-jobs',j.data,function(x){return card(x.job_type||'Job',x.title,[x.employer,x.town,x.province].filter(Boolean).join(' · '))},'No jobs posted yet.');
+  fill('#l-posts',p.data,function(x){return card(x.kind||'Post',x.title,x.body)},'No community posts yet.');
+  fill('#l-gov',g.data,function(s){return card('Official website',s.name,s.description,s.url)},'The directory is being prepared.');
+}
+load();
+
+$('#fb').addEventListener('submit',async function(e){
+  e.preventDefault();var f=e.target,m=$('#fbm');
+  var r=await sb.from('feedback').insert({name:f.name.value||null,contact:f.contact.value||null,message:f.message.value});
+  m.textContent=r.error?'Could not send. Please try again.':'Thank you! Your feedback was sent.';
+  if(!r.error)f.reset();
+});
+</script>
+</body>
+</html>
