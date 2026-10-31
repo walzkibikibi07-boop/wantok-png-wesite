@@ -610,6 +610,10 @@ async function pageCommunity(id){
   try{items=await loadApproved('posts');if(id!==navId)return;apply();}catch(e){loadError(list,e);}
 }
 function postForm(){
+  if(!state.user){
+    toast('Please log in first.',true);
+    return;
+  }
   openModal('<h2>Share with the community</h2><p class="muted small">Posts are checked by our team before they appear. Be respectful and truthful. Do not post private information about other people.</p>'+
   '<form class="f" id="pf" novalidate>'+
     '<div class="row two"><label>Type<select name="kind" required>'+Object.keys(KINDS).map(function(k){return '<option value="'+k+'">'+esc(KINDS[k])+'</option>';}).join('')+'</select></label>'+
